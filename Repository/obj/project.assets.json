@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\moham\\OneDrive\\Documenten\\SEMESTER 2.3 HER\\SOFTWARE\\SkinShop\\Repository\\Repository.csproj",
+      "projectUniqueName": "C:\\Users\\moham\\OneDrive\\Documenten\\SEMESTER 2.3 HER\\SOFTWARE\\TestSkin\\Repository\\Repository.csproj",
       "projectName": "Repository",
-      "projectPath": "C:\\Users\\moham\\OneDrive\\Documenten\\SEMESTER 2.3 HER\\SOFTWARE\\SkinShop\\Repository\\Repository.csproj",
+      "projectPath": "C:\\Users\\moham\\OneDrive\\Documenten\\SEMESTER 2.3 HER\\SOFTWARE\\TestSkin\\Repository\\Repository.csproj",
       "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\moham\\OneDrive\\Documenten\\SEMESTER 2.3 HER\\SOFTWARE\\SkinShop\\Repository\\obj\\",
+      "outputPath": "C:\\Users\\moham\\OneDrive\\Documenten\\SEMESTER 2.3 HER\\SOFTWARE\\TestSkin\\Repository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

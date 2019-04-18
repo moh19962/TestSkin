@@ -35,3 +35,32 @@ body {
         display: none;
     }
 }
+
+
+/*Menu*/
+.rechterkant {
+    float: right;
+}
+
+
+#showcase {
+    min-height: 400px;
+    background-color: red;
+    text-align: center;
+    color: #ffffff;
+}
+
+#boxes {
+    margin-top: 20px;
+}
+
+#boxes .box {
+    float: left;
+    text-align: center;
+    width: 20%;
+    padding: 10px;
+}
+
+.rowz {
+    margin-top: 100px;
+}
