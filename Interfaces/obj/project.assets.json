@@ -214,6 +214,19 @@
             "rid": "win"
           }
         }
+      },
+      "Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "System.Data.SqlClient": "4.6.0"
+        },
+        "compile": {
+          "bin/placeholder/Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Model.dll": {}
+        }
       }
     }
   },
@@ -812,10 +825,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Model/1.0.0": {
+      "type": "project",
+      "path": "../Model/Model.csproj",
+      "msbuildProject": "../Model/Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "Model >= 1.0.0",
       "NETStandard.Library >= 2.0.3",
       "System.Data.SqlClient >= 4.6.0"
     ]
@@ -849,7 +868,11 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\moham\\OneDrive\\Documenten\\SEMESTER 2.3 HER\\SOFTWARE\\TestSkin\\Model\\Model.csproj": {
+              "projectPath": "C:\\Users\\moham\\OneDrive\\Documenten\\SEMESTER 2.3 HER\\SOFTWARE\\TestSkin\\Model\\Model.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

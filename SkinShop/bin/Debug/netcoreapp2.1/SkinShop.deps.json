@@ -615,6 +615,7 @@
       },
       "Interfaces/1.0.0": {
         "dependencies": {
+          "Model": "1.0.0",
           "System.Data.SqlClient": "4.6.0"
         },
         "runtime": {
@@ -628,6 +629,7 @@
         "dependencies": {
           "Data": "1.0.0",
           "Interfaces": "1.0.0",
+          "Model": "1.0.0",
           "System.Data.SqlClient": "4.6.0"
         },
         "runtime": {
@@ -635,6 +637,17 @@
         },
         "compile": {
           "Logic.dll": {}
+        }
+      },
+      "Model/1.0.0": {
+        "dependencies": {
+          "System.Data.SqlClient": "4.6.0"
+        },
+        "runtime": {
+          "Model.dll": {}
+        },
+        "compile": {
+          "Model.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3784,6 +3797,11 @@
       "sha512": ""
     },
     "Logic/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Model/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
