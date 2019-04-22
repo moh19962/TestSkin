@@ -8,5 +8,6 @@ namespace Interfaces
     public interface IProductContext
     {
         void AddProduct(Product product);
+        List<Product> GetProducts();
     }
 }

@@ -11,6 +11,12 @@ namespace Logic
     {
         private IProductContext productcontext = new ProductContext();
 
+        public List<Product> GetProducts()
+        {
+            List<Product> ProductList = productcontext.GetProducts();
+            return ProductList;
+        }
+
         public void AddProduct(Product product)
         {
             productcontext.AddProduct(product);

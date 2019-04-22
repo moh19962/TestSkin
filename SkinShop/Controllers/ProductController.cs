@@ -30,6 +30,11 @@ namespace SkinShop.Controllers
             return View();
         }
 
+        public IActionResult Products()
+        {
+            productSpecificatie.Products = productlogic.GetProducts();
+            return View(productSpecificatie);
+        }
 
         public IActionResult AddProduct()
         {
