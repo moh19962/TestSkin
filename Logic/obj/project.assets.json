@@ -241,6 +241,19 @@
         "runtime": {
           "bin/placeholder/Interfaces.dll": {}
         }
+      },
+      "Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "System.Data.SqlClient": "4.6.0"
+        },
+        "compile": {
+          "bin/placeholder/Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Model.dll": {}
+        }
       }
     }
   },
@@ -849,12 +862,18 @@
       "type": "project",
       "path": "../Interfaces/Interfaces.csproj",
       "msbuildProject": "../Interfaces/Interfaces.csproj"
+    },
+    "Model/1.0.0": {
+      "type": "project",
+      "path": "../Model/Model.csproj",
+      "msbuildProject": "../Model/Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "Data >= 1.0.0",
       "Interfaces >= 1.0.0",
+      "Model >= 1.0.0",
       "NETStandard.Library >= 2.0.3",
       "System.Data.SqlClient >= 4.6.0"
     ]
@@ -894,6 +913,9 @@
             },
             "C:\\Users\\moham\\OneDrive\\Documenten\\SEMESTER 2.3 HER\\SOFTWARE\\TestSkin\\Interfaces\\Interfaces.csproj": {
               "projectPath": "C:\\Users\\moham\\OneDrive\\Documenten\\SEMESTER 2.3 HER\\SOFTWARE\\TestSkin\\Interfaces\\Interfaces.csproj"
+            },
+            "C:\\Users\\moham\\OneDrive\\Documenten\\SEMESTER 2.3 HER\\SOFTWARE\\TestSkin\\Model\\Model.csproj": {
+              "projectPath": "C:\\Users\\moham\\OneDrive\\Documenten\\SEMESTER 2.3 HER\\SOFTWARE\\TestSkin\\Model\\Model.csproj"
             }
           }
         }

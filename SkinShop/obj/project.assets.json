@@ -4649,6 +4649,7 @@
         "dependencies": {
           "Data": "1.0.0",
           "Interfaces": "1.0.0",
+          "Model": "1.0.0",
           "System.Data.SqlClient": "4.6.0"
         },
         "compile": {
@@ -4656,6 +4657,19 @@
         },
         "runtime": {
           "bin/placeholder/Logic.dll": {}
+        }
+      },
+      "Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "System.Data.SqlClient": "4.6.0"
+        },
+        "compile": {
+          "bin/placeholder/Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Model.dll": {}
         }
       }
     }
@@ -12578,6 +12592,11 @@
       "type": "project",
       "path": "../Logic/Logic.csproj",
       "msbuildProject": "../Logic/Logic.csproj"
+    },
+    "Model/1.0.0": {
+      "type": "project",
+      "path": "../Model/Model.csproj",
+      "msbuildProject": "../Model/Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
