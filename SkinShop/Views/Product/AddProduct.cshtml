@@ -1,0 +1,41 @@
+﻿@using SkinShop.ViewModel.Product
+@model SkinShop.ViewModel.Product.ProductViewModel
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6 text-center">
+            <h1>Product toevoegen</h1>
+        </div>
+
+    </div>
+
+    <div class="rowz">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+
+            <form method="post" enctype="multipart/form-data">
+                <label asp-for="product.Productname" class="control-label">Name</label><br />
+                <input asp-for="product.Productname" class="form-control" />
+
+                <label asp-for="product.Productprice" class="control-label">Prijs</label><br />
+                <input asp-for="product.Productprice" class="form-control" />
+
+                <label asp-for="product.Description" class="control-label">Description</label><br />
+                <input asp-for="product.Description" class="form-control" />
+
+                <br />
+                <input type="file" asp-for="Image" />
+                <br />
+
+                <br />
+                <button class="btn btn-default basicbutton" type="submit">Toevoegen</button>
+            </form>
+
+
+        </div>
+
+
+    </div>
+</div>
