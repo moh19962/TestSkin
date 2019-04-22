@@ -64,3 +64,80 @@ body {
 .rowz {
     margin-top: 100px;
 }
+
+
+/* ProductPagina per product */
+sectionProduct {
+    height: 100%;
+    margin: 0 0 0 15%;
+}
+/* ProductImage Current pagina */
+.productImage {
+    float: left;
+}
+
+/* ProductInfo zoals prijs en specificaties */
+.productInfo {
+    margin-left: 60%;
+}
+
+
+#btnSucces {
+    width: 90%;
+}
+
+.ProductSection {
+    margin-top: 150px;
+}
+
+
+
+/*Products page*/
+
+#inputEachProduct {
+    width: 30px
+}
+
+
+.eachproduct {
+    float: left;
+    padding: 15px;
+    margin: 10px 15px 0 15px;
+    border: solid black 1px;
+}
+
+
+
+.productname {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.productprice {
+    font-size: 20px;
+}
+
+.btnSubmit {
+    float: right;
+    margin-right: 10px;
+}
+
+
+.Info {
+    overflow: hidden;
+    border: 1px solid black;
+}
+
+.Order-Info {
+    margin-top: 10px;
+}
+
+    .Order-Info ul {
+        padding-left: 30px;
+    }
+
+.SaleInfo {
+    float: left;
+    margin: 15px 0 0 10px;
+}
