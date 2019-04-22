@@ -41,6 +41,11 @@
                 </ul>
                 <ul class="nav navbar-nav">
                     <li>
+                        <a asp-controller="Product" asp-action="AddProduct">Products</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li>
                         <a asp-controller="Cart" asp-action="Cart">Cart</a>
                     </li>
                 </ul>
@@ -52,15 +57,15 @@
                     {
 
                         @*<ul class="nav navbar-nav">
-                                <li>
-                                    <a asp-controller="Product" asp-action="Products">Producten</a>
-                                </li>
-                            </ul>
-                            <ul class="nav navbar-nav">
-                                <li>
-                                    <a asp-controller="Cart" asp-action="Cart">Winkelwagen</a>
-                                </li>
-                            </ul>*@
+                    <li>
+                        <a asp-controller="Product" asp-action="Products">Producten</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a asp-controller="Cart" asp-action="Cart">Winkelwagen</a>
+                    </li>
+                </ul>*@
                     }
                     if (roleId == 1)
                     {

@@ -2,15 +2,84 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Logic;
 using Microsoft.AspNetCore.Mvc;
+using SkinShop.ViewModel.Product;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace SkinShop.Controllers
 {
     public class ProductController : Controller
     {
+
+        ProductViewModel viewModel = new ProductViewModel();
+        ProductSpecificationViewModel productSpecificatie = new ProductSpecificationViewModel();
+
+        private ProductLogic productlogic = new ProductLogic();
+        private IHostingEnvironment _hostingEnvironment;
+
+        public ProductController(IHostingEnvironment environment)
+        {
+            _hostingEnvironment = environment;
+        }
+
         public IActionResult Index()
         {
             return View();
+        }
+
+
+        public IActionResult AddProduct()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddProduct(ProductViewModel viewModel)
+        {
+            var products = viewModel.product;
+            var productImage = viewModel.Image;
+            string productImageFileName = productImage.FileName;
+            products.Images = productImageFileName;
+
+
+            productlogic.AddProduct(products);
+            //Add image to root of app
+            string mapRoot = "images/";
+
+            var productImagePath = Path.Combine(_hostingEnvironment.WebRootPath, mapRoot);
+            await AddFileToDirectory(productImage, productImagePath);
+
+            return RedirectToAction("AddProduct");
+        }
+
+        public async Task AddFileToDirectory(IFormFile file, string path)
+        {
+            if (file.Length > 0)
+            {
+                try
+                {
+                    var filePath = Path.Combine(path, file.FileName);
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await file.CopyToAsync(fileStream);
+
+                    }
+                }
+                catch (DirectoryNotFoundException)
+                {
+                    Directory.CreateDirectory(path);
+
+                    await AddFileToDirectory(file, path);
+                }
+            }
+            else
+            {
+                throw new Exception("File is leeg");
+            }
         }
     }
 }
