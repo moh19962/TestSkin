@@ -5,18 +5,7 @@
     <div class="content">
         <div class="topsearch-section">
             <div class="searchSection">
-                <div class="span5 align-right sm-align-left">
-                    <form class="woocommerce-ordering" method="get">
-                        <select name="orderby" class="orderby">
-                            <option value="menu_order" selected="selected">Default sorting</option>
-                            <option value="popularity">Sort by popularity</option>
-                            <option value="rating">Sort by average rating</option>
-                            <option value="date">Sort by newness</option>
-                            <option value="price">Sort by price: low to high</option>
-                            <option value="price-desc">Sort by price: high to low</option>
-                        </select>
-                    </form>
-                </div>
+
             </div>
         </div>
         <div class="ProductSection">
@@ -36,19 +25,18 @@
                             </div>
 
                             @*@if (User.Identity.IsAuthenticated)
-                            {
-                                var roleId = Convert.ToInt32(User.Claims.Where(claim => claim.Type == "Role").Select(claim => claim.Value).SingleOrDefault());
-                                if (roleId == 1)
-                                {*@
+                                {
+                                    var roleId = Convert.ToInt32(User.Claims.Where(claim => claim.Type == "Role").Select(claim => claim.Value).SingleOrDefault());
+                                    if (roleId == 1)
+                                    {*@
                             <form method="post" asp-controller="Cart" asp-action="AddToCart" asp-route-ProductId="@prods.ProductID">
-                                @*<a href="@Url.Action("Product", "Products", new { ass = prods.ProductID})" ></a>*@
                                 <div class="btnSubmit">
                                     <input type="text" value="1" asp-for="Product.Amount" style="width: 20px" />
                                     <button type="submit" name="update" value="update" class="navbar-btn btn btn-default"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>
                                 </div>
                             </form>
                             @*}
-                            }*@
+                                }*@
                         </div>
 
                     </div>

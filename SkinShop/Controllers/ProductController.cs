@@ -36,6 +36,12 @@ namespace SkinShop.Controllers
             return View(productSpecificatie);
         }
 
+        public IActionResult Productz()
+        {
+            productSpecificatie.Products = productlogic.GetProducts();
+            return View(productSpecificatie);
+        }
+
         public IActionResult AddProduct()
         {
 

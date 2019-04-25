@@ -39,3 +39,4 @@ C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\SkinShop\b
 C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\SkinShop\obj\Debug\netcoreapp2.1\Razor\Views\Login\Login.g.cshtml.cs
 C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\SkinShop\obj\Debug\netcoreapp2.1\Razor\Views\Product\AddProduct.g.cshtml.cs
 C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\SkinShop\obj\Debug\netcoreapp2.1\Razor\Views\Product\Products.g.cshtml.cs
+C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\SkinShop\obj\Debug\netcoreapp2.1\Razor\Views\Product\Productz.g.cshtml.cs
