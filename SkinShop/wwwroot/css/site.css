@@ -87,7 +87,8 @@ sectionProduct {
 }
 
 .ProductSection {
-    margin-top: 150px;
+    margin-top: 50px;
+    overflow: hidden;
 }
 
 
@@ -150,10 +151,31 @@ sectionProduct {
 
 .content {
     height: 100%;
-    background-color: yellow;
+    overflow: hidden;
 }
 
+/*Inputveld*/
+
+.woocommerce-ordering .orderby {
+    margin-bottom: 0;
+    float: right;
+    margin: 150px 50px 0px;
+}
+
+select {
+    height: 37px;
+    line-height: 37px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 220px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+
+
+
 .topsearch-section {
-    height: 300px;
-    background-color: red;
+    height: 200px;
 }
