@@ -40,10 +40,10 @@
                     </li>
                 </ul>
                 @*<ul class="nav navbar-nav">
-                    <li>
-                        <a asp-controller="Product" asp-action="Productz">Productz</a>
-                    </li>
-                </ul>*@
+            <li>
+                <a asp-controller="Product" asp-action="Productz">Productz</a>
+            </li>
+        </ul>*@
                 <ul class="nav navbar-nav">
                     <li>
                         <a asp-controller="Product" asp-action="AddProduct">AddProduct</a>
@@ -52,6 +52,11 @@
                 <ul class="nav navbar-nav">
                     <li>
                         <a asp-controller="Cart" asp-action="Cart">Cart</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li>
+                    <li><a asp-controller="Product" asp-action="ProductManagment">ProductManagment</a></li>
                     </li>
                 </ul>
                 @if (User.Identity.IsAuthenticated)

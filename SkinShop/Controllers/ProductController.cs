@@ -100,7 +100,17 @@ namespace SkinShop.Controllers
         //    return View(productSpecificatie);
         //}
 
-        
+
+
+        //ProductWijzigen/Verwijderen
+        public IActionResult ProductManagment()
+        {
+            productSpecificatie.Products = productlogic.GetProducts();
+
+            return View(productSpecificatie);
+        }
+
+
         //Update product pagina
         public IActionResult UpdateProduct(ProductSpecificationViewModel viewModel, int productID)
         {
@@ -111,7 +121,7 @@ namespace SkinShop.Controllers
         public IActionResult EditProduct(ProductSpecificationViewModel viewModel, int productID)
         {
             var products = viewModel.Product;
-            productlogic.UpdateProduct(productID, products);
+            productlogic.EditProduct(productID, products);
 
             return RedirectToAction("UpdateProduct");
         }

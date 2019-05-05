@@ -1,0 +1,44 @@
+﻿@*@model SkinShop.ViewModel.Product.ProductViewModel*@
+@model SkinShop.ViewModel.Product.ProductSpecificationViewModel
+
+<div class="container">
+    <div class="content">
+        <div class="topsearch-section">
+            <div class="searchSection">
+
+            </div>
+        </div>
+        <div class="ProductSection">
+
+
+            @foreach (var prods in Model.Products)
+            {
+                <div class="Outereachproduct">
+                    <div class="eachproduct">
+                        <div class="inner_eachproduct">
+                            <a class="btn-default" asp-controller="Product" asp-action="UpdateProduct" asp-route-productID="@prods.ProductID">
+                                <div class="images"><img src="~/images/@prods.Images" alt="Mountain View" height="200" width="200"></div>
+                                <div class="productname">@prods.Productname</div>
+                                <input type="hidden" value="@prods.ProductID" />
+                            </a>
+                        </div>
+                    </div>
+
+                    <div id="beheerbuttons">
+                        <p>
+                            <form method="post" asp-controller="Product" asp-action="UpdateProduct" asp-route-productID="@prods.ProductID">
+                                <button class="btn btn-success" id="btnAdminSucces">Wijzig</button>
+                            </form>
+                            <form method="post" asp-controller="Product" asp-action="DeleteProduct" asp-route-productID="@prods.ProductID">
+                                <button class="btn btn-danger" id="btnAdminDanger">Verwijder</button>
+                            </form>
+                        </p>
+                    </div>
+
+                </div>
+
+            }
+
+        </div>
+    </div>
+</div>

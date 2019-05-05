@@ -34,9 +34,9 @@ namespace Logic
             productcontext.AddProduct(product);
         }
 
-        public void UpdateProduct(int productID, Product product)
+        public void EditProduct(int productID, Product product)
         {
-            productcontext.UpdateProduct(productID, product);
+            productcontext.EditProduct(productID, product);
         }
 
         //public List<Product> ProductSpecifications(int productID)

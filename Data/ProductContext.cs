@@ -90,7 +90,7 @@ namespace Data
         }
 
 
-        public void UpdateProduct(int productID, Product product)
+        public void EditProduct(int productID, Product product)
         {
             string query = $"UPDATE Product SET ProductName = @ProductName, ProductPrice = @ProductPrice, Image = @Image  WHERE ProductID = @ProductID";
 

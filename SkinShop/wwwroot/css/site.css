@@ -193,3 +193,16 @@ select {
     float: left;
     margin-left: 20%;
 }
+
+/* Admin productbeheer*/
+
+.Outereachproduct {
+    float: left;
+    padding: 10px 0px 50px 0px;
+    border: solid black 1px;
+    margin: 20px 10px;
+}
+
+#beheerbuttons {
+    margin: 15px 15px 0 15px;
+}
