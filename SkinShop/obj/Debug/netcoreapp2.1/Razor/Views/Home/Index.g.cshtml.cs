@@ -77,7 +77,7 @@ using SkinShop.Models;
                 ");
             EndContext();
             BeginContext(362, 46, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f5c1e569ba9b462181016d8bd90914a6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "caa5cc52bdfc41239e1fcc6ac9a11a56", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -96,7 +96,7 @@ using SkinShop.Models;
             WriteLiteral("\r\n            </div>\r\n        </a>\r\n\r\n        <a route-href=\"route:producten\" class=\"nav-tekst\">\r\n            <div class=\"box\">\r\n                <h3>Pax Sivir</h3>\r\n                ");
             EndContext();
             BeginContext(589, 46, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "366fba7d2c144b1393ae1fbab5a6c467", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a246935bc42c40daa48b310bb7620358", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -115,7 +115,7 @@ using SkinShop.Models;
             WriteLiteral("\r\n            </div>\r\n        </a>\r\n\r\n        <a route-href=\"route:producten\" class=\"nav-tekst\">\r\n            <div class=\"box\">\r\n                <h3>Pax Sivir</h3>\r\n                ");
             EndContext();
             BeginContext(816, 46, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "cd6ea98a13494f948bdc99df35b9f23a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f459262fd80b4dcea6f3169c72e167ae", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -134,7 +134,7 @@ using SkinShop.Models;
             WriteLiteral("\r\n            </div>\r\n        </a>\r\n\r\n        <a route-href=\"route:producten\" class=\"nav-tekst\">\r\n            <div class=\"box\">\r\n                <h3>Pax Sivir</h3>\r\n                ");
             EndContext();
             BeginContext(1043, 46, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "5fb92e2ff9fd4334a41263ecc081f50a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "42d9b2bde8ae40d5b678f34a2c9603b9", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

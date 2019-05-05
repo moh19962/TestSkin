@@ -39,6 +39,11 @@ namespace Logic
             productcontext.EditProduct(productID, product);
         }
 
+        public void DeleteProduct(int productID)
+        {
+            productcontext.DeleteProduct(productID);
+        }
+
         //public List<Product> ProductSpecifications(int productID)
         //{
         //    List<Product> CurrentProductSpecList = productcontext.ProductSpecifications(productID);

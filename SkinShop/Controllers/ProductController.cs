@@ -110,6 +110,13 @@ namespace SkinShop.Controllers
             return View(productSpecificatie);
         }
 
+        [HttpPost]
+        public IActionResult DeleteProduct(int productID)
+        {
+            productlogic.DeleteProduct(productID);
+
+            return RedirectToAction("ProductManagment");
+        }
 
         //Update product pagina
         public IActionResult UpdateProduct(ProductSpecificationViewModel viewModel, int productID)

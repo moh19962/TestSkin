@@ -109,6 +109,22 @@ namespace Data
             }
         }
 
+
+        public void DeleteProduct(int productID)
+        {
+            string query = "DELETE FROM Product WHERE ProductID = @ProductID;";
+
+            using (SqlConnection conn = new SqlConnection(this.ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.Add(new SqlParameter("ProductID", productID));
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         //public List<Product> GetCurrentProduct(int productID)
         //{
 
