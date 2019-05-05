@@ -1,11 +1,90 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿@model Killer.ViewModels.Cart.CartViewModel
 
-namespace SkinShop.Views.Cart
-{
-    public class Cart
-    {
-    }
+@{
+    var sum = 0;
 }
+
+<div class="container">
+    <div class="products">
+        <div class="txt-heading">Shopping Cart</div>
+
+
+        <form method="post" asp-controller="Order" asp-action="PlaceOrder">
+            <table cellpadding="10" cellspacing="1" class="cart-table">
+                <tbody>
+                    <tr>
+                        <th style="text-align:left;"><strong>Name</strong></th>
+                        <th style="text-align:left;"><strong>Code</strong></th>
+                        <th style="text-align:right;"><strong>Quantity</strong></th>
+                        <th style="text-align:right;"><strong>Price per Product</strong></th>
+                        <th style="text-align:right;"><strong>Price total</strong></th>
+                        <th style="text-align:center;"><strong>Action</strong></th>
+                    </tr>
+                    @foreach (var item in Model.Cart)
+                    {
+
+
+                        <tr>
+                            <td style="text-align:left;border-bottom:#F0F0F0 1px solid;">
+                                @*<input type="text" asp-for="cart.Product.Productname" value="@item.Product.Productname" />*@
+                                @*<label asp-for="cart.Product.Productname" class="control-label">@item.Product.Productname</label>*@
+                                <label>@item.Product.Productname</label>
+                                <input type="hidden" asp-for="cart.Product.Productname" value="@item.Product.Productname" />
+                                @*<input hidden asp-for="cart.Product.Productname" />*@
+                            </td>
+                            <td style="text-align:left;border-bottom:#F0F0F0 1px solid;">
+                                <label>@item.Product.ProductID</label>
+                                <input type="hidden" asp-for="cart.Product.ProductID" value="@item.Product.ProductID" />
+                            </td>
+
+                            <td style="text-align:right;border-bottom:#F0F0F0 1px solid;"><input type="text" size="2" maxlength="2" value="@item.Amount" asp-for="cart.Amount" /></td>
+
+                            <td style="text-align:right;border-bottom:#F0F0F0 1px solid;">
+                                <label>@item.Product.Productprice</label>
+                                <input type="hidden" asp-for="cart.Product.Productprice" value="@item.Product.Productprice" />
+                            </td>
+                            <td style="text-align:right;border-bottom:#F0F0F0 1px solid;">
+                                <label>@item.SubTotal</label>
+                                <input type="hidden" asp-for="cart.SubTotal" value="@item.SubTotal" />
+                            </td>
+
+
+                            <td style="text-align:center;border-bottom:#F0F0F0 1px solid;">
+                                <form method="post" asp-controller="Product" asp-action="DeleteProductFromCart" asp-route-ProductID="@item.Product.ProductID">
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                    <tr>
+
+                        @foreach (var x in Model.Cart)
+                        {
+                            sum = Convert.ToInt32(x.SubTotal) + sum;
+                        }
+
+                        <td colspan="2" align=right>
+                            <strong>
+                                Totale Kosten : @sum
+                            </strong>
+                        </td>
+
+
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        @*<form method="post" asp-controller="Product" asp-action="UpdateCart">
+                                <td style="text-align:right;border-bottom:#F0F0F0 1px solid;"><button type="submit">Update</button></td>
+                            </form>*@
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="buttonBestel">
+                <button type="submit" name="bestellen">Order</button>
+            </div>
+        </form>
+        <form method="post" asp-controller="Cart" asp-action="DeleteCart">
+            <button type="submit">Empty Cart</button>
+        </form>
+    </div>
+</div>
