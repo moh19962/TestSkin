@@ -14,10 +14,10 @@
             @foreach (var prods in Model.Products)
             {
                 <div class="Outereachproduct">
-                    <div class="eachproduct">
+                    <div class="editeachproduct">
                         <div class="inner_eachproduct">
                             <a class="btn-default" asp-controller="Product" asp-action="UpdateProduct" asp-route-productID="@prods.ProductID">
-                                <div class="images"><img src="~/images/@prods.Images" alt="Mountain View" height="200" width="200"></div>
+                                <div class="images"><img src="~/images/@prods.Images" alt="Mountain View" height="300" width="200"></div>
                                 <div class="productname">@prods.Productname</div>
                                 <input type="hidden" value="@prods.ProductID" />
                             </a>
