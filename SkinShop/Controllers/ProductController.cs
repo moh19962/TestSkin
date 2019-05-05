@@ -94,12 +94,26 @@ namespace SkinShop.Controllers
             }
         }
 
-
-
         //public IActionResult Productz()
         //{
         //    productSpecificatie.Products = productlogic.GetProducts();
         //    return View(productSpecificatie);
         //}
+
+        
+        //Update product pagina
+        public IActionResult UpdateProduct(ProductSpecificationViewModel viewModel, int productID)
+        {
+            productSpecificatie.Product = productlogic.GetProductByID(productID);
+            return View(productSpecificatie);
+        }
+
+        public IActionResult EditProduct(ProductSpecificationViewModel viewModel, int productID)
+        {
+            var products = viewModel.Product;
+            productlogic.UpdateProduct(productID, products);
+
+            return RedirectToAction("UpdateProduct");
+        }
     }
 }

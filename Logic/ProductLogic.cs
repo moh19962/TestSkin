@@ -34,6 +34,11 @@ namespace Logic
             productcontext.AddProduct(product);
         }
 
+        public void UpdateProduct(int productID, Product product)
+        {
+            productcontext.UpdateProduct(productID, product);
+        }
+
         //public List<Product> ProductSpecifications(int productID)
         //{
         //    List<Product> CurrentProductSpecList = productcontext.ProductSpecifications(productID);

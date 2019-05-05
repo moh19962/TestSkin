@@ -12,5 +12,6 @@ namespace Interfaces
         //List<Product> GetCurrentProduct(int productID);
         //List<Product> ProductSpecifications(int productID);
         Product GetProductByID(int ProductID);
+        void UpdateProduct(int ProductID, Product product);
     }
 }

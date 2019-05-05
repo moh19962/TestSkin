@@ -1,0 +1,28 @@
+﻿@using SkinShop.ViewModel.User
+@model SkinShop.ViewModel.Product.ProductSpecificationViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <h1>Register</h1>
+            <form method="post">
+                <input hidden value="@Model.Product.ProductID" class="form-control" />
+                <label asp-for="Product.Productname" class="control-label">Name</label><br />
+                <input asp-for="Product.Productname" class="form-control" />
+
+                <label asp-for="Product.Productprice" class="control-label">Prijs</label><br />
+                <input asp-for="Product.Productprice" class="form-control" />
+                <input type="file" asp-for="ProductViewModel.Image" />
+                <input type="file" asp-for="ProductViewModel.Description" />
+
+                <br />
+                <form method="post" asp-controller="Product" asp-action="UpdateProduct">
+                    <button class="btn btn-default basicbutton" type="submit">Update Product</button>
+                </form>
+            </form>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div>
+

@@ -89,6 +89,26 @@ namespace Data
             }
         }
 
+
+        public void UpdateProduct(int productID, Product product)
+        {
+            string query = $"UPDATE Product SET ProductName = @ProductName, ProductPrice = @ProductPrice, Image = @Image  WHERE ProductID = @ProductID";
+
+            using (SqlConnection conn = new SqlConnection(this.ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.Add(new SqlParameter("@ProductID", productID));
+                    cmd.Parameters.Add(new SqlParameter("@ProductName", product.Productname));
+                    cmd.Parameters.Add(new SqlParameter("@ProductPrice", product.Productprice));
+                    cmd.Parameters.Add(new SqlParameter("@Image", product.Images));
+                    cmd.Parameters.Add(new SqlParameter("@Image", product.Description));
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         //public List<Product> GetCurrentProduct(int productID)
         //{
 
