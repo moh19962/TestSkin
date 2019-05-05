@@ -43,18 +43,6 @@ namespace SkinShop.Controllers
             return View(productSpecificatie);
         }
 
-        //public IActionResult CurrentProduct(int productID)
-        //{
-        //    productSpecificatie.CurrentProduct = productlogic.GetCurrentProduct(productID);
-        //    return View();
-        //}
-
-        public IActionResult Productz()
-        {
-            productSpecificatie.Products = productlogic.GetProducts();
-            return View(productSpecificatie);
-        }
-
         public IActionResult AddProduct()
         {
 
@@ -105,5 +93,13 @@ namespace SkinShop.Controllers
                 throw new Exception("File is leeg");
             }
         }
+
+
+
+        //public IActionResult Productz()
+        //{
+        //    productSpecificatie.Products = productlogic.GetProducts();
+        //    return View(productSpecificatie);
+        //}
     }
 }

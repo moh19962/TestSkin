@@ -14,7 +14,7 @@ namespace Data
 
         public void AddProduct(Product product)
         {
-            string query = $"INSERT INTO [Product](ProductName, ProductPrice, Image) VALUES(@ProductName,@Price, @Image)";
+            string query = $"INSERT INTO [Product](ProductName, ProductPrice, Image, Description) VALUES(@ProductName,@Price, @Image, @Description)";
 
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
@@ -24,6 +24,7 @@ namespace Data
                     cmd.Parameters.Add(new SqlParameter("@ProductName", product.Productname));
                     cmd.Parameters.Add(new SqlParameter("@Price", product.Productprice));
                     cmd.Parameters.Add(new SqlParameter("@Image", product.Images));
+                    cmd.Parameters.Add(new SqlParameter("@Description", product.Description));
                     conn.Open();
                     cmd.ExecuteNonQuery();
                 }
@@ -81,6 +82,7 @@ namespace Data
                     product.Productname = reader["ProductName"].ToString();
                     product.Productprice = Convert.ToDouble(reader["ProductPrice"]);
                     product.Images = reader["Image"].ToString();
+                    product.Description = reader["Description"].ToString();
                 }
 
                 return product;

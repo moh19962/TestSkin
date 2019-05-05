@@ -179,3 +179,17 @@ select {
 .topsearch-section {
     height: 200px;
 }
+
+
+
+/*CurrentProductPage*/
+
+.wrapper {
+    overflow: hidden;
+}
+
+.description {
+    background-color: yellow;
+    float: left;
+    margin-left: 20%;
+}

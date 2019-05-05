@@ -18,7 +18,7 @@
                     </div>
                     <div class="productInfo">
 
-                        <h4> €955</h4>
+                        <h4>€@Model.Product.Productprice</h4>
 
 
 
@@ -35,40 +35,10 @@
                         <hr id="hrCurrentProduct">
                         <hr>
                     </div>
+                    <div class="description">
+                        @Model.Product.Description
+                    </div>
                 </div>
             </div>
         </div>
-
-        @*<div class="ProductSection">
-                        <div class="wrapper">
-                            <div id="sectionProduct">
-
-                                <div class="productImage">
-                                    <img src="~/images/@Model.Product.Images" alt="Italian Trulli" height="300" width="500">
-                                </div>
-                                <div class="productInfo">
-
-                                        <p>Price: € @Model.Product.Productprice</p>
-
-
-                                    @if (User.Identity.IsAuthenticated)
-
-                                    {
-
-                                        <form method="post" asp-controller="Cart" asp-action="AddToCart" asp-route-ProductId="@Model.Product.ProductID">
-                                            <input hidden asp-for="@Model.Product.Amount" value="1" class="form-control" />
-                                            <button class="btn btn-success" id="btnSucces">add</button>
-                                        </form>
-                                    }
-                                    <hr id="hrCurrentProduct">
-                                    @foreach (var item in Model.CurrentProductSpecification)
-                                    {
-                                        <p>@item.Spec.Name : @item.Spec.Value.Name</p>
-                                    }
-                                    <hr>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>*@
     </div>
