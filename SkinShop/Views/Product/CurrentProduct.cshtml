@@ -1,0 +1,74 @@
+﻿@*@model Killer.ViewModels.Product.ProductViewModel*@
+@model SkinShop.ViewModel.Product.ProductSpecificationViewModel
+
+<div class="container">
+    <div class="content">
+        <div class="topsearch-section">
+            <div class="searchSection">
+
+            </div>
+        </div>
+
+        <div class="ProductSection">
+            <h3>@Model.Product.Productname</h3>
+            <div class="wrapper">
+                <div id="sectionProduct">
+                    <div class="productImage">
+                        <img src="~/images/@Model.Product.Images" alt="ass" height="450" width="450">
+                    </div>
+                    <div class="productInfo">
+
+                        <h4> €955</h4>
+
+
+
+                        @if (User.Identity.IsAuthenticated)
+
+                        {
+
+                            <form method="post" asp-controller="Cart" asp-action="AddToCart" asp-route-ProductId="@Model.Product.ProductID">
+                                <input hidden asp-for="@Model.Product.Amount" value="1" class="form-control" />
+                                <button class="btn btn-success" id="btnSucces">add</button>
+                            </form>
+                        }
+
+                        <hr id="hrCurrentProduct">
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*<div class="ProductSection">
+                        <div class="wrapper">
+                            <div id="sectionProduct">
+
+                                <div class="productImage">
+                                    <img src="~/images/@Model.Product.Images" alt="Italian Trulli" height="300" width="500">
+                                </div>
+                                <div class="productInfo">
+
+                                        <p>Price: € @Model.Product.Productprice</p>
+
+
+                                    @if (User.Identity.IsAuthenticated)
+
+                                    {
+
+                                        <form method="post" asp-controller="Cart" asp-action="AddToCart" asp-route-ProductId="@Model.Product.ProductID">
+                                            <input hidden asp-for="@Model.Product.Amount" value="1" class="form-control" />
+                                            <button class="btn btn-success" id="btnSucces">add</button>
+                                        </form>
+                                    }
+                                    <hr id="hrCurrentProduct">
+                                    @foreach (var item in Model.CurrentProductSpecification)
+                                    {
+                                        <p>@item.Spec.Name : @item.Spec.Value.Name</p>
+                                    }
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>*@
+    </div>

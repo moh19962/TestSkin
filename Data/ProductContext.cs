@@ -2,6 +2,7 @@
 using Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
@@ -57,6 +58,65 @@ namespace Data
             }
 
         }
+
+
+        public Product GetProductByID(int ProductID)
+        {
+
+            Product product = new Product();
+
+            using (SqlConnection connection = new SqlConnection(this.ConnectionString))
+            {
+
+                SqlCommand command = new SqlCommand("GetProductByID", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@ProductID", ProductID));
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    product.ProductID = Convert.ToInt32(reader["ProductID"]);
+                    product.Productname = reader["ProductName"].ToString();
+                    product.Productprice = Convert.ToDouble(reader["ProductPrice"]);
+                    product.Images = reader["Image"].ToString();
+                }
+
+                return product;
+            }
+        }
+
+        //public List<Product> GetCurrentProduct(int productID)
+        //{
+
+        //    List<Product> productdetails = new List<Product>();
+
+        //    string query = "SELECT * FROM Product WHERE ProductID = @ProductID";
+
+
+
+        //    using (SqlConnection connection = new SqlConnection(ConnectionString))
+        //    {
+        //        SqlCommand command = new SqlCommand(query, connection);
+        //        command.Parameters.Add(new SqlParameter("@ProductID", productID));
+        //        connection.Open();
+        //        SqlDataReader reader = command.ExecuteReader();
+
+        //        while (reader.Read())
+        //        {
+        //            Product product = new Product();
+        //            product.ProductID = Convert.ToInt32(reader["ProductID"]);
+        //            product.Productname = reader["ProductName"].ToString();
+        //            product.Productprice = Convert.ToDouble(reader["ProductPrice"]);
+        //            product.Images = reader["Image"].ToString();
+        //            productdetails.Add(product);
+        //        }
+
+        //        return productdetails;
+        //    }
+
+        //}
     }
 
 }

@@ -17,9 +17,29 @@ namespace Logic
             return ProductList;
         }
 
+        public Product GetProductByID(int productID)
+        {
+            return productcontext.GetProductByID(productID);
+
+        }
+
+        //public List<Product> GetCurrentProduct(int productID)
+        //{
+        //    List<Product> ProductList = productcontext.GetCurrentProduct(productID);
+        //    return ProductList;
+        //}
+
         public void AddProduct(Product product)
         {
             productcontext.AddProduct(product);
         }
+
+        //public List<Product> ProductSpecifications(int productID)
+        //{
+        //    List<Product> CurrentProductSpecList = productcontext.ProductSpecifications(productID);
+        //    return CurrentProductSpecList;
+        //}
+
+
     }
 }
