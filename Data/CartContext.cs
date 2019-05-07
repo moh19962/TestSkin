@@ -11,7 +11,7 @@ namespace Data
     {
         private string ConnectionString { get; set; } = "Data Source=gulpower.database.windows.net;Initial Catalog=WebshopGagoo;User ID=MohammadParwani;Password=Hunstongtid6;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        public List<Cart> GetProductsFromCart(int UserId)
+        public List<Cart> GetProductsFromCart(int UserID)
         {
             try
             {
@@ -25,7 +25,7 @@ namespace Data
                 using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.Add(new SqlParameter("@UserID", UserId));
+                    command.Parameters.Add(new SqlParameter("@UserID", UserID));
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
 
@@ -49,6 +49,46 @@ namespace Data
             {
 
                 throw;
+            }
+        }
+
+        public void AddToCart(int ProductID, int UserID, int Amount)
+        {
+            string query = $"INSERT INTO Cart(UserID, ProductID, Amount) VALUES(@userID, @productID, @Amount)";
+
+            using (SqlConnection conn = new SqlConnection(this.ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.Add(new SqlParameter("@userID", UserID));
+                    cmd.Parameters.Add(new SqlParameter("@productID", ProductID));
+                    cmd.Parameters.Add(new SqlParameter("@Amount", Amount));
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public int CheckProductID(int ProductID, int UserID)
+        {
+            int OrderID = 0;
+
+            string query = "SELECT CartID FROM Cart WHERE ProductID = @ProductID AND UserID = @UserID";
+
+            using (SqlConnection conn = new SqlConnection(this.ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.Add(new SqlParameter("@ProductID", ProductID));
+                cmd.Parameters.Add(new SqlParameter("@UserId", UserID));
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    OrderID = Convert.ToInt32(reader["CartID"]);
+                }
+
+                return OrderID;
             }
         }
     }

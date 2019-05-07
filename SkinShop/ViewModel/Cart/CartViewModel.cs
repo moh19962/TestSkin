@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Killer.ViewModels.Cart
+namespace SkinShop.ViewModel.Cart
 {
     public class CartViewModel
     {

@@ -20,5 +20,18 @@ namespace Logic
             }
             return productCartList;
         }
+
+        public void AddToCart(int ProductID, int UserID, int Amount)
+        {
+            int productInCartID = cartcontext.CheckProductID(ProductID, UserID);
+            if (productInCartID != 0)
+            {
+                cartcontext.updateAmount(productInCartID, Amount);
+            }
+            else
+            {
+                cartcontext.AddToCart(ProductID, UserID, Amount);
+            }
+        }
     }
 }
