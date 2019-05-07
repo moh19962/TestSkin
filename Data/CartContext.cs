@@ -9,7 +9,7 @@ namespace Data
 {
     public class CartContext : ICartContext
     {
-        private string ConnectionString { get; set; } = "Data Source=gulpower.database.windows.net;Initial Catalog=WebshopGagoo;User ID=MohammadParwani;Password=Hunstongtid6;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private string ConnectionString { get; set; } = "Data Source=gulpower.database.windows.net;Initial Catalog=SkinShop;User ID=MohammadParwani;Password=Hunstongtid6;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         public List<Cart> GetProductsFromCart(int UserID)
         {
@@ -71,7 +71,7 @@ namespace Data
 
         public int CheckProductID(int ProductID, int UserID)
         {
-            int OrderID = 0;
+            int CartID = 0;
 
             string query = "SELECT CartID FROM Cart WHERE ProductID = @ProductID AND UserID = @UserID";
 
@@ -85,10 +85,24 @@ namespace Data
 
                 while (reader.Read())
                 {
-                    OrderID = Convert.ToInt32(reader["CartID"]);
+                    CartID = Convert.ToInt32(reader["CartID"]);
                 }
 
-                return OrderID;
+                return CartID;
+            }
+        }
+
+        public void UpdateAmount(int CartID, int Amount)
+        {
+            string query = $"UPDATE Cart SET Amount += @Amount WHERE CartID = @CartID";
+
+            using (SqlConnection conn = new SqlConnection(this.ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.Add(new SqlParameter("@CartID", CartID));
+                    cmd.Parameters.Add(new SqlParameter("@Amount", Amount));
+                }
             }
         }
     }

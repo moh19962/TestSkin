@@ -26,7 +26,7 @@ namespace Logic
             int productInCartID = cartcontext.CheckProductID(ProductID, UserID);
             if (productInCartID != 0)
             {
-                cartcontext.updateAmount(productInCartID, Amount);
+                cartcontext.UpdateAmount(productInCartID, Amount);
             }
             else
             {
