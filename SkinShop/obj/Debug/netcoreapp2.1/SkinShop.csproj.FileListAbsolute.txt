@@ -43,3 +43,5 @@ C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\SkinShop\o
 C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\SkinShop\obj\Debug\netcoreapp2.1\Razor\Views\Product\CurrentProduct.g.cshtml.cs
 C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\SkinShop\obj\Debug\netcoreapp2.1\Razor\Views\Product\ProductManagment.g.cshtml.cs
 C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\SkinShop\obj\Debug\netcoreapp2.1\Razor\Views\Product\UpdateProduct.g.cshtml.cs
+C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\SkinShop\obj\Debug\netcoreapp2.1\Razor\Views\Cart\Cart.g.cshtml.cs
+C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\SkinShop\obj\Debug\netcoreapp2.1\Razor\Views\Cart\Cartz.g.cshtml.cs

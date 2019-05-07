@@ -18,11 +18,11 @@ namespace SkinShop.Controllers
             return View();
         }
 
-        public IActionResult Cart()
+        public IActionResult Cartz()
         {
             int userID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-            cartViewModel.Cart = cartLogic.GetProductsFromCart(userID);
-            return View(cartViewModel);
+            //cartViewModel.Cart = cartLogic.GetProductsFromCart(userID);
+            return View();
         }
     }
 }
