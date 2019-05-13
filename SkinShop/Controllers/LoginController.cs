@@ -43,7 +43,7 @@ namespace SkinShop.Controllers
         {
             List<Claim> claims = new List<Claim>
             {
-                new Claim("UserID", account.UserId.ToString()),
+                new Claim("UserID", account.UserID.ToString()),
                 new Claim(ClaimTypes.Name, account.Name),
                 new Claim(ClaimTypes.Email, account.Email),
                 new Claim("Role", account.RoleId.ToString()),
