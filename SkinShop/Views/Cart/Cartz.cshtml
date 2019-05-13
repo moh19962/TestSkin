@@ -51,9 +51,11 @@
                         </td>
 
                         <td>
-                            <form method="post" asp-controller="Product" asp-action="DeleteProductFromCart" asp-route-ProductID="@item.Product.ProductID">
+                            @*<form method="post" asp-controller="Product" asp-action="DeleteProductFromCart" asp-route-ProductID="@item.Product.ProductID">
                                 <button type="submit">Delete</button>
-                            </form>
+                                <button type="submit" formmethod="post" asp-controller="Product" asp-action="DeleteProductFromCart" asp-route-ProductID="@item.Product.ProductID">Deletes</button>
+                            </form>*@
+                            <button type="submit" formmethod="post" asp-controller="Product" asp-action="DeleteProductFromCart" asp-route-ProductID="@item.Product.ProductID">Deletes</button>
                         </td>
                     </tr>
                     <tr>

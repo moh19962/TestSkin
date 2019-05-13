@@ -103,6 +103,9 @@ namespace Data
                 {
                     cmd.Parameters.Add(new SqlParameter("@CartID", CartID));
                     cmd.Parameters.Add(new SqlParameter("@Amount", Amount));
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
                 }
             }
         }
