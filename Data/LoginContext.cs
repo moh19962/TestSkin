@@ -9,9 +9,9 @@ namespace Data
 {
     public class LoginContext : ILoginContext
     {
-        private string ConnectionString { get; set; } = "Data Source=gulpower.database.windows.net;Initial Catalog=SkinShop;User ID=MohammadParwani;Password=Hunstongtid6;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private string ConnectionString { get; set; } = "Data Source=moooserver.database.windows.net;Initial Catalog=SkinShopz;User ID=MohammadParwani;Password=Hunstongtid6;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        
+
         public void LoginUser(string Name, string LastName)
         {
             string query = $"INSERT INTO [User](Name, LastName, Email, Adress, Password, Role_Id) VALUES(@Name, @Lastname, @Email, @Adress, @PassWord, @RoleID)";
@@ -33,7 +33,7 @@ namespace Data
 
             User userdetails = new User();
 
-            string query = "SELECT * FROM Users WHERE Email = @Email";
+            string query = "SELECT * FROM User WHERE Email = @Email";
 
             using (SqlConnection connection = new SqlConnection(this.ConnectionString))
             {
