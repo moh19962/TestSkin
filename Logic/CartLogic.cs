@@ -33,5 +33,14 @@ namespace Logic
                 cartcontext.AddToCart(ProductID, UserID, Amount);
             }
         }
+
+        public void DeleteProductFromCart(int UserID, int ProductID)
+        {
+            cartcontext.DeleteProductFromCart(UserID, ProductID);
+        }
+        public void UpdateCart(int UserID, int ProductID, int Amount)
+        {
+            cartcontext.UpdateCart(UserID, ProductID, Amount);
+        }
     }
 }

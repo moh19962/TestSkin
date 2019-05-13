@@ -43,18 +43,6 @@ namespace Logic
         {
             productcontext.DeleteProduct(productID);
         }
-
-        public void DeleteProductFromCart(int UserID, int ProductID)
-        {
-            productcontext.DeleteProductFromCart(UserID, ProductID);
-        }
-
-        //public List<Product> ProductSpecifications(int productID)
-        //{
-        //    List<Product> CurrentProductSpecList = productcontext.ProductSpecifications(productID);
-        //    return CurrentProductSpecList;
-        //}
-
-
+ 
     }
 }

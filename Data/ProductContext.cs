@@ -124,55 +124,6 @@ namespace Data
                 }
             }
         }
-
-        public void DeleteProductFromCart(int UserID, int ProductID)
-        {
-            //string query = "DELETE FROM Cart WHERE ProductID = @ProductID;";
-            string query = "DELETE FROM Cart WHERE UserID = @UserID AND ProductID = @ProductID;";
-
-            using (SqlConnection conn = new SqlConnection(this.ConnectionString))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.Add(new SqlParameter("@UserID", UserID));
-                    cmd.Parameters.Add(new SqlParameter("@ProductID", ProductID));
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                }
-            }
-        }
-
-
-        //public List<Product> GetCurrentProduct(int productID)
-        //{
-
-        //    List<Product> productdetails = new List<Product>();
-
-        //    string query = "SELECT * FROM Product WHERE ProductID = @ProductID";
-
-
-
-        //    using (SqlConnection connection = new SqlConnection(ConnectionString))
-        //    {
-        //        SqlCommand command = new SqlCommand(query, connection);
-        //        command.Parameters.Add(new SqlParameter("@ProductID", productID));
-        //        connection.Open();
-        //        SqlDataReader reader = command.ExecuteReader();
-
-        //        while (reader.Read())
-        //        {
-        //            Product product = new Product();
-        //            product.ProductID = Convert.ToInt32(reader["ProductID"]);
-        //            product.Productname = reader["ProductName"].ToString();
-        //            product.Productprice = Convert.ToDouble(reader["ProductPrice"]);
-        //            product.Images = reader["Image"].ToString();
-        //            productdetails.Add(product);
-        //        }
-
-        //        return productdetails;
-        //    }
-
-        //}
     }
 
 }

@@ -8,6 +8,7 @@ using SkinShop.ViewModel.Product;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using SkinShop.ViewModel.Cart;
 
 namespace SkinShop.Controllers
 {
@@ -16,6 +17,7 @@ namespace SkinShop.Controllers
 
         ProductViewModel viewModel = new ProductViewModel();
         ProductSpecificationViewModel productSpecificatie = new ProductSpecificationViewModel();
+        CartViewModel cartViewModel = new CartViewModel();
 
         private ProductLogic productlogic = new ProductLogic();
         private IHostingEnvironment _hostingEnvironment;
@@ -132,11 +134,13 @@ namespace SkinShop.Controllers
             return RedirectToAction("UpdateProduct");
         }
 
-        public IActionResult DeleteProductFromCart(int ProductID)
-        {
-            int UserID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-            productlogic.DeleteProductFromCart(UserID, ProductID);
-            return RedirectToAction("Cartz", "Cart");
-        }
+
+        //public IActionResult UpdateCart(int ProductID)
+        //{
+        //    int UserID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
+        //    int Amount = cartViewModel.cart.Amount;
+        //    productlogic.UpdateCart(UserID, ProductID, Amount);
+        //    return RedirectToAction("Cartz", "Cart");
+        //}
     }
 }

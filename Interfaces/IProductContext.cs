@@ -14,6 +14,5 @@ namespace Interfaces
         Product GetProductByID(int ProductID);
         void EditProduct(int ProductID, Product product);
         void DeleteProduct(int ProductID);
-        void DeleteProductFromCart(int UserID, int ProductID);
     }
 }

@@ -34,5 +34,20 @@ namespace SkinShop.Controllers
             cartViewModel.Cart = cartLogic.GetProductsFromCart(userID);
             return View(cartViewModel);
         }
+
+        public IActionResult DeleteProductFromCart(int ProductID)
+        {
+            int UserID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
+            cartLogic.DeleteProductFromCart(UserID, ProductID);
+            return RedirectToAction("Cartz", "Cart");
+        }
+
+        public IActionResult UpdateCart(int ProductID, int Amount)
+        {
+            int UserID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
+            //int Amount = cartViewModel.cart.Amount;
+            cartLogic.UpdateCart(UserID, ProductID, Amount);
+            return RedirectToAction("Cartz", "Cart");
+        }
     }
 }
