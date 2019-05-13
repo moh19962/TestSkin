@@ -125,6 +125,24 @@ namespace Data
             }
         }
 
+        public void DeleteProductFromCart(int UserID, int ProductID)
+        {
+            //string query = "DELETE FROM Cart WHERE ProductID = @ProductID;";
+            string query = "DELETE FROM Cart WHERE UserID = @UserID AND ProductID = @ProductID;";
+
+            using (SqlConnection conn = new SqlConnection(this.ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.Add(new SqlParameter("@UserID", UserID));
+                    cmd.Parameters.Add(new SqlParameter("@ProductID", ProductID));
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
         //public List<Product> GetCurrentProduct(int productID)
         //{
 

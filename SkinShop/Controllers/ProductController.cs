@@ -131,5 +131,12 @@ namespace SkinShop.Controllers
 
             return RedirectToAction("UpdateProduct");
         }
+
+        public IActionResult DeleteProductFromCart(int ProductID)
+        {
+            int UserID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
+            productlogic.DeleteProductFromCart(UserID, ProductID);
+            return RedirectToAction("Cartz", "Cart");
+        }
     }
 }
