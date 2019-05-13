@@ -82,10 +82,72 @@ sectionProduct {
     overflow: hidden;
 }
 
+/*Global menu*/
+
+#primary_nav_wrap {
+    height: 0;
+}
+
+#primary_nav_wrap ul {
+    list-style: none;
+    position: relative;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+#primary_nav_wrap ul a {
+    display: block;
+    font-family: "HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif
+}
+
+#primary_nav_wrap ul li {
+    position: relative;
+    float: left;
+    margin: 0;
+    padding: 0
+}
+
+    #primary_nav_wrap ul li.current-menu-item {
+        background: #333
+    }
+
+    #primary_nav_wrap ul li:hover {
+        background: #333
+    }
+
+#primary_nav_wrap ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    padding: 0
+}
+
+#primary_nav_wrap ul ul li {
+    float: none;
+    width: 200px
+}
+
+#primary_nav_wrap ul ul a {
+    line-height: 120%;
+    padding: 10px 15px;
+    color: #9d9d9d;
+}
+
+#primary_nav_wrap ul ul ul {
+    top: 0;
+    left: 100%
+}
+
+#primary_nav_wrap ul li:hover > ul {
+    display: block
+}
+
 
 
 /*Products page*/
-
 #inputEachProduct {
     width: 30px
 }
@@ -163,8 +225,6 @@ select {
     background-color: #fff;
     border-radius: 3px;
 }
-
-
 
 
 .topsearch-section {

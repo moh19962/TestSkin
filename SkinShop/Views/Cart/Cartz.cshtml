@@ -1,9 +1,11 @@
 ﻿@model SkinShop.ViewModel.Cart.CartViewModel
 
-@*@{
+@{
     var sum = 0;
-}*@
+}
+<div class="rowz">
 
+</div>
 <div class="container">
     <div class="products">
         <div class="txt-heading">Shopping Cart</div>
@@ -25,43 +27,55 @@
                 </thead>
                 @foreach (var item in Model.Cart)
                 {
-                    <tbody>
-                        <tr>
-                            <th scope="row">@item.Product.ProductID</th>
-                            <td>
-                                <label>@item.Product.Productname</label>
-                                <input type="hidden" asp-for="cart.Product.Productname"  value="@item.Product.Productname" />
-                               
-                            </td>
+                <tbody>
+                    <tr>
+                        <th scope="row">@item.Product.ProductID</th>
+                        <td>
+                            <label>@item.Product.Productname</label>
+                            <input type="hidden" asp-for="cart.Product.Productname" value="@item.Product.Productname" />
 
-                            <td>
-                                <input type="text" id="inputquantity" size="3" maxlength="2" value="@item.Amount" asp-for="cart.Amount"/>
-                            </td>
+                        </td>
 
-                            <td>
-                                <label>@item.Product.Productprice</label>
-                                <input type="hidden" asp-for="cart.Product.Productprice" value="@item.Product.Productprice" />
-                            </td>
+                        <td>
+                            <input type="text" id="inputquantity" size="3" maxlength="2" value="@item.Amount" asp-for="cart.Amount" />
+                        </td>
 
-                            <td>
-                                <label>@item.SubTotal</label>
-                                <input type="hidden" asp-for="cart.SubTotal" value="@item.SubTotal" />
-                            </td>
+                        <td>
+                            <label>@item.Product.Productprice</label>
+                            <input type="hidden" asp-for="cart.Product.Productprice" value="@item.Product.Productprice" />
+                        </td>
 
-                            <td>
-                                <form method="post" asp-controller="Product" asp-action="DeleteProductFromCart" asp-route-ProductID="@item.Product.ProductID">
-                                    <button type="submit">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
-                    </tbody>
+                        <td>
+                            <label>@item.SubTotal</label>
+                            <input type="hidden" asp-for="cart.SubTotal" value="@item.SubTotal" />
+                        </td>
+
+                        <td>
+                            <form method="post" asp-controller="Product" asp-action="DeleteProductFromCart" asp-route-ProductID="@item.Product.ProductID">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+
+                        @foreach (var x in Model.Cart)
+                        {
+                            sum = Convert.ToInt32(x.SubTotal) + sum;
+                        }
+
+                        <td colspan="6" align=right>
+                            <strong>
+                                Totale Kosten : @sum
+                            </strong>
+                        </td>
+                        @*<form method="post" asp-controller="Product" asp-action="UpdateCart">
+                <td style="text-align:right;border-bottom:#F0F0F0 1px solid;"><button type="submit">Update</button></td>
+            </form>*@
+                    </tr>
+                </tbody>
                 }
 
             </table>
-
-
-
-
 
 
             <div class="buttonBestel">

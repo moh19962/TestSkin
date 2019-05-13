@@ -101,7 +101,6 @@ namespace SkinShop.Controllers
         //}
 
 
-
         //ProductWijzigen/Verwijderen
         public IActionResult ProductManagment()
         {

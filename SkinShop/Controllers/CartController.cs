@@ -25,7 +25,7 @@ namespace SkinShop.Controllers
             var Amount = viewModel.Product.Amount;
             int UserID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
             cartLogic.AddToCart(ProductID, UserID, Amount);
-            return View(viewModel);
+            return RedirectToAction("Products", "Product");
         }
 
         public IActionResult Cartz()
