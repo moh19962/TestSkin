@@ -14,7 +14,7 @@ namespace Data
 
         public void LoginUser(string Name, string LastName)
         {
-            string query = $"INSERT INTO [User](Name, LastName, Email, Adress, Password, Role_Id) VALUES(@Name, @Lastname, @Email, @Adress, @PassWord, @RoleID)";
+            string query = $"INSERT INTO [Users](Name, LastName, Email, Adress, Password, Role) VALUES(@Name, @Lastname, @Email, @Adress, @PassWord, @RoleID)";
 
             using (SqlConnection conn = new SqlConnection(this.ConnectionString))
             {
@@ -33,7 +33,7 @@ namespace Data
 
             User userdetails = new User();
 
-            string query = "SELECT * FROM User WHERE Email = @Email";
+            string query = "SELECT * FROM Users WHERE Email = @Email";
 
             using (SqlConnection connection = new SqlConnection(this.ConnectionString))
             {
