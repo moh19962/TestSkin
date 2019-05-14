@@ -53,7 +53,6 @@
                             <td>
                                 <input type="hidden" value="item.Amount" asp-for="cart.Amount"/>
                                 <button type="submit" formmethod="post" asp-controller="Cart" asp-action="DeleteProductFromCart" asp-route-ProductID="@item.Product.ProductID">Deletes</button>
-                                <button type="submit" formmethod="post" asp-controller="Cart" asp-action="UpdateCart" asp-route-ProductID="@item.Product.ProductID">Update</button>
                             </td>
                         </tr>
                     }

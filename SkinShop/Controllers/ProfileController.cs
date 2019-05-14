@@ -24,5 +24,16 @@ namespace SkinShop.Controllers
             viewModel.User = userlogic.GetUser(userId);
             return View(viewModel);
         }
+
+        [HttpPost]
+        public IActionResult Profile(ProfileViewModel viewModel)
+        {
+            var data = viewModel.User;
+
+            int userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
+            userlogic.UpdateUser(data, userId);
+
+            return View(viewModel);
+        }
     }
 }

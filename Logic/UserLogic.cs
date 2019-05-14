@@ -17,5 +17,11 @@ namespace Logic
 
             return user;
         }
+        public void UpdateUser(User account, int userID)
+        {
+            usercontext.UpdateUser(account, userID);
+        }
     }
+
+
 }

@@ -48,7 +48,7 @@ namespace Data
                 }
                 while (reader.Read())
                 {
-                    userdetails.UserId = Convert.ToInt32(reader["UserID"]);
+                    userdetails.UserID = Convert.ToInt32(reader["UserID"]);
                     userdetails.Email = reader["Email"].ToString();
                     userdetails.Name = reader["Name"].ToString();
                     userdetails.Password = reader["Password"].ToString();

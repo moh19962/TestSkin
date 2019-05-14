@@ -31,7 +31,6 @@ namespace Data
                     userdetails.Name = reader["Name"].ToString();
                     userdetails.Lastname = reader["LastName"].ToString();
                     userdetails.Email = reader["Email"].ToString();
-                    userdetails.Adress = reader["Adres"].ToString();
                     userdetails.Password = reader["Password"].ToString();
                     userdetails.RoleId = Convert.ToInt32(reader["Role"]);
                 }
@@ -40,6 +39,26 @@ namespace Data
             }
 
 
+        }
+
+        public void UpdateUser(User account, int UserID)
+        {
+            string query = $"UPDATE Users SET Name = @Name, LastName = @LastName, Email = @Email, Password = @Password WHERE UserID = @UserID";
+
+
+            using (SqlConnection conn = new SqlConnection(this.ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.Add(new SqlParameter("@UserID", UserID));
+                    cmd.Parameters.Add(new SqlParameter("@Name", account.Name));
+                    cmd.Parameters.Add(new SqlParameter("@LastName", account.Lastname));
+                    cmd.Parameters.Add(new SqlParameter("@Email", account.Email));
+                    cmd.Parameters.Add(new SqlParameter("@Password", account.Password));
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

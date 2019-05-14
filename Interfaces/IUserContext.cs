@@ -8,5 +8,6 @@ namespace Interfaces
     public interface IUserContext
     {
         User GetUser(int UserID);
+        void UpdateUser(User account, int userId);
     }
 }
