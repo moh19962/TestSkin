@@ -126,12 +126,13 @@ namespace SkinShop.Controllers
             return View(productSpecificatie);
         }
 
+        [HttpPost]
         public IActionResult EditProduct(ProductSpecificationViewModel viewModel, int productID)
         {
             var products = viewModel.Product;
-            productlogic.EditProduct(productID, products);
+            productlogic.EditProduct(products);
 
-            return RedirectToAction("UpdateProduct");
+            return RedirectToAction("ProductManagment");
         }
 
 

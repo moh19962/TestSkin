@@ -12,7 +12,7 @@ namespace Interfaces
         //List<Product> GetCurrentProduct(int productID);
         //List<Product> ProductSpecifications(int productID);
         Product GetProductByID(int ProductID);
-        void EditProduct(int ProductID, Product product);
+        void EditProduct(Product product);
         void DeleteProduct(int ProductID);
     }
 }

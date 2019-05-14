@@ -36,5 +36,22 @@ namespace SkinShop.Controllers
             }
             return View("RegisterCustomer", viewModel);
         }
+
+        public IActionResult RegisterAdmin()
+        {
+
+            return View("RegisterAdmin");
+        }
+
+        [HttpPost]
+        public IActionResult RegisterAdmin(RegisterUserViewModel viewModel)
+        {
+            if (viewModel != null && viewModel.LastName != null && viewModel.Email != null && viewModel.Password != null)
+            {
+                registerlogic.RegisterUser(viewModel.Name, viewModel.LastName, viewModel.Email, viewModel.Password, 2);
+                return RedirectToAction("Index", "home");
+            }
+            return View("RegisterAdmin", viewModel);
+        }
     }
 }

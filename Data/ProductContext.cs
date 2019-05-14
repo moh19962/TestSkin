@@ -90,19 +90,19 @@ namespace Data
         }
 
 
-        public void EditProduct(int productID, Product product)
+        public void EditProduct(Product product)
         {
-            string query = $"UPDATE Product SET ProductName = @ProductName, ProductPrice = @ProductPrice, Image = @Image  WHERE ProductID = @ProductID";
+            string query = $"UPDATE Product SET ProductName = @ProductName, ProductPrice = @ProductPrice, Image = @Image, Description = @Description  WHERE ProductID = @ProductID";
 
             using (SqlConnection conn = new SqlConnection(this.ConnectionString))
             {
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.Add(new SqlParameter("@ProductID", productID));
+                    cmd.Parameters.Add(new SqlParameter("@ProductID", product.ProductID));
                     cmd.Parameters.Add(new SqlParameter("@ProductName", product.Productname));
                     cmd.Parameters.Add(new SqlParameter("@ProductPrice", product.Productprice));
                     cmd.Parameters.Add(new SqlParameter("@Image", product.Images));
-                    cmd.Parameters.Add(new SqlParameter("@Image", product.Description));
+                    cmd.Parameters.Add(new SqlParameter("@Description", product.Description));
                     conn.Open();
                     cmd.ExecuteNonQuery();
                 }
