@@ -21,6 +21,17 @@ namespace Logic
         {
             usercontext.UpdateUser(account, userID);
         }
+
+        //Admin
+        public List<User> getAdmins()
+        {
+            List<User> adminList = usercontext.getAdmins();
+            return adminList;
+        }
+        public void DeleteAdmin(int UserID)
+        {
+            usercontext.DeleteAdmin(UserID);
+        }
     }
 
 

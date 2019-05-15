@@ -60,5 +60,48 @@ namespace Data
                 }
             }
         }
+
+        public List<User> getAdmins()
+        {
+            List<User> AdminList = new List<User>();
+
+            string query = "SELECT * FROM Users WHERE Role = 2";
+
+            using (SqlConnection conn = new SqlConnection(this.ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    User user = new User();
+                    user.UserID = Convert.ToInt32(reader["UserID"]);
+                    user.Name = reader["Name"].ToString();
+                    user.Lastname = reader["LastName"].ToString();
+                    user.Email = reader["Email"].ToString();
+                    user.Password = reader["Password"].ToString();
+                    user.RoleId = Convert.ToInt32(reader["Role"]);
+                    AdminList.Add(user);
+                }
+
+                return AdminList;
+            }
+        }
+
+        public void DeleteAdmin(int UserID)
+        {
+            string query = "DELETE FROM Users WHERE UserID = @userID;";
+
+            using (SqlConnection conn = new SqlConnection(this.ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.Add(new SqlParameter("@userID", UserID));
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

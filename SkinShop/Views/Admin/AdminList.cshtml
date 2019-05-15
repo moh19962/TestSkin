@@ -17,8 +17,6 @@
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
                         <th scope="col">LastName</th>
-                        <th scope="col"></th>
-                        <th scope="col">Total Price</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -26,52 +24,24 @@
                     @foreach (var item in Model.AdminList)
                     {
                         <tr>
-                            <th scope="row"></th>
+                            <th scope="row">@item.UserID</th>
                             <td>
-                                <label>@item.Product.Productname</label>
-                                <input type="hidden" asp-for="cart.Product.Productname" value="@item.Product.Productname" />
+                                <label>@item.Name</label>
 
                             </td>
 
                             <td>
-                                <input type="text" id="inputquantity" size="3" maxlength="2" value="@item.Amount" asp-for="cart.Amount" />
+                                <label>@item.Lastname</label>
                             </td>
-
                             <td>
-                                <label>@item.Product.Productprice</label>
-                                <input type="hidden" asp-for="cart.Product.Productprice" value="@item.Product.Productprice" />
-                            </td>
-
-                            <td>
-                                <label>@item.SubTotal</label>
-                                <input type="hidden" asp-for="cart.SubTotal" value="@item.SubTotal" />
-                            </td>
-
-                            <td>
-                                <input type="hidden" value="item.Amount" asp-for="cart.Amount" />
-                                <button type="submit" formmethod="post" asp-controller="Cart" asp-action="DeleteProductFromCart" asp-route-ProductID="@item.Product.ProductID">Deletes</button>
+                                <label><button type="submit" formmethod="post" asp-controller="Admin" asp-action="DeleteAdmin" asp-route-UserID="@item.UserID">Deletes</button></label>
                             </td>
                         </tr>
                     }
-                    <tr>
-
-
-                        <td colspan="6" align=right>
-
-                        </td>
-                    </tr>
-
                 </tbody>
 
 
             </table>
-
-            <div class="buttonBestel">
-                <button type="submit" name="bestellen">Order</button>
-            </div>
-        </form>
-        <form method="post" asp-controller="Cart" asp-action="DeleteCart">
-            <button type="submit">Empty Cart</button>
         </form>
     </div>
 </div>

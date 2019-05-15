@@ -9,5 +9,7 @@ namespace Interfaces
     {
         User GetUser(int UserID);
         void UpdateUser(User account, int userId);
+        List<User> getAdmins();
+        void DeleteAdmin(int UserID);
     }
 }
