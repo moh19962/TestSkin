@@ -1,14 +1,11 @@
-﻿@model SkinShop.ViewModel.Cart.CartViewModel
+﻿@model SkinShop.ViewModel.User.ProfileViewModel
 
-@{
-    var sum = 0;
-}
 <div class="rowz">
 
 </div>
 <div class="container">
     <div class="products">
-        <div class="txt-heading">Shopping Cart</div>
+        <div class="txt-heading">Admin</div>
 
 
         <form method="post" asp-controller="Order" asp-action="PlaceOrder">
@@ -19,17 +16,17 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Price</th>
+                        <th scope="col">LastName</th>
+                        <th scope="col"></th>
                         <th scope="col">Total Price</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.Cart)
+                    @foreach (var item in Model.AdminList)
                     {
                         <tr>
-                            <th scope="row">@item.Product.ProductID</th>
+                            <th scope="row"></th>
                             <td>
                                 <label>@item.Product.Productname</label>
                                 <input type="hidden" asp-for="cart.Product.Productname" value="@item.Product.Productname" />
@@ -51,33 +48,23 @@
                             </td>
 
                             <td>
-                                <input type="hidden" value="item.Amount" asp-for="cart.Amount"/>
+                                <input type="hidden" value="item.Amount" asp-for="cart.Amount" />
                                 <button type="submit" formmethod="post" asp-controller="Cart" asp-action="DeleteProductFromCart" asp-route-ProductID="@item.Product.ProductID">Deletes</button>
                             </td>
                         </tr>
                     }
                     <tr>
 
-                        @foreach (var x in Model.Cart)
-                        {
-                            sum = Convert.ToInt32(x.SubTotal) + sum;
-                        }
 
                         <td colspan="6" align=right>
-                            <strong>
-                                Totale Kosten : @sum
-                            </strong>
+
                         </td>
-                        @*<form method="post" asp-controller="Product" asp-action="UpdateCart">
-                <td style="text-align:right;border-bottom:#F0F0F0 1px solid;"><button type="submit">Update</button></td>
-            </form>*@
                     </tr>
 
                 </tbody>
-                
+
 
             </table>
-            @*<button type="submit" formmethod="post" asp-controller="Product" asp-action="UpdateCart" asp-route-ProductID="Product.ProductID">Update</button>*@
 
             <div class="buttonBestel">
                 <button type="submit" name="bestellen">Order</button>

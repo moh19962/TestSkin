@@ -14,7 +14,7 @@ namespace Data
 
         public void LoginUser(string Name, string LastName)
         {
-            string query = $"INSERT INTO [Users](Name, LastName, Email, Adress, Password, Role) VALUES(@Name, @Lastname, @Email, @Adress, @PassWord, @RoleID)";
+            string query = $"INSERT INTO [Users](Name, LastName, Email, Password, Role) VALUES(@Name, @Lastname, @Email, @PassWord, @RoleID)";
 
             using (SqlConnection conn = new SqlConnection(this.ConnectionString))
             {
