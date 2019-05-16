@@ -16,6 +16,9 @@
         <div class="col-lg-6">
             <form method="post" asp-controller="Product" asp-action="EditProduct">
                 <input type="hidden" value="@Model.Product.ProductID" asp-for="Product.ProductID" class="form-control" />
+                <label asp-for="Product.Type" class="control-label">Type</label><br />
+                <input asp-for="Product.Type" class="form-control" />
+
                 <label asp-for="Product.Productname" class="control-label">Name</label><br />
                 <input asp-for="Product.Productname" class="form-control" />
 
@@ -31,8 +34,8 @@
 
                 <br />
                 @*<form method="post" asp-controller="Product" asp-action="UpdateProduct">
-                    <button class="btn btn-default basicbutton" type="submit">Update Product</button>
-                </form>*@
+            <button class="btn btn-default basicbutton" type="submit">Update Product</button>
+        </form>*@
                 <button type="submit">EditProduct</button>
             </form>
         </div>

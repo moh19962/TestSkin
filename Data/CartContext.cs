@@ -19,7 +19,7 @@ namespace Data
                 List<Cart> productCartList = new List<Cart>();
 
 
-                string query = "SELECT Cart.CartID, Cart.UserID, Product.ProductID, Product.ProductName, Cart.Amount, Product.ProductPrice FROM Cart inner join Product on Cart.ProductID = Product.ProductID WHERE UserID = @UserID";
+                string query = "SELECT Cart.CartID, Cart.UserID, Product.ProductID, Product.ProductName, Product.Type, Cart.Amount, Product.ProductPrice FROM Cart inner join Product on Cart.ProductID = Product.ProductID WHERE UserID = @UserID";
 
 
 

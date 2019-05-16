@@ -96,12 +96,6 @@ namespace SkinShop.Controllers
             }
         }
 
-        //public IActionResult Productz()
-        //{
-        //    productSpecificatie.Products = productlogic.GetProducts();
-        //    return View(productSpecificatie);
-        //}
-
 
         //ProductWijzigen/Verwijderen
         public IActionResult ProductManagment()
@@ -134,14 +128,5 @@ namespace SkinShop.Controllers
 
             return RedirectToAction("ProductManagment");
         }
-
-
-        //public IActionResult UpdateCart(int ProductID)
-        //{
-        //    int UserID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-        //    int Amount = cartViewModel.cart.Amount;
-        //    productlogic.UpdateCart(UserID, ProductID, Amount);
-        //    return RedirectToAction("Cartz", "Cart");
-        //}
     }
 }

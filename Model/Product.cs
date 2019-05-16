@@ -12,6 +12,8 @@ namespace Model
         public string Images { get; set; }
         public string Description { get; set; }
         public int Amount { get; set; }
+        public string Type { get; set; }
+
 
         public Product()
         {
