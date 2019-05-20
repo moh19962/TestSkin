@@ -7,3 +7,6 @@ C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Model\obj\
 C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Model\bin\Debug\netstandard2.0\Model.pdb
 C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Model\obj\Debug\netstandard2.0\Model.dll
 C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Model\obj\Debug\netstandard2.0\Model.pdb
+C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Model\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.dll
+C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Model\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.xml
+C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Model\obj\Debug\netstandard2.0\Model.csproj.CopyComplete
