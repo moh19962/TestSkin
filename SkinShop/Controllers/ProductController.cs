@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using SkinShop.ViewModel.Cart;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SkinShop.Controllers
 {
@@ -45,6 +46,7 @@ namespace SkinShop.Controllers
             return View(productSpecificatie);
         }
 
+        [Authorize]
         public IActionResult AddProduct()
         {
 
@@ -96,7 +98,7 @@ namespace SkinShop.Controllers
             }
         }
 
-
+        [Authorize]
         //ProductWijzigen/Verwijderen
         public IActionResult ProductManagment()
         {
@@ -105,6 +107,7 @@ namespace SkinShop.Controllers
             return View(productSpecificatie);
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult DeleteProduct(int productID)
         {
@@ -113,6 +116,7 @@ namespace SkinShop.Controllers
             return RedirectToAction("ProductManagment");
         }
 
+        [Authorize]
         //Update product pagina
         public IActionResult UpdateProduct(ProductSpecificationViewModel viewModel, int productID)
         {

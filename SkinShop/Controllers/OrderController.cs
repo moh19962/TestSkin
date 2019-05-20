@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Logic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SkinShop.ViewModel.Cart;
 
@@ -15,6 +16,7 @@ namespace SkinShop.Controllers
         {
             return View();
         }
+        [Authorize]
         public IActionResult PlaceOrder(CartViewModel viewModel)
         {
             var order = viewModel.cart;

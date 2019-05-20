@@ -77,7 +77,7 @@ using SkinShop.Models;
             WriteLiteral("</h3>\r\n            <div class=\"wrapper\">\r\n                <div id=\"sectionProduct\">\r\n                    <div class=\"productImage\">\r\n                        ");
             EndContext();
             BeginContext(533, 77, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "c5146c194e0445f184a82aa0ea727eb8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "095e1eca111243638061bccf7d12bf4f", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -126,12 +126,12 @@ AddHtmlAttributeValue("", 552, Model.Product.Images, 552, 21, false);
             WriteLiteral("                            ");
             EndContext();
             BeginContext(878, 355, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9d08d3520a794f5faed6e4ca75eb18cf", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "14a415c66eed4896934ea94c410ba697", async() => {
                 BeginContext(990, 34, true);
                 WriteLiteral("\r\n                                ");
                 EndContext();
                 BeginContext(1024, 79, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2f5445c12da144f19bef33f578c33ffa", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "125cacef483b452ab3990eb21c158d61", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();

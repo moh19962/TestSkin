@@ -35,20 +35,20 @@
                                 €@prods.Productprice,-
                             </div>
 
-                            @*@if (User.Identity.IsAuthenticated)
+                            @if (User.Identity.IsAuthenticated)
                             {
                                 var roleId = Convert.ToInt32(User.Claims.Where(claim => claim.Type == "Role").Select(claim => claim.Value).SingleOrDefault());
                                 if (roleId == 1)
-                                {*@
-                            <form method="post" asp-controller="Cart" asp-action="AddToCart" asp-route-ProductId="@prods.ProductID">
-                                @*<a href="@Url.Action("Product", "Products", new { test = prods.ProductID})" ></a>*@
-                                <div class="btnSubmit">
-                                    <input type="text" value="1" asp-for="Product.Amount" style="width: 20px" />
-                                    <button type="submit" name="update" value="update" class="navbar-btn btn btn-default"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>
-                                </div>
-                            </form>
-                            @*}
-                            }*@
+                                {
+                                    <form method="post" asp-controller="Cart" asp-action="AddToCart" asp-route-ProductId="@prods.ProductID">
+                                        @*<a href="@Url.Action("Product", "Products", new { test = prods.ProductID})" ></a>*@
+                                        <div class="btnSubmit">
+                                            <input type="text" value="1" asp-for="Product.Amount" style="width: 20px" />
+                                            <button type="submit" name="update" value="update" class="navbar-btn btn btn-default"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>
+                                        </div>
+                                    </form>
+                                }
+                            }
                         </div>
 
                     </div>

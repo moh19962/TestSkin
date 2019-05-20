@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Logic;
 using SkinShop.ViewModel.User;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SkinShop.Controllers
 {
+    [Authorize]
     public class ProfileController : Controller
     {
         private UserLogic userlogic = new UserLogic();

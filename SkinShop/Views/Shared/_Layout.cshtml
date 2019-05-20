@@ -41,32 +41,14 @@
                 </ul>
                 <ul class="nav navbar-nav">
                     <li>
-                        <a asp-controller="Product" asp-action="AddProduct">AddProduct</a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li>
                         <a asp-controller="Cart" asp-action="Cartz">Cart</a>
                     </li>
                 </ul>
+
                 @if (User.Identity.IsAuthenticated)
 
                 {
                     var roleId = Convert.ToInt32(User.Claims.Where(claim => claim.Type == "Role").Select(claim => claim.Value).SingleOrDefault());
-                    if (roleId <= 1) //Klant
-                    {
-
-                        @*<ul class="nav navbar-nav">
-                    <li>
-                        <a asp-controller="Product" asp-action="Products">Producten</a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a asp-controller="Cart" asp-action="Cart">Winkelwagen</a>
-                    </li>
-                </ul>*@
-                    }
                     if (roleId == 1)
                     {
                         <ul class="nav navbar-nav">
@@ -82,6 +64,14 @@
                         <ul class="nav navbar-nav">
                             <li>
                                 <a asp-controller="Order" asp-action="OrderOverview">Orders</a>
+                            </li>
+                        </ul>
+                    }
+                    if (roleId == 2)
+                    {
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a asp-controller="Profile" asp-action="Profile">Profile</a>
                             </li>
                         </ul>
                         <nav id="primary_nav_wrap">
@@ -108,14 +98,6 @@
                         </nav>
                     }
 
-                    if (roleId == 2)
-                    {
-                        <ul class="nav navbar-nav">
-                            <li>
-                                <a asp-controller="Beheer" asp-action="Beheer">ProductManagment</a>
-                            </li>
-                        </ul>
-                    }
 
                     <div class="rechterkant">
                         <ul class="nav navbar-nav">
