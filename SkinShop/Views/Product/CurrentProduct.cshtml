@@ -9,7 +9,45 @@
             </div>
         </div>
 
-        <div class="ProductSection">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="~/images/@Model.Product.Images" id="imageKalibratie" alt="random" height="450" width="350">
+                </div>
+                <div class="col-md-7">
+                    <p class="newarrival text-center">@Model.Product.Type</p>
+                    <h2>@Model.Product.Productname</h2>
+                    <p>@Model.Product.ProductID</p>
+                    <p class="price"> euro € @Model.Product.Productprice</p>
+                    <p><b>Availability:</b> In stock</p>
+                    <label>Quantity:</label>
+
+                    @if (User.Identity.IsAuthenticated)
+
+                    {
+
+                        <form method="post" asp-controller="Cart" asp-action="AddToCart" asp-route-ProductID="@Model.Product.ProductID">
+                            <input type="text" value="1" asp-for="@Model.Product.Amount">
+                            <button type="submit" class="btn btn-dark">Add to cart</button>
+                        </form>
+                    }
+
+                </div>
+                <br>
+
+                <div class="col-md-7">
+                    <p>
+                          @Model.Product.Description
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        @*<div class="ProductSection1">
             <h3>@Model.Product.Productname</h3>
             <div class="wrapper">
                 <div id="sectionProduct">
@@ -26,10 +64,10 @@
 
                         {
 
-                            <form method="post" asp-controller="Cart" asp-action="AddToCart" asp-route-ProductId="@Model.Product.ProductID">
-                                <input hidden asp-for="@Model.Product.Amount" value="1" class="form-control" />
-                                <button class="btn btn-success" id="btnSucces">add</button>
-                            </form>
+                        <form method="post" asp-controller="Cart" asp-action="AddToCart" asp-route-ProductId="@Model.Product.ProductID">
+                            <input type="text" value="1" asp-for="@Model.Product.Amount">
+                            <button type="button" class="btn btn-dark">Dark</button>
+                        </form>
                         }
 
                         <hr id="hrCurrentProduct">
@@ -40,6 +78,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*@
     </div>
 </div>
