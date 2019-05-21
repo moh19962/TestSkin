@@ -1,0 +1,159 @@
+﻿@model SkinShop.ViewModel.Cart.CartViewModel
+
+@{
+    var sum = 0;
+}
+<div class="rowz">
+
+</div>
+<div class="container">
+    <div class="products">
+        <div class="txt-heading">Shopping Cart</div>
+
+
+        <form method="post" asp-controller="Order" asp-action="PlaceOrder">
+
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.OrderList)
+                    {
+                        <tr>
+                            <th scope="row">@item.Product.ProductID</th>
+                            <input type="hidden" asp-for="cart.Product.ProductID" value="@item.Product.ProductID" />
+                            <td>
+                                <label>@item.Product.Productname</label>
+                                <input type="hidden" asp-for="cart.Product.Productname" value="@item.Product.Productname" />
+
+                            </td>
+
+                            <td>
+                                <input type="text" id="inputquantity" size="3" maxlength="2" value="@item.Amount" asp-for="cart.Amount" />
+                            </td>
+
+                            <td>
+                                <label>@item.Product.Productprice</label>
+                                <input type="hidden" asp-for="cart.Product.Productprice" value="@item.Product.Productprice" />
+                            </td>
+
+                            <td>
+                                <label>@item.SubTotal</label>
+                                <input type="hidden" asp-for="cart.SubTotal" value="@item.SubTotal" />
+                            </td>
+
+                            <td>
+                                <input type="hidden" value="item.Amount" asp-for="cart.Amount" />
+                            </td>
+                        </tr>
+                    }
+
+                    <tr>
+                        @foreach (var x in Model.OrderList)
+                        {
+                            sum = Convert.ToInt32(x.SubTotal) + sum;
+                        }
+
+                        <td colspan="6" align=right>
+                            <strong>
+                                Totale Kosten : @sum
+                            </strong>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </form>
+    </div>
+</div>
+
+
+
+@*@model SkinShop.ViewModel.Cart.CartViewModel
+
+@{
+    var sum = 0;
+}
+<div class="rowz">
+
+</div>
+<div class="container">
+    <div class="products">
+        <div class="txt-heading">Shopping Cart</div>
+
+
+        <form method="post" asp-controller="Order" asp-action="PlaceOrder">
+
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.OrderList)
+                    {
+                        <tr>
+                            <th scope="row">@item.Product.ProductID</th>
+                            <input type="hidden" asp-for="cart.Product.ProductID" value="@item.Product.ProductID" />
+                            <td>
+                                <label>@item.Product.Productname</label>
+                                <input type="hidden" asp-for="cart.Product.Productname" value="@item.Product.Productname" />
+
+                            </td>
+
+                            <td>
+                                <input type="text" id="inputquantity" size="3" maxlength="2" value="@item.Amount" asp-for="cart.Amount" />
+                            </td>
+
+                            <td>
+                                <label>@item.Product.Productprice</label>
+                                <input type="hidden" asp-for="cart.Product.Productprice" value="@item.Product.Productprice" />
+                            </td>
+
+                            <td>
+                                <label>@item.SubTotal</label>
+                                <input type="hidden" asp-for="cart.SubTotal" value="@item.SubTotal" />
+                            </td>
+
+                            <td>
+                                <input type="hidden" value="item.Amount" asp-for="cart.Amount" />
+                            </td>
+                        </tr>
+                    }
+
+                    <tr>
+                        @foreach (var x in Model.OrderList)
+                        {
+                            sum = Convert.ToInt32(x.SubTotal) + sum;
+                        }
+
+                        <td colspan="6" align=right>
+                            <strong>
+                                Totale Kosten : @sum
+                            </strong>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </form>
+    </div>
+</div>*@
+
+

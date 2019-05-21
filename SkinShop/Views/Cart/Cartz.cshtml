@@ -28,33 +28,34 @@
                 <tbody>
                     @foreach (var item in Model.Cart)
                     {
-                        <tr>
-                            <th scope="row">@item.Product.ProductID</th>
-                            <td>
-                                <label>@item.Product.Productname</label>
-                                <input type="hidden" asp-for="cart.Product.Productname" value="@item.Product.Productname" />
+                    <tr>
+                        <th scope="row">@item.Product.ProductID</th>
+                        <input type="hidden" asp-for="cart.Product.ProductID" value="@item.Product.ProductID" />
+                        <td>
+                            <label>@item.Product.Productname</label>
+                            <input type="hidden" asp-for="cart.Product.Productname" value="@item.Product.Productname" />
 
-                            </td>
+                        </td>
 
-                            <td>
-                                <input type="text" id="inputquantity" size="3" maxlength="2" value="@item.Amount" asp-for="cart.Amount" />
-                            </td>
+                        <td>
+                            <input type="text" id="inputquantity" size="3" maxlength="2" value="@item.Amount" asp-for="cart.Amount" />
+                        </td>
 
-                            <td>
-                                <label>@item.Product.Productprice</label>
-                                <input type="hidden" asp-for="cart.Product.Productprice" value="@item.Product.Productprice" />
-                            </td>
+                        <td>
+                            <label>@item.Product.Productprice</label>
+                            <input type="hidden" asp-for="cart.Product.Productprice" value="@item.Product.Productprice" />
+                        </td>
 
-                            <td>
-                                <label>@item.SubTotal</label>
-                                <input type="hidden" asp-for="cart.SubTotal" value="@item.SubTotal" />
-                            </td>
+                        <td>
+                            <label>@item.SubTotal</label>
+                            <input type="hidden" asp-for="cart.SubTotal" value="@item.SubTotal" />
+                        </td>
 
-                            <td>
-                                <input type="hidden" value="item.Amount" asp-for="cart.Amount"/>
-                                <button type="submit" formmethod="post" asp-controller="Cart" asp-action="DeleteProductFromCart" asp-route-ProductID="@item.Product.ProductID">Deletes</button>
-                            </td>
-                        </tr>
+                        <td>
+                            <input type="hidden" value="item.Amount" asp-for="cart.Amount" />
+                            <button type="submit" formmethod="post" asp-controller="Cart" asp-action="DeleteProductFromCart" asp-route-ProductID="@item.Product.ProductID">Deletes</button>
+                        </td>
+                    </tr>
                     }
                     <tr>
 
@@ -69,15 +70,15 @@
                             </strong>
                         </td>
                         @*<form method="post" asp-controller="Product" asp-action="UpdateCart">
-                <td style="text-align:right;border-bottom:#F0F0F0 1px solid;"><button type="submit">Update</button></td>
-            </form>*@
+                            <td style="text-align:right;border-bottom:#F0F0F0 1px solid;"><button type="submit">Update</button></td>
+                        </form>*@
                     </tr>
 
                 </tbody>
                 
 
             </table>
-            @*<button type="submit" formmethod="post" asp-controller="Product" asp-action="UpdateCart" asp-route-ProductID="Product.ProductID">Update</button>*@
+           
 
             <div class="buttonBestel">
                 <button type="submit" name="bestellen">Order</button>

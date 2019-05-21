@@ -8,5 +8,6 @@ namespace Interfaces
     public interface IOrderContext
     {
         void PlaceOrder(Cart order, int UserId);
+        List<Order> GetOrders(int UserId);
     }
 }
