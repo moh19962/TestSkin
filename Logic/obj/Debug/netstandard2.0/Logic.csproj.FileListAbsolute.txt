@@ -14,5 +14,3 @@ C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Logic\obj\
 C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Logic\obj\Debug\netstandard2.0\Logic.pdb
 C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Logic\bin\Debug\netstandard2.0\Model.dll
 C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Logic\bin\Debug\netstandard2.0\Model.pdb
-C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Logic\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.dll
-C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Logic\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.xml

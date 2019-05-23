@@ -7,8 +7,9 @@ namespace Model
     public class Cart
     {
         public int CartID { get; set; }
-        public int UserID { get; set; }
+        public User User { get; set; }
         public Product Product { get; set; }
+        public List<Product> Products { get; set; }
         public int Amount { get; set; }
         public int SubTotal { get; set; }
         public DateTime Date { get; set; }

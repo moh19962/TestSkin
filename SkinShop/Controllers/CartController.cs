@@ -31,7 +31,7 @@ namespace SkinShop.Controllers
         public IActionResult Cartz()
         {
             int userID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-            cartViewModel.Cart = cartLogic.GetProductsFromCart(userID);
+            cartViewModel.ProductList = cartLogic.GetProductsFromCart(userID);
             return View(cartViewModel);
         }
 
@@ -42,13 +42,5 @@ namespace SkinShop.Controllers
             cartLogic.DeleteProductFromCart(UserID, ProductID);
             return RedirectToAction("Cartz", "Cart");
         }
-
-        //public IActionResult UpdateCart(int ProductID, int Amount)
-        //{
-        //    int UserID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-        //    //int Amount = cartViewModel.cart.Amount;
-        //    cartLogic.UpdateCart(UserID, ProductID, Amount);
-        //    return RedirectToAction("Cartz", "Cart");
-        //}
     }
 }

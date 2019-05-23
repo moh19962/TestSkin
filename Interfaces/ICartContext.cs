@@ -7,7 +7,7 @@ namespace Interfaces
 {
     public interface ICartContext
     {
-        List<Cart> GetProductsFromCart(int UserId);
+        List<Product> GetProductsFromCart(int UserId);
         void AddToCart(int productID, int userID, int Amount);
         int CheckProductID(int productID, int userID);
         void UpdateAmount(int CartID, int Amount);

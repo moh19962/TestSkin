@@ -26,14 +26,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.Cart)
+                    @foreach (var item in Model.ProductList)
                     {
                     <tr>
-                        <th scope="row">@item.Product.ProductID</th>
-                        <input type="hidden" asp-for="cart.Product.ProductID" value="@item.Product.ProductID" />
+                        <th scope="row">@item.ProductID</th>
+                        <input type="hidden" asp-for="cart.Product.ProductID" value="@item.ProductID" />
+                        
                         <td>
-                            <label>@item.Product.Productname</label>
-                            <input type="hidden" asp-for="cart.Product.Productname" value="@item.Product.Productname" />
+                            <label>@item.Productname</label>
+                            <input type="hidden" value="@item.Productname" />
 
                         </td>
 
@@ -42,24 +43,24 @@
                         </td>
 
                         <td>
-                            <label>@item.Product.Productprice</label>
-                            <input type="hidden" asp-for="cart.Product.Productprice" value="@item.Product.Productprice" />
+                            <label>@item.Productprice</label>
+                            <input type="hidden" value="@item.Productprice" />
                         </td>
 
                         <td>
                             <label>@item.SubTotal</label>
-                            <input type="hidden" asp-for="cart.SubTotal" value="@item.SubTotal" />
+                            <input type="hidden" value="@item.SubTotal" />
                         </td>
 
                         <td>
                             <input type="hidden" value="item.Amount" asp-for="cart.Amount" />
-                            <button type="submit" formmethod="post" asp-controller="Cart" asp-action="DeleteProductFromCart" asp-route-ProductID="@item.Product.ProductID">Deletes</button>
+                            <button type="submit" formmethod="post" asp-controller="Cart" asp-action="DeleteProductFromCart" asp-route-ProductID="@item.ProductID">Deletes</button>
                         </td>
                     </tr>
                     }
                     <tr>
 
-                        @foreach (var x in Model.Cart)
+                        @foreach (var x in Model.ProductList)
                         {
                             sum = Convert.ToInt32(x.SubTotal) + sum;
                         }

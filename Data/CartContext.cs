@@ -12,11 +12,11 @@ namespace Data
         private string ConnectionString { get; set; } = "Data Source=moooserver.database.windows.net;Initial Catalog=SkinShopz;User ID=MohammadParwani;Password=Hunstongtid6;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
 
-        public List<Cart> GetProductsFromCart(int UserID)
+        public List<Product> GetProductsFromCart(int UserID)
         {
             try
             {
-                List<Cart> productCartList = new List<Cart>();
+                List<Product> productCartList = new List<Product>();
 
 
                 string query = "SELECT Cart.CartID, Cart.UserID, Product.ProductID, Product.ProductName, Product.Type, Cart.Amount, Product.ProductPrice FROM Cart inner join Product on Cart.ProductID = Product.ProductID WHERE UserID = @UserID";
@@ -33,12 +33,10 @@ namespace Data
                     while (reader.Read())
                     {
 
-                        Cart cartProducts = new Cart();
-                        cartProducts.CartID = Convert.ToInt32(reader["CartID"]);
-                        cartProducts.UserID = Convert.ToInt32(reader["UserID"]);
-                        cartProducts.Product.ProductID = Convert.ToInt32(reader["ProductID"]);
-                        cartProducts.Product.Productname = reader["ProductName"].ToString();
-                        cartProducts.Product.Productprice = Convert.ToDouble(reader["ProductPrice"]);
+                        Product cartProducts = new Product();
+                        cartProducts.ProductID = Convert.ToInt32(reader["ProductID"]);
+                        cartProducts.Productname = reader["ProductName"].ToString();
+                        cartProducts.Productprice = Convert.ToDouble(reader["ProductPrice"]);
                         cartProducts.Amount = Convert.ToInt32(reader["Amount"]);
                         productCartList.Add(cartProducts);
                     }
