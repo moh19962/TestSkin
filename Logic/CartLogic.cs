@@ -11,16 +11,18 @@ namespace Logic
     {
         private ICartContext cartcontext = new CartContext();
 
-        public List<Product> GetProductsFromCart(int userID)
+        public Cart GetProductsFromCart(int userID)
         {
-            List<Product> productCartList = cartcontext.GetProductsFromCart(userID);
-            foreach (Product product in productCartList)
+            Cart cart = new Cart();
+
+            cart.Products = cartcontext.GetProductsFromCart(userID);
+            
+            foreach (Product product in cart.Products)
             {
-                //Subtotal mag niet bij product staan. Moet bij winkelwagen staan.
                 product.SubTotal = (int)Convert.ToDouble(product.Productprice * product.Amount);
 
             }
-            return productCartList;
+            return cart;
         }
 
         public void AddToCart(int ProductID, int UserID, int Amount)

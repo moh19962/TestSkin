@@ -11,9 +11,15 @@ namespace Logic
     {
         private IOrderContext ordercontext = new OrderContext();
 
-        public void PlaceOrder(Cart order, int UserId)
+        //public void PlaceOrder(List<Product> cartProducts, int UserId)
+        //{
+        //    ordercontext.PlaceOrder(cartProducts, UserId);
+        //}
+
+
+        public void PlaceOrder(Order order)
         {
-            ordercontext.PlaceOrder(order, UserId);
+            ordercontext.PlaceOrder(order);
         }
 
         //public void PlaceOrder(Cart order, int UserId)
@@ -21,12 +27,12 @@ namespace Logic
         //    ordercontext.PlaceOrder(order, UserId);
         //}
 
-        public List<Order> GetOrders(int UserId)
+        public List<Product> GetOrders(int UserId)
         {
-            List<Order> OrderList = ordercontext.GetOrders(UserId);
-            foreach (Order order in OrderList)
+            List<Product> OrderList = ordercontext.GetOrders(UserId);
+            foreach (Product order in OrderList)
             {
-                order.SubTotal = (int)Convert.ToDouble(order.Product.Productprice * order.Amount);
+                order.SubTotal = (int)Convert.ToDouble(order.Productprice * order.Amount);
             }
             return OrderList;
         }

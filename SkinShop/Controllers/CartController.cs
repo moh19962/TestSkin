@@ -31,7 +31,7 @@ namespace SkinShop.Controllers
         public IActionResult Cartz()
         {
             int userID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-            cartViewModel.ProductList = cartLogic.GetProductsFromCart(userID);
+            cartViewModel.cart = cartLogic.GetProductsFromCart(userID);
             return View(cartViewModel);
         }
 
