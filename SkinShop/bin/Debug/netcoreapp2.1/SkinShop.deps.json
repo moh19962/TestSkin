@@ -630,6 +630,7 @@
           "Data": "1.0.0",
           "Interfaces": "1.0.0",
           "Model": "1.0.0",
+          "Repository": "1.0.0",
           "System.Data.SqlClient": "4.6.0"
         },
         "runtime": {
@@ -648,6 +649,19 @@
         },
         "compile": {
           "Model.dll": {}
+        }
+      },
+      "Repository/1.0.0": {
+        "dependencies": {
+          "Data": "1.0.0",
+          "Interfaces": "1.0.0",
+          "System.Data.SqlClient": "4.6.0"
+        },
+        "runtime": {
+          "Repository.dll": {}
+        },
+        "compile": {
+          "Repository.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3802,6 +3816,11 @@
       "sha512": ""
     },
     "Model/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Repository/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

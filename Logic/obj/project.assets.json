@@ -255,6 +255,21 @@
         "runtime": {
           "bin/placeholder/Model.dll": {}
         }
+      },
+      "Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Data": "1.0.0",
+          "Interfaces": "1.0.0",
+          "System.Data.SqlClient": "4.6.0"
+        },
+        "compile": {
+          "bin/placeholder/Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Repository.dll": {}
+        }
       }
     }
   },
@@ -868,6 +883,11 @@
       "type": "project",
       "path": "../Model/Model.csproj",
       "msbuildProject": "../Model/Model.csproj"
+    },
+    "Repository/1.0.0": {
+      "type": "project",
+      "path": "../Repository/Repository.csproj",
+      "msbuildProject": "../Repository/Repository.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -876,6 +896,7 @@
       "Interfaces >= 1.0.0",
       "Model >= 1.0.0",
       "NETStandard.Library >= 2.0.3",
+      "Repository >= 1.0.0",
       "System.Data.SqlClient >= 4.6.0"
     ]
   },
@@ -917,6 +938,9 @@
             },
             "C:\\Users\\moham\\OneDrive\\Documenten\\SEMESTER 2.3 HER\\SOFTWARE\\TestSkin\\Model\\Model.csproj": {
               "projectPath": "C:\\Users\\moham\\OneDrive\\Documenten\\SEMESTER 2.3 HER\\SOFTWARE\\TestSkin\\Model\\Model.csproj"
+            },
+            "C:\\Users\\moham\\OneDrive\\Documenten\\SEMESTER 2.3 HER\\SOFTWARE\\TestSkin\\Repository\\Repository.csproj": {
+              "projectPath": "C:\\Users\\moham\\OneDrive\\Documenten\\SEMESTER 2.3 HER\\SOFTWARE\\TestSkin\\Repository\\Repository.csproj"
             }
           }
         }

@@ -13,6 +13,7 @@
           "Interfaces": "1.0.0",
           "Model": "1.0.0",
           "NETStandard.Library": "2.0.3",
+          "Repository": "1.0.0",
           "System.Data.SqlClient": "4.6.0"
         },
         "runtime": {
@@ -166,6 +167,16 @@
         "runtime": {
           "Model.dll": {}
         }
+      },
+      "Repository/1.0.0": {
+        "dependencies": {
+          "Data": "1.0.0",
+          "Interfaces": "1.0.0",
+          "System.Data.SqlClient": "4.6.0"
+        },
+        "runtime": {
+          "Repository.dll": {}
+        }
       }
     }
   },
@@ -298,6 +309,11 @@
       "sha512": ""
     },
     "Model/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Repository/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

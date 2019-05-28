@@ -17,6 +17,7 @@ namespace Model
 
         public Order()
         {
+            User = new User();
             Product = new Product();
         }
     }

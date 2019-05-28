@@ -15,7 +15,6 @@ namespace SkinShop.Controllers
     public class OrderController : Controller
     {
         OrderViewModel orderViewModel = new OrderViewModel();
-        CartViewModel cartViewModel = new CartViewModel();
         OrderLogic orderlogic = new OrderLogic();
         CartLogic cartLogic = new CartLogic();
         public IActionResult Index()
@@ -35,32 +34,13 @@ namespace SkinShop.Controllers
         [HttpPost]
         public IActionResult PlaceOrder(CartViewModel viewModel)//( Winkelwagen winkelwagen)
         {
-            //int userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
             Order order = new Order();
             order.Cart = new Cart();
-            order.Cart.Products = viewModel.ProductList;
+            order.User.UserID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
+            //order.Cart.Products = viewModel.ProductList;
+            order.Cart.Products = viewModel.cart.Products;
             orderlogic.PlaceOrder(order);
             return RedirectToAction("Order");
         }
-
-
-        //public IActionResult PlaceOrder(CartViewModel viewModel)//( Winkelwagen winkelwagen)
-        //{
-        //    int userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-        //    cartViewModel.ProductList = cartLogic.GetProductsFromCart(userId);
-        //    List<Product> order = viewModel.ProductList;
-        //    orderlogic.PlaceOrder(order, userId);
-        //    return RedirectToAction("Order");
-        //}
-
-        //[Authorize]
-        //[HttpPost]
-        //public IActionResult PlaceOrder(CartViewModel viewModel)//( Winkelwagen winkelwagen)
-        //{
-        //    var order = viewModel.cart;
-        //    int userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-        //    orderlogic.PlaceOrder(order, userId);
-        //    return RedirectToAction("Order");
-        //}
     }
 }

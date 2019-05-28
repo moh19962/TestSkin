@@ -11,6 +11,7 @@ namespace SkinShop.ViewModel.Cart
         public List<Model.Cart> Cart { get; set; } = new List<Model.Cart>();
         public List<Model.Product> ProductList { get; set; } = new List<Model.Product>();
         public Model.Cart cart { get; set; }
+        public CartViewModel cartViewModel {get; set;} 
 
         public CartViewModel()
         {
