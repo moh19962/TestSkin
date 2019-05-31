@@ -11,6 +11,7 @@ namespace Logic
     public class ProductLogic
     {
         private ProductRepo productRepo = new ProductRepo();
+        //private IProductContext productcontext = new ProductContext();
 
         public List<Product> GetProducts()
         {

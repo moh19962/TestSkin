@@ -26,9 +26,16 @@ namespace SkinShop.Controllers
         public IActionResult Order()
         {
             int userID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-            orderViewModel.ProductList = orderlogic.GetOrders(userID);
+            orderViewModel.order = orderlogic.GetOrder(userID);
             return View(orderViewModel);
         }
+
+        //public IActionResult Order()
+        //{
+        //    int userID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
+        //    orderViewModel.ProductList = orderlogic.GetOrder(userID);
+        //    return View(orderViewModel);
+        //}
 
         [Authorize]
         [HttpPost]
@@ -38,8 +45,9 @@ namespace SkinShop.Controllers
             order.Cart = new Cart();
             order.User.UserID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
             //order.Cart.Products = viewModel.ProductList;
-            order.Cart.Products = viewModel.cart.Products;
+            order.Cart = cartLogic.GetProductsFromCart(order.User.UserID);
             orderlogic.PlaceOrder(order);
+            orderlogic.DeletCartTable(order);
             return RedirectToAction("Order");
         }
     }

@@ -11,30 +11,38 @@ namespace Logic
     {
         private IOrderContext ordercontext = new OrderContext();
 
-        //public void PlaceOrder(List<Product> cartProducts, int UserId)
-        //{
-        //    ordercontext.PlaceOrder(cartProducts, UserId);
-        //}
-
 
         public void PlaceOrder(Order order)
         {
             ordercontext.PlaceOrder(order);
         }
 
-        //public void PlaceOrder(Cart order, int UserId)
-        //{
-        //    ordercontext.PlaceOrder(order, UserId);
-        //}
-
-        public List<Product> GetOrders(int UserId)
+        public Order GetOrder(int UserId)
         {
-            List<Product> OrderList = ordercontext.GetOrders(UserId);
-            foreach (Product order in OrderList)
+            Order order = new Order();
+
+            order.Cart.Products = ordercontext.GetOrder(UserId);
+
+            foreach (Product product in order.Cart.Products)
             {
-                order.SubTotal = (int)Convert.ToDouble(order.Productprice * order.Amount);
+                product.SubTotal = (int)Convert.ToDouble(product.Productprice * product.Amount);
             }
-            return OrderList;
+            return order;
         }
+
+        public void DeletCartTable(Order order)
+        {
+            ordercontext.DeletCartTable(order);
+        }
+
+        //public List<Product> GetOrders(int UserId)
+        //{
+        //    List<Product> OrderList = ordercontext.GetOrders(UserId);
+        //    foreach (Product order in OrderList)
+        //    {
+        //        order.SubTotal = (int)Convert.ToDouble(order.Productprice * order.Amount);
+        //    }
+        //    return OrderList;
+        //}
     }
 }

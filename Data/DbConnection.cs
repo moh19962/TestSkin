@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Data
 {
-    public class DbConnection :  IDb
+    public class DbConnection
     {
     }
 }

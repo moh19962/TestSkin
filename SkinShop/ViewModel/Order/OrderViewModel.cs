@@ -8,5 +8,6 @@ namespace SkinShop.ViewModel.Order
     public class OrderViewModel
     {
         public List<Model.Product> ProductList { get; set; } = new List<Model.Product>();
+        public Model.Order order { get; set; }
     }
 }

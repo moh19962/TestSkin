@@ -7,8 +7,20 @@
 
 </div>
 <div class="container">
+    <div>
+        <strong>Bedankt voor u bestelling</strong><br />
+    </div>
+
+    <div>
+        <h1>Factuur</h1><br />
+        <strong>Af te halen:</strong><br />
+        Eindhoven <br />
+        Eindhoven <br />
+        0640982179<br />
+    </div>
+    <br />
     <div class="products">
-        <div class="txt-heading">Shopping Cart</div>
+        <div class="txt-heading">Order </div>
 
 
         <form method="post" asp-controller="Order" asp-action="PlaceOrder">
@@ -25,35 +37,35 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.ProductList)
+                    @foreach (var item in Model.order.Cart.Products)
                     {
-                    <tr>
-                        <th scope="row">@item.ProductID</th>
-                        
-                        <td>
-                            <label>@item.Productname</label>
-                            <input type="hidden" value="@item.Productname" />
+                        <tr>
+                            <th scope="row">@item.ProductID</th>
 
-                        </td>
+                            <td>
+                                <label>@item.Productname</label>
+                                <input type="hidden" value="@item.Productname" />
 
-                        <td>
-                            <input type="text" id="inputquantity" size="3" maxlength="2" value="@item.Amount" />
-                        </td>
+                            </td>
 
-                        <td>
-                            <label>@item.Productprice</label>
-                            <input type="hidden" value="@item.Productprice" />
-                        </td>
+                            <td>
+                                <input type="text" id="inputquantity" size="3" maxlength="2" value="@item.Amount" />
+                            </td>
 
-                        <td>
-                            <label>@item.SubTotal</label>
-                            <input type="hidden" value="@item.SubTotal" />
-                        </td>
-                    </tr>
+                            <td>
+                                <label>@item.Productprice</label>
+                                <input type="hidden" value="@item.Productprice" />
+                            </td>
+
+                            <td>
+                                <label>@item.SubTotal</label>
+                                <input type="hidden" value="@item.SubTotal" />
+                            </td>
+                        </tr>
                     }
                     <tr>
 
-                        @foreach (var x in Model.ProductList)
+                        @foreach (var x in Model.order.Cart.Products)
                         {
                             sum = Convert.ToInt32(x.SubTotal) + sum;
                         }
@@ -65,10 +77,10 @@
                         </td>
                     </tr>
 
-                </tbody>   
+                </tbody>
 
             </table>
-           
+
 
             <div class="buttonBestel">
                 <button type="submit" name="bestellen">Printen</button>

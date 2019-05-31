@@ -41,7 +41,7 @@
                 </ul>
                 <ul class="nav navbar-nav">
                     <li>
-                        <a asp-controller="Cart" asp-action="Cartz">Cart</a>
+                        <a asp-controller="Cart" asp-action="Cart">Cart</a>
                     </li>
                 </ul>
 
@@ -54,11 +54,6 @@
                         <ul class="nav navbar-nav">
                             <li>
                                 <a asp-controller="Profile" asp-action="Profile">Profile</a>
-                            </li>
-                        </ul>
-                        <ul class="nav navbar-nav">
-                            <li>
-                                <a asp-controller="Order" asp-action="Order">Order</a>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav">
@@ -80,8 +75,10 @@
                                     <a href="#">ProductBeheer</a>
                                     <ul>
                                         <li><a asp-controller="Product" asp-action="ProductManagment">ProductManagment</a></li>
+                                        <li><a asp-controller="Product" asp-action="AddProduct">AddProduct</a></li>
                                     </ul>
                                 </li>
+
                             </ul>
                         </nav>
 

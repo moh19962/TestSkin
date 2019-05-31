@@ -9,7 +9,6 @@ namespace Model
         public int OrderId { get; set; }
         public Product Product { get; set; }
         public Cart Cart { get; set; }
-        public int Amount { get; set; }
         public int Total { get; set; }
         public DateTime Date { get; set; }
         public User User { get; set; }
@@ -19,6 +18,7 @@ namespace Model
         {
             User = new User();
             Product = new Product();
+            Cart = new Cart();
         }
     }
 }

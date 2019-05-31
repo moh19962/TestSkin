@@ -17,16 +17,16 @@
     <div class="col-lg-6">
         <form method="post" enctype="multipart/form-data">
             <label asp-for="product.Type" class="control-label">Type</label><br />
-            <input asp-for="product.Type" class="form-control" />
+            <input asp-for="product.Type" class="form-control" required/>
 
             <label asp-for="product.Productname" class="control-label">Name</label><br />
-            <input asp-for="product.Productname" class="form-control" />
+            <input asp-for="product.Productname" class="form-control" type="text" required/>
 
             <label asp-for="product.Productprice" class="control-label">Prijs</label><br />
-            <input asp-for="product.Productprice" class="form-control" />
+            <input asp-for="product.Productprice" class="form-control"  type="number" required/>
 
             <label asp-for="product.Description" class="control-label">Description</label><br />
-            <input asp-for="product.Description" class="form-control" />
+            <input asp-for="product.Description" class="form-control" type="text" required/>
 
             <br />
             <input type="file" asp-for="Image" />
@@ -37,4 +37,23 @@
         </form>
     </div>
     <div class="col-lg-3"></div>
+    <script>
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+            }, false);
+            });
+            }, false);
+            })();
+    </script>
 </div>

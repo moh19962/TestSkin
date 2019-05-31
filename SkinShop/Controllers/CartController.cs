@@ -28,7 +28,7 @@ namespace SkinShop.Controllers
             return RedirectToAction("Products", "Product");
         }
 
-        public IActionResult Cartz()
+        public IActionResult Cart()
         {
             int userID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
             cartViewModel.cart = cartLogic.GetProductsFromCart(userID);
@@ -40,7 +40,7 @@ namespace SkinShop.Controllers
         {
             int UserID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
             cartLogic.DeleteProductFromCart(UserID, ProductID);
-            return RedirectToAction("Cartz", "Cart");
+            return RedirectToAction("Cart", "Cart");
         }
     }
 }

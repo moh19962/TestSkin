@@ -26,11 +26,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.ProductList)
+                    @foreach (var item in Model.cart.Products)
                     {
                         <tr>
                             <th scope="row">@item.ProductID</th>
-                            <input type="hidden" value="@item.ProductID" />
 
                             <td>
                                 <label>@item.Productname</label>
@@ -49,7 +48,6 @@
 
                             <td>
                                 <label>@item.SubTotal</label>
-                                <input type="hidden" value="@item.SubTotal" />
                             </td>
 
                             <td>
@@ -60,7 +58,7 @@
                     }
                     <tr>
 
-                        @foreach (var x in Model.ProductList)
+                        @foreach (var x in Model.cart.Products)
                         {
                             sum = Convert.ToInt32(x.SubTotal) + sum;
                         }
@@ -70,9 +68,6 @@
                                 Totale Kosten : @sum
                             </strong>
                         </td>
-                        @*<form method="post" asp-controller="Product" asp-action="UpdateCart">
-                                <td style="text-align:right;border-bottom:#F0F0F0 1px solid;"><button type="submit">Update</button></td>
-                            </form>*@
                     </tr>
 
                 </tbody>
