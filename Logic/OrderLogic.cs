@@ -17,6 +17,7 @@ namespace Logic
             ordercontext.PlaceOrder(order);
         }
 
+
         public Order GetOrder(int UserId)
         {
             Order order = new Order();
@@ -29,6 +30,19 @@ namespace Logic
             }
             return order;
         }
+
+        //public Order GetOrder(int UserId)
+        //{
+        //    Order order = new Order();
+
+        //    order.Cart.Products = ordercontext.GetOrder(UserId);
+
+        //    foreach (Product product in order.Cart.Products)
+        //    {
+        //        product.SubTotal = (int)Convert.ToDouble(product.Productprice * product.Amount);
+        //    }
+        //    return order;
+        //}
 
         public void DeletCartTable(Order order)
         {
