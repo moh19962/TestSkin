@@ -1,10 +1,25 @@
 ﻿@*@model Killer.ViewModels.Product.ProductViewModel*@
 @model SkinShop.ViewModel.Product.ProductSpecificationViewModel
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable .eachproduct").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+
+</script>
 
 <div class="container">
     <div class="content">
         <div class="topsearch-section">
             <div class="searchSection">
+
+
                 <div class="span5 align-right sm-align-left">
                     <form class="woocommerce-ordering" method="get">
                         <select name="orderby" class="orderby">
@@ -16,10 +31,11 @@
                             <option value="price-desc">Sort by price: high to low</option>
                         </select>
                     </form>
+                    <input id="myInput" type="text" placeholder="Search..">
                 </div>
             </div>
         </div>
-        <div class="ProductSection">
+        <div class="ProductSection" id="myTable">
 
             @foreach (var prods in Model.Products)
             {

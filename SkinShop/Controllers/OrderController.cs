@@ -50,5 +50,11 @@ namespace SkinShop.Controllers
             orderlogic.DeletCartTable(order);
             return RedirectToAction("Order");
         }
+
+        [Authorize]
+        public IActionResult PayMethod()
+        {
+            return View("PayMethod");
+        }
     }
 }

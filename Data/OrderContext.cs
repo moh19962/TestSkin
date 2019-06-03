@@ -44,7 +44,7 @@ namespace Data
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                         cmd.Parameters.Add(new SqlParameter("@UserID", order.User.UserID));
-                        cmd.Parameters.Add(new SqlParameter("@Total", order.SubTotal));
+                        cmd.Parameters.Add(new SqlParameter("@Total", order.Total));
                     
                     conn.Open();
                     cmd.ExecuteNonQuery();

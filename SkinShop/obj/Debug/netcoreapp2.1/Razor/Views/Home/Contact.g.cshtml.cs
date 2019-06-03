@@ -97,7 +97,7 @@ using SkinShop.Models;
                 ");
             EndContext();
             BeginContext(1925, 2211, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "86672ef6072f4253ae0e728e93c9c81e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f12860a58584af6a1001c10915e9c5f", async() => {
                 BeginContext(2032, 2097, true);
                 WriteLiteral(@"
                     <!-- Name -->

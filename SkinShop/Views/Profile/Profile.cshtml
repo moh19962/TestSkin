@@ -16,19 +16,19 @@
     <div class="col-lg-6">
         <form method="post">
             <label class="control-label">Name</label><br />
-            <input asp-for="User.Name" class="form-control" value="@Model.User.Name" />
+            <input asp-for="User.Name" type="text" class="form-control"  value="@Model.User.Name" required/>
 
 
             <label class="control-label">LastName</label><br />
-            <input asp-for="User.Lastname" class="form-control" value="@Model.User.Lastname" />
+            <input asp-for="User.Lastname" type="text" class="form-control" value="@Model.User.Lastname" required/>
 
 
             <label class="control-label">Email</label><br />
-            <input asp-for="User.Email" class="form-control" type="text" value="@Model.User.Email" />
+            <input asp-for="User.Email" type="email" class="form-control" value="@Model.User.Email" required/>
 
 
             <label class="control-label">Password</label><br />
-            <input asp-for="User.Password" class="form-control" type="password" value="@Model.User.Password" />
+            <input asp-for="User.Password" type="password" class="form-control" value="@Model.User.Password" required/>
 
             <br />
             <div class="btnAlignCenter">
