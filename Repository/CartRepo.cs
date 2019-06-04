@@ -21,17 +21,27 @@ namespace Repository
         }
 
 
+        //public Cart GetProductsFromCart(int userID)
+        //{
+        //    Cart cart = new Cart();
+
+        //    cart.Products = _cartcontext.GetProductsFromCart(userID);
+
+        //    foreach (Product product in cart.Products)
+        //    {
+        //        product.SubTotal = (int)Convert.ToDouble(product.Productprice * product.Amount);
+
+        //    }
+        //    return cart;
+        //}
+
+
         public Cart GetProductsFromCart(int userID)
         {
             Cart cart = new Cart();
 
             cart.Products = _cartcontext.GetProductsFromCart(userID);
 
-            foreach (Product product in cart.Products)
-            {
-                product.SubTotal = (int)Convert.ToDouble(product.Productprice * product.Amount);
-
-            }
             return cart;
         }
 

@@ -22,7 +22,7 @@ namespace Logic
         {
             Order order = new Order();
 
-            order.Cart.Products = ordercontext.GetOrder(UserId);
+            order = ordercontext.GetOrder(UserId);
 
             foreach (Product product in order.Cart.Products)
             {

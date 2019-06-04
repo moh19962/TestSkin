@@ -9,7 +9,8 @@ namespace Interfaces
     {
         void PlaceOrder(Order order);
         //void PlaceOrder(Order cart, int UserId);
-        List<Product> GetOrder(int UserId);
+        //List<Product> GetOrder(int UserId);
+        Order GetOrder(int UserId);
         void DeletCartTable(Order order);
     }
 }

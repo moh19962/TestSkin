@@ -37,14 +37,16 @@ namespace Data
 
         public void PlaceOrder(Order order)
         {
-            string query = $"INSERT INTO Orders(UserID, Total) VALUES(@UserID, @Total)";
+            DateTime da = DateTime.Now;
+            string date = da.ToString("dd/MM/YYYY");
+            string query = $"INSERT INTO Orders(UserID, Date) VALUES(@UserID, @Date)";
 
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                         cmd.Parameters.Add(new SqlParameter("@UserID", order.User.UserID));
-                        cmd.Parameters.Add(new SqlParameter("@Total", order.Total));
+                        cmd.Parameters.Add(new SqlParameter("@Date", da));
                     
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -80,14 +82,14 @@ namespace Data
         }
 
         
-        public List<Product> GetOrder(int UserId)
+        public Order GetOrder(int UserId)
         {
-            var Order = GetLastOrderID();
+            Order order = GetLastOrderID();
             try
             {
-                List<Product> GetProductList = new List<Product>();
+                order.Cart.Products = new List<Product>();
 
-                string query = "SELECT Orders.OrderID, Orders.UserID, Order_Product.Amount, Orders.Total, Product.ProductID, Product.ProductName, Product.ProductPrice FROM Orders inner join Order_Product on Orders.OrderID = Order_Product.OrderID INNER JOIN Product ON Order_Product.ProductID = Product.ProductID WHERE UserID = @UserID AND Orders.OrderID = @OrderID";
+                string query = "SELECT Orders.OrderID, Orders.UserID, Orders.Date, Order_Product.Amount, Product.ProductID, Product.ProductName, Product.ProductPrice FROM Orders inner join Order_Product on Orders.OrderID = Order_Product.OrderID INNER JOIN Product ON Order_Product.ProductID = Product.ProductID WHERE UserID = @UserID AND Orders.OrderID = @OrderID";
 
 
                 
@@ -95,7 +97,7 @@ namespace Data
                 {
                     SqlCommand cmd = new SqlCommand(query, connection);
                     cmd.Parameters.Add(new SqlParameter("@UserID", UserId));
-                    cmd.Parameters.Add(new SqlParameter("@OrderID", Order.OrderId));
+                    cmd.Parameters.Add(new SqlParameter("@OrderID", order.OrderId));
 
                     connection.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -107,12 +109,15 @@ namespace Data
                         product.Productname = reader["ProductName"].ToString();
                         product.Productprice = Convert.ToDouble(reader["ProductPrice"]);
                         product.Amount = Convert.ToInt32(reader["Amount"]);
+                        order.User.UserID = Convert.ToInt32(reader["UserID"]);
+                        order.Date = Convert.ToDateTime(reader["Date"]);
+                        //order.Total = Convert.ToInt32(reader["Total"]);
                         //order.Date = Convert.ToDateTime(reader["Date"]);
                         //order.Total = Convert.ToInt32(reader["Total"]);
-                        GetProductList.Add(product);
+                        order.Cart.Products.Add(product);
                     }
 
-                    return GetProductList;
+                    return order;
                 }
             }
             catch (Exception)

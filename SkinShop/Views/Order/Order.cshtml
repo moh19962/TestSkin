@@ -8,13 +8,13 @@
 </div>
 <div class="container">
     <div>
-        <strong>Bedankt voor u bestelling</strong><br />
+        <strong>Bedankt voor u bestelling @Model.order.User.Name</strong><br />
     </div>
 
     <div>
         <h1>Factuur</h1><br />
-        <strong>Af te halen:</strong><br />
-        Eindhoven <br />
+        <strong>Gegevens:</strong><br />
+        SkinShop <br />
         Eindhoven <br />
         0640982179<br />
     </div>
@@ -39,29 +39,33 @@
                 <tbody>
                     @foreach (var item in Model.order.Cart.Products)
                     {
-                        <tr>
-                            <th scope="row">@item.ProductID</th>
+                    <tr>
+                        <td>
+                            <label>@item.ProductID</label>
+                            <input type="hidden" value="@item.ProductID" />
 
-                            <td>
-                                <label>@item.Productname</label>
-                                <input type="hidden" value="@item.Productname" />
+                        </td>
 
-                            </td>
+                        <td>
+                            <label>@item.Productname</label>
+                            <input type="hidden" value="@item.Productname" />
 
-                            <td>
-                                <input type="text" id="inputquantity" size="3" maxlength="2" value="@item.Amount" />
-                            </td>
+                        </td>
 
-                            <td>
-                                <label>@item.Productprice</label>
-                                <input type="hidden" value="@item.Productprice" />
-                            </td>
+                        <td>
+                            <input type="text" id="inputquantity" size="3" maxlength="2" value="@item.Amount" />
+                        </td>
 
-                            <td>
-                                <label>@item.SubTotal</label>
-                                <input type="hidden" value="@item.SubTotal" />
-                            </td>
-                        </tr>
+                        <td>
+                            <label>@item.Productprice</label>
+                            <input type="hidden" value="@item.Productprice" />
+                        </td>
+
+                        <td>
+                            <label>@item.SubTotal</label>
+                            <input type="hidden" value="@item.SubTotal" />
+                        </td>
+                    </tr>
                     }
                     <tr>
 

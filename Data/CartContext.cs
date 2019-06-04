@@ -55,7 +55,7 @@ namespace Data
         {
             string query = $"INSERT INTO Cart(UserID, ProductID, Amount) VALUES(@userID, @productID, @Amount)";
 
-            using (SqlConnection conn = new SqlConnection(this.ConnectionString))
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -74,7 +74,7 @@ namespace Data
 
             string query = "SELECT CartID FROM Cart WHERE ProductID = @ProductID AND UserID = @UserID";
 
-            using (SqlConnection conn = new SqlConnection(this.ConnectionString))
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.Add(new SqlParameter("@ProductID", ProductID));
@@ -95,7 +95,7 @@ namespace Data
         {
             string query = $"UPDATE Cart SET Amount += @Amount WHERE CartID = @CartID";
 
-            using (SqlConnection conn = new SqlConnection(this.ConnectionString))
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -113,7 +113,7 @@ namespace Data
             //string query = "DELETE FROM Cart WHERE ProductID = @ProductID;";
             string query = "DELETE FROM Cart WHERE UserID = @UserID AND ProductID = @ProductID;";
 
-            using (SqlConnection conn = new SqlConnection(this.ConnectionString))
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -125,11 +125,26 @@ namespace Data
             }
         }
 
+        public void DeleteCart(int UserID)
+        {
+            string query = $"Delete FROM Cart WHERE UserID = @UserID";
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.Add(new SqlParameter("@userID", UserID));
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         public void UpdateCart(int UserID, int ProductID, int Amount)
         {
             string query = $"UPDATE Cart SET Amount = @Amount WHERE ProductID = @ProductID AND UserID = @UserID";
 
-            using (SqlConnection conn = new SqlConnection(this.ConnectionString))
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {

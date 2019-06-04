@@ -12,6 +12,7 @@ namespace Interfaces
         int CheckProductID(int productID, int userID);
         void UpdateAmount(int CartID, int Amount);
         void DeleteProductFromCart(int UserID, int ProductID);
+        void DeleteCart(int UserID);
         void UpdateCart(int UserID, int ProductID, int Amount);
     }
 }
