@@ -15,7 +15,7 @@ namespace SkinShop.Controllers
     public class OrderController : Controller
     {
         OrderViewModel orderViewModel = new OrderViewModel();
-        OrderLogic orderlogic = new OrderLogic();
+        OrderLogic orderLogic = new OrderLogic();
         CartLogic cartLogic = new CartLogic();
         public IActionResult Index()
         {
@@ -26,28 +26,21 @@ namespace SkinShop.Controllers
         public IActionResult Order()
         {
             int userID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-            orderViewModel.order = orderlogic.GetOrder(userID);
+            orderViewModel.order = orderLogic.GetOrder(userID);
             return View(orderViewModel);
         }
 
-        //public IActionResult Order()
-        //{
-        //    int userID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-        //    orderViewModel.ProductList = orderlogic.GetOrder(userID);
-        //    return View(orderViewModel);
-        //}
 
         [Authorize]
         [HttpPost]
-        public IActionResult PlaceOrder(CartViewModel viewModel)//( Winkelwagen winkelwagen)
+        public IActionResult PlaceOrder(CartViewModel viewModel)
         {
             Order order = new Order();
             order.Cart = new Cart();
             order.User.UserID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-            //order.Cart.Products = viewModel.ProductList;
             order.Cart = cartLogic.GetProductsFromCart(order.User.UserID);
-            orderlogic.PlaceOrder(order);
-            orderlogic.DeletCartTable(order);
+            orderLogic.PlaceOrder(order);
+            orderLogic.DeletCartTable(order);
             return RedirectToAction("Order");
         }
 

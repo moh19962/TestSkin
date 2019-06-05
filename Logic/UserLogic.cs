@@ -12,26 +12,26 @@ namespace Logic
     {
         private UserRepo userRepo = new UserRepo();
 
-        public User GetUser(int UserID)
+        public User GetUser(int userId)
         {
-            User user = userRepo.GetUser(UserID);
+            User user = userRepo.GetUser(userId);
 
             return user;
         }
-        public void UpdateUser(User account, int userID)
+        public void UpdateUser(User account, int userId)
         {
-            userRepo.UpdateUser(account, userID);
+            userRepo.UpdateUser(account, userId);
         }
 
         //Admin
-        public List<User> getAdmins()
+        public List<User> GetAdmins()
         {
-            List<User> adminList = userRepo.getAdmins();
+            List<User> adminList = userRepo.GetAdmins();
             return adminList;
         }
-        public void DeleteAdmin(int UserID)
+        public void DeleteAdmin(int userId)
         {
-            userRepo.DeleteAdmin(UserID);
+            userRepo.DeleteAdmin(userId);
         }
     }
 

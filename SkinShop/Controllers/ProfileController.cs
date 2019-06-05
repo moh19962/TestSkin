@@ -12,7 +12,7 @@ namespace SkinShop.Controllers
     [Authorize]
     public class ProfileController : Controller
     {
-        private UserLogic userlogic = new UserLogic();
+        private UserLogic userLogic = new UserLogic();
         ProfileViewModel viewModel = new ProfileViewModel();
 
         public IActionResult Index()
@@ -23,7 +23,7 @@ namespace SkinShop.Controllers
         public IActionResult Profile()
         {
             int userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-            viewModel.User = userlogic.GetUser(userId);
+            viewModel.User = userLogic.GetUser(userId);
             return View(viewModel);
         }
 
@@ -33,7 +33,7 @@ namespace SkinShop.Controllers
             var data = viewModel.User;
 
             int userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-            userlogic.UpdateUser(data, userId);
+            userLogic.UpdateUser(data, userId);
 
             return View(viewModel);
         }

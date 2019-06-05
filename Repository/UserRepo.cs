@@ -9,35 +9,35 @@ namespace Repository
 {
     public class UserRepo
     {
-        private readonly IUserContext _usercontext;
+        private readonly IUserContext _userContext;
         public UserRepo(IUserContext context)
         {
-            _usercontext = context;
+            _userContext = context;
         }
 
         public UserRepo()
         {
-            _usercontext = new UserContext();
+            _userContext = new UserContext();
         }
 
-        public User GetUser(int userID)
+        public User GetUser(int userId)
         {
-            return _usercontext.GetUser(userID);
+            return _userContext.GetUser(userId);
         }
 
-        public void UpdateUser(User account, int userID)
+        public void UpdateUser(User account, int userId)
         {
-             _usercontext.UpdateUser(account, userID);
+            _userContext.UpdateUser(account, userId);
         }
-        public List<User> getAdmins()
+        public List<User> GetAdmins()
         {
-            List<User> adminList = _usercontext.getAdmins();
+            List<User> adminList = _userContext.GetAdmins();
             return adminList;
         }
 
-        public void DeleteAdmin(int UserID)
+        public void DeleteAdmin(int userId)
         {
-            _usercontext.DeleteAdmin(UserID);
+            _userContext.DeleteAdmin(userId);
         }
     }
 }

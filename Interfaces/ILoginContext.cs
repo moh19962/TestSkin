@@ -8,6 +8,6 @@ namespace Interfaces
     public interface ILoginContext
     {
         User GetUser(string email);
-        void LoginUser(string Name, string LastName);
+        void LoginUser(string name, string lastName);
     }
 }

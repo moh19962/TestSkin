@@ -12,7 +12,7 @@ namespace Data
         private string ConnectionString { get; set; } = "Data Source=moooserver.database.windows.net;Initial Catalog=SkinShopz;User ID=MohammadParwani;Password=Hunstongtid6;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
 
-        public void LoginUser(string Name, string LastName)
+        public void LoginUser(string name, string lastName)
         {
             string query = $"INSERT INTO [Users](Name, LastName, Email, Password, Role) VALUES(@Name, @Lastname, @Email, @PassWord, @RoleID)";
 
@@ -20,8 +20,8 @@ namespace Data
             {
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.Add(new SqlParameter("@Name", Name));
-                    cmd.Parameters.Add(new SqlParameter("@LastName", LastName));
+                    cmd.Parameters.Add(new SqlParameter("@Name", name));
+                    cmd.Parameters.Add(new SqlParameter("@LastName", lastName));
                     conn.Open();
                     cmd.ExecuteNonQuery();
                 }
@@ -31,7 +31,7 @@ namespace Data
         public User GetUser(string email)
         {
 
-            User userdetails = new User();
+            User userDetails = new User();
 
             string query = "SELECT * FROM Users WHERE Email = @Email";
 
@@ -48,14 +48,14 @@ namespace Data
                 }
                 while (reader.Read())
                 {
-                    userdetails.UserID = Convert.ToInt32(reader["UserID"]);
-                    userdetails.Email = reader["Email"].ToString();
-                    userdetails.Name = reader["Name"].ToString();
-                    userdetails.Password = reader["Password"].ToString();
-                    userdetails.RoleId = Convert.ToInt32(reader["Role"]);
+                    userDetails.UserID = Convert.ToInt32(reader["UserID"]);
+                    userDetails.Email = reader["Email"].ToString();
+                    userDetails.Name = reader["Name"].ToString();
+                    userDetails.Password = reader["Password"].ToString();
+                    userDetails.RoleId = Convert.ToInt32(reader["Role"]);
                 }
 
-                return userdetails;
+                return userDetails;
             }
 
 

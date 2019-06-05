@@ -16,11 +16,9 @@ namespace SkinShop.Controllers
     public class ProductController : Controller
     {
 
-        ProductViewModel viewModel = new ProductViewModel();
         ProductSpecificationViewModel productSpecificatie = new ProductSpecificationViewModel();
-        CartViewModel cartViewModel = new CartViewModel();
 
-        private ProductLogic productlogic = new ProductLogic();
+        private ProductLogic productLogic = new ProductLogic();
         private IHostingEnvironment _hostingEnvironment;
 
         public ProductController(IHostingEnvironment environment)
@@ -35,14 +33,13 @@ namespace SkinShop.Controllers
 
         public IActionResult Products()
         {
-            productSpecificatie.Products = productlogic.GetProducts();
+            productSpecificatie.Products = productLogic.GetProducts();
             return View(productSpecificatie);
         }
 
-        public IActionResult CurrentProduct(int productID)
+        public IActionResult CurrentProduct(int productId)
         {
-            //productSpecificatie.CurrentProduct = productlogic.GetCurrentProduct(productID);
-            productSpecificatie.Product = productlogic.GetProductByID(productID);
+            productSpecificatie.Product = productLogic.GetProductById(productId);
             return View(productSpecificatie);
         }
 
@@ -62,7 +59,7 @@ namespace SkinShop.Controllers
             products.Images = productImageFileName;
 
 
-            productlogic.AddProduct(products);
+            productLogic.AddProduct(products);
             //Add image to root of app
             string mapRoot = "images/";
 
@@ -102,33 +99,33 @@ namespace SkinShop.Controllers
         //ProductWijzigen/Verwijderen
         public IActionResult ProductManagment()
         {
-            productSpecificatie.Products = productlogic.GetProducts();
+            productSpecificatie.Products = productLogic.GetProducts();
 
             return View(productSpecificatie);
         }
 
         [Authorize]
         [HttpPost]
-        public IActionResult DeleteProduct(int productID)
+        public IActionResult DeleteProduct(int productId)
         {
-            productlogic.DeleteProduct(productID);
+            productLogic.DeleteProduct(productId);
 
             return RedirectToAction("ProductManagment");
         }
 
         [Authorize]
         //Update product pagina
-        public IActionResult UpdateProduct(ProductSpecificationViewModel viewModel, int productID)
+        public IActionResult UpdateProduct(ProductSpecificationViewModel viewModel, int productId)
         {
-            productSpecificatie.Product = productlogic.GetProductByID(productID);
+            productSpecificatie.Product = productLogic.GetProductById(productId);
             return View(productSpecificatie);
         }
 
         [HttpPost]
-        public IActionResult EditProduct(ProductSpecificationViewModel viewModel, int productID)
+        public IActionResult EditProduct(ProductSpecificationViewModel viewModel, int productId)
         {
             var products = viewModel.Product;
-            productlogic.EditProduct(products);
+            productLogic.EditProduct(products);
 
             return RedirectToAction("ProductManagment");
         }

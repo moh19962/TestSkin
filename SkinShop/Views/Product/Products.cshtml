@@ -41,7 +41,7 @@ $(document).ready(function(){
             {
                 <div class="eachproduct">
                     <div class="inner_eachproduct">
-                        <a class="btn-default" asp-controller="Product" asp-action="CurrentProduct" asp-route-ProductID="@prods.ProductID">
+                        <a class="btn-default" asp-controller="Product" asp-action="CurrentProduct" asp-route-productId="@prods.ProductID">
                             <div class="images"><img src="~/images/@prods.Images" alt="Mountain View" class="center" height="300" width="200"></div>
                             <div class="productname">@prods.Productname</div>
                             <input type="hidden" name="@prods.ProductID" id="Pid" />
@@ -56,7 +56,7 @@ $(document).ready(function(){
                                 var roleId = Convert.ToInt32(User.Claims.Where(claim => claim.Type == "Role").Select(claim => claim.Value).SingleOrDefault());
                                 if (roleId == 1)
                                 {
-                                    <form method="post" asp-controller="Cart" asp-action="AddToCart" asp-route-ProductID="@prods.ProductID">
+                                    <form method="post" asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@prods.ProductID">
                                         @*<a href="@Url.Action("Product", "Products", new { test = prods.ProductID})" ></a>*@
                                         <div class="btnSubmit">
                                             <input type="text" value="1" asp-for="Product.Amount" style="width: 20px" />

@@ -27,7 +27,7 @@
 
                     {
 
-                        <form method="post" asp-controller="Cart" asp-action="AddToCart" asp-route-ProductIDz="@Model.Product.ProductID">
+                        <form method="post" asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@Model.Product.ProductID">
                             <input type="text" value="1" asp-for="@Model.Product.Amount">
                             <button type="submit" class="btn btn-dark">Add to cart</button>
                         </form>
@@ -43,41 +43,5 @@
                 </div>
             </div>
         </div>
-
-
-
-
-        @*<div class="ProductSection1">
-            <h3>@Model.Product.Productname</h3>
-            <div class="wrapper">
-                <div id="sectionProduct">
-                    <div class="productImage">
-                        <img src="~/images/@Model.Product.Images" alt="ass" height="450" width="450">
-                    </div>
-                    <div class="productInfo">
-
-                        <h4>€@Model.Product.Productprice</h4>
-
-
-
-                        @if (User.Identity.IsAuthenticated)
-
-                        {
-
-                        <form method="post" asp-controller="Cart" asp-action="AddToCart" asp-route-ProductId="@Model.Product.ProductID">
-                            <input type="text" value="1" asp-for="@Model.Product.Amount">
-                            <button type="button" class="btn btn-dark">Dark</button>
-                        </form>
-                        }
-
-                        <hr id="hrCurrentProduct">
-                        <hr>
-                    </div>
-                    <div class="description">
-                        @Model.Product.Description
-                    </div>
-                </div>
-            </div>
-        </div>*@
     </div>
 </div>

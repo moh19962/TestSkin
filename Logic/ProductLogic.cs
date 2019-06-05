@@ -15,13 +15,13 @@ namespace Logic
 
         public List<Product> GetProducts()
         {
-            List<Product> ProductList = productRepo.GetProducts();
-            return ProductList;
+            List<Product> productList = productRepo.GetProducts();
+            return productList;
         }
 
-        public Product GetProductByID(int productID)
+        public Product GetProductById(int productId)
         {
-            return productRepo.GetProductByID(productID);
+            return productRepo.GetProductById(productId);
 
         }
 
@@ -41,9 +41,9 @@ namespace Logic
             productRepo.EditProduct(product);
         }
 
-        public void DeleteProduct(int productID)
+        public void DeleteProduct(int productId)
         {
-            productRepo.DeleteProduct(productID);
+            productRepo.DeleteProduct(productId);
         }
 
 

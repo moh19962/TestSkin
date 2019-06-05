@@ -9,42 +9,42 @@ namespace Repository
 {
     public class ProductRepo
     {
-        private readonly IProductContext _productcontext;
+        private readonly IProductContext _productContext;
         public ProductRepo(IProductContext context)
         {
-            _productcontext = context;
+            _productContext = context;
         }
 
         public ProductRepo()
         {
-            _productcontext = new ProductContext();
+            _productContext = new ProductContext();
         }
 
         public List<Product> GetProducts()
         {
-            List<Product> ProductList = _productcontext.GetProducts();
-            return ProductList;
+            List<Product> productList = _productContext.GetProducts();
+            return productList;
         }
 
-        public Product GetProductByID(int productID)
+        public Product GetProductById(int productId)
         {
-            return _productcontext.GetProductByID(productID);
+            return _productContext.GetProductById(productId);
 
         }
 
         public void AddProduct(Product product)
         {
-            _productcontext.AddProduct(product);
+            _productContext.AddProduct(product);
         }
 
         public void EditProduct(Product product)
         {
-            _productcontext.EditProduct(product);
+            _productContext.EditProduct(product);
         }
 
-        public void DeleteProduct(int productID)
+        public void DeleteProduct(int productId)
         {
-            _productcontext.DeleteProduct(productID);
+            _productContext.DeleteProduct(productId);
         }
     }
 }

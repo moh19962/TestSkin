@@ -9,10 +9,8 @@ namespace Interfaces
     {
         void AddProduct(Product product);
         List<Product> GetProducts();
-        //List<Product> GetCurrentProduct(int productID);
-        //List<Product> ProductSpecifications(int productID);
-        Product GetProductByID(int ProductID);
+        Product GetProductById(int productId);
         void EditProduct(Product product);
-        void DeleteProduct(int ProductID);
+        void DeleteProduct(int productId);
     }
 }

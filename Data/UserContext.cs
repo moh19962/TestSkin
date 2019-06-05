@@ -11,31 +11,31 @@ namespace Data
     {
         private string ConnectionString { get; set; } = "Data Source=moooserver.database.windows.net;Initial Catalog=SkinShopz;User ID=MohammadParwani;Password=Hunstongtid6;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        public User GetUser(int UserID)
+        public User GetUser(int userId)
         {
 
-            User userdetails = new User();
+            User userDetails = new User();
 
             string query = "SELECT * FROM Users WHERE UserID = @UserID";
 
             using (SqlConnection connection = new SqlConnection(this.ConnectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.Add(new SqlParameter("@UserID", UserID));
+                command.Parameters.Add(new SqlParameter("@UserID", userId));
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    userdetails.UserID = Convert.ToInt32(reader["UserID"]);
-                    userdetails.Name = reader["Name"].ToString();
-                    userdetails.Lastname = reader["LastName"].ToString();
-                    userdetails.Email = reader["Email"].ToString();
-                    userdetails.Password = reader["Password"].ToString();
-                    userdetails.RoleId = Convert.ToInt32(reader["Role"]);
+                    userDetails.UserID = Convert.ToInt32(reader["UserID"]);
+                    userDetails.Name = reader["Name"].ToString();
+                    userDetails.Lastname = reader["LastName"].ToString();
+                    userDetails.Email = reader["Email"].ToString();
+                    userDetails.Password = reader["Password"].ToString();
+                    userDetails.RoleId = Convert.ToInt32(reader["Role"]);
                 }
 
-                return userdetails;
+                return userDetails;
             }
 
 
@@ -61,9 +61,9 @@ namespace Data
             }
         }
 
-        public List<User> getAdmins()
+        public List<User> GetAdmins()
         {
-            List<User> AdminList = new List<User>();
+            List<User> adminList = new List<User>();
 
             string query = "SELECT * FROM Users WHERE Role = 2";
 
@@ -82,14 +82,14 @@ namespace Data
                     user.Email = reader["Email"].ToString();
                     user.Password = reader["Password"].ToString();
                     user.RoleId = Convert.ToInt32(reader["Role"]);
-                    AdminList.Add(user);
+                    adminList.Add(user);
                 }
 
-                return AdminList;
+                return adminList;
             }
         }
 
-        public void DeleteAdmin(int UserID)
+        public void DeleteAdmin(int userId)
         {
             string query = "DELETE FROM Users WHERE UserID = @userID;";
 
@@ -97,7 +97,7 @@ namespace Data
             {
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.Add(new SqlParameter("@userID", UserID));
+                    cmd.Parameters.Add(new SqlParameter("@userID", userId));
                     conn.Open();
                     cmd.ExecuteNonQuery();
                 }

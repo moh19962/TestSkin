@@ -52,7 +52,7 @@
 
                             <td>
                                 <input type="hidden" value="item.Amount" asp-for="cart.Amount" />
-                                <button type="submit" formmethod="post" asp-controller="Cart" asp-action="DeleteProductFromCart" asp-route-ProductID="@item.ProductID">Deletes</button>
+                                <button type="submit" formmethod="post" asp-controller="Cart" asp-action="DeleteProductFromCart" asp-route-productId="@item.ProductID">Deletes</button>
                             </td>
                         </tr>
                     }

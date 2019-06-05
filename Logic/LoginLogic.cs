@@ -9,12 +9,12 @@ namespace Logic
 {
     public class LoginLogic
     {
-        private ILoginContext logincontext = new LoginContext();
+        private ILoginContext loginContext = new LoginContext();
 
-        public User LoginCheck(string email, string userpass)
+        public User LoginCheck(string email, string userPass)
         {
-            User user = logincontext.GetUser(email);
-            if (email == user.Email && userpass == user.Password)
+            User user = loginContext.GetUser(email);
+            if (email == user.Email && userPass == user.Password)
                 return user;
             else
                 return null;

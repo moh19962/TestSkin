@@ -16,7 +16,7 @@
                 <div class="Outereachproduct">
                     <div class="editeachproduct">
                         <div class="inner_eachproduct">
-                            <a class="btn-default" asp-controller="Product" asp-action="UpdateProduct" asp-route-productID="@prods.ProductID">
+                            <a class="btn-default" asp-controller="Product" asp-action="UpdateProduct" asp-route-productId="@prods.ProductID">
                                 <div class="images"><img src="~/images/@prods.Images" alt="Mountain View" height="300" width="200"></div>
                                 <div class="productname">@prods.Productname</div>
                                 <input type="hidden" value="@prods.ProductID" />
@@ -26,10 +26,10 @@
 
                     <div id="beheerbuttons">
                         <p>
-                            <form method="post" asp-controller="Product" asp-action="UpdateProduct" asp-route-productID="@prods.ProductID">
+                            <form method="post" asp-controller="Product" asp-action="UpdateProduct" asp-route-productId="@prods.ProductID">
                                 <button class="btn btn-success" id="btnAdminSucces">Wijzig</button>
                             </form>
-                            <form method="post" asp-controller="Product" asp-action="DeleteProduct" asp-route-productID="@prods.ProductID">
+                            <form method="post" asp-controller="Product" asp-action="DeleteProduct" asp-route-productId="@prods.ProductID">
                                 <button class="btn btn-danger" id="btnAdminDanger">Verwijder</button>
                             </form>
                         </p>

@@ -7,9 +7,9 @@ namespace Interfaces
 {
     public interface IUserContext
     {
-        User GetUser(int UserID);
+        User GetUser(int userId);
         void UpdateUser(User account, int userId);
-        List<User> getAdmins();
-        void DeleteAdmin(int UserID);
+        List<User> GetAdmins();
+        void DeleteAdmin(int userId);
     }
 }

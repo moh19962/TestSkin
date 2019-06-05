@@ -9,20 +9,20 @@ namespace Logic
 {
     public class OrderLogic
     {
-        private IOrderContext ordercontext = new OrderContext();
+        private IOrderContext orderContext = new OrderContext();
 
 
         public void PlaceOrder(Order order)
         {
-            ordercontext.PlaceOrder(order);
+            orderContext.PlaceOrder(order);
         }
 
 
-        public Order GetOrder(int UserId)
+        public Order GetOrder(int userId)
         {
             Order order = new Order();
 
-            order = ordercontext.GetOrder(UserId);
+            order = orderContext.GetOrder(userId);
 
             foreach (Product product in order.Cart.Products)
             {
@@ -31,32 +31,10 @@ namespace Logic
             return order;
         }
 
-        //public Order GetOrder(int UserId)
-        //{
-        //    Order order = new Order();
-
-        //    order.Cart.Products = ordercontext.GetOrder(UserId);
-
-        //    foreach (Product product in order.Cart.Products)
-        //    {
-        //        product.SubTotal = (int)Convert.ToDouble(product.Productprice * product.Amount);
-        //    }
-        //    return order;
-        //}
 
         public void DeletCartTable(Order order)
         {
-            ordercontext.DeletCartTable(order);
+            orderContext.DeletCartTable(order);
         }
-
-        //public List<Product> GetOrders(int UserId)
-        //{
-        //    List<Product> OrderList = ordercontext.GetOrders(UserId);
-        //    foreach (Product order in OrderList)
-        //    {
-        //        order.SubTotal = (int)Convert.ToDouble(order.Productprice * order.Amount);
-        //    }
-        //    return OrderList;
-        //}
     }
 }

@@ -34,7 +34,7 @@ namespace Data
         public List<Product> GetProducts()
         {
 
-            List<Product> productdetails = new List<Product>();
+            List<Product> productDetails = new List<Product>();
 
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
@@ -51,16 +51,16 @@ namespace Data
                     product.Productprice = Convert.ToDouble(reader["ProductPrice"]);
                     product.Images = reader["Image"].ToString();
                     product.Type = reader["Type"].ToString();
-                    productdetails.Add(product);
+                    productDetails.Add(product);
                 }
 
-                return productdetails;
+                return productDetails;
             }
 
         }
 
 
-        public Product GetProductByID(int ProductID)
+        public Product GetProductById(int ProductId)
         {
 
             Product product = new Product();
@@ -70,7 +70,7 @@ namespace Data
 
                 SqlCommand command = new SqlCommand("GetProductByID", connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@ProductID", ProductID));
+                command.Parameters.Add(new SqlParameter("@ProductID", ProductId));
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
@@ -138,28 +138,8 @@ namespace Data
             }
         }
 
-        //public void EditProduct(Product product)
-        //{
-        //    string query = $"UPDATE Product SET ProductName = @ProductName, ProductPrice = @ProductPrice, Image = @Image, Type = @Type, Description = @Description  WHERE ProductID = @ProductID";
 
-        //    using (SqlConnection conn = new SqlConnection(this.ConnectionString))
-        //    {
-        //        using (SqlCommand cmd = new SqlCommand(query, conn))
-        //        {
-        //            cmd.Parameters.Add(new SqlParameter("@ProductID", product.ProductID));
-        //            cmd.Parameters.Add(new SqlParameter("@ProductName", product.Productname));
-        //            cmd.Parameters.Add(new SqlParameter("@ProductPrice", product.Productprice));
-        //            cmd.Parameters.Add(new SqlParameter("@Image", product.Images));
-        //            cmd.Parameters.Add(new SqlParameter("@Description", product.Description));
-        //            cmd.Parameters.Add(new SqlParameter("@Type", product.Type));
-        //            conn.Open();
-        //            cmd.ExecuteNonQuery();
-        //        }
-        //    }
-        //}
-
-
-        public void DeleteProduct(int productID)
+        public void DeleteProduct(int productId)
         {
             string query = "DELETE FROM Product WHERE ProductID = @ProductID;";
 
@@ -167,7 +147,7 @@ namespace Data
             {
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.Add(new SqlParameter("ProductID", productID));
+                    cmd.Parameters.Add(new SqlParameter("ProductID", productId));
                     conn.Open();
                     cmd.ExecuteNonQuery();
                 }
