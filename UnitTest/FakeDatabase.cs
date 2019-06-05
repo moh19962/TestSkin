@@ -24,8 +24,8 @@ namespace UnitTest
             {
                 User user = new User();
                 user.UserID = 2;
-                user.Name = "Thomas";
-                user.Lastname = "van der Pol";
+                user.Name = "Mauk";
+                user.Lastname = "van de Beek";
                 user.Password = "pass";
                 user.RoleId = 2;
                 return user;
