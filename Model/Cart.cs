@@ -17,6 +17,7 @@ namespace Model
         public Cart()
         {
             //Product = new Product();
+            User = new User();
         }
     }
 }

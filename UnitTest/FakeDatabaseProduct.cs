@@ -6,7 +6,7 @@ using System.Text;
 
 namespace UnitTest
 {
-    class FakeDatabaseProduct : IProductContext
+    public class FakeDatabaseProduct : IProductContext
     {
         public void AddProduct(Product product)
         {
@@ -14,7 +14,7 @@ namespace UnitTest
         }
         public List<Product> GetProducts()
         {
-            List<Product> ProdList = new List<Product>();
+            List<Product> prodList = new List<Product>();
             Product product = new Product();
             product.ProductID = 1;
             product.Productname = "Ninja";
@@ -30,10 +30,10 @@ namespace UnitTest
             product2.Productname = "asznee";
             product2.Productprice = 7;
 
-            ProdList.Add(product);
-            ProdList.Add(product1);
-            ProdList.Add(product2);
-            return ProdList;
+            prodList.Add(product);
+            prodList.Add(product1);
+            prodList.Add(product2);
+            return prodList;
 
         }
         public Product GetProductByID(int ProductID)
@@ -44,7 +44,7 @@ namespace UnitTest
         {
             throw new NotImplementedException();
         }
-        public void DeleteProduct(int ProductIDt)
+        public void DeleteProduct(int ProductID)
         {
             throw new NotImplementedException();
         }

@@ -62,7 +62,7 @@ using SkinShop.Models;
             WriteLiteral("\r\n<div class=\"rowz\">\r\n\r\n</div>\r\n<div class=\"container\">\r\n    <div class=\"products\">\r\n        <div class=\"txt-heading\">Admin</div>\r\n\r\n\r\n        ");
             EndContext();
             BeginContext(192, 1275, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "48c45392c03d46e1a7c063766cc28932", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9a4df1b4bc87418f8dd0f27959ecd8aa", async() => {
                 BeginContext(259, 393, true);
                 WriteLiteral(@"
 
@@ -119,7 +119,7 @@ using SkinShop.Models;
                 WriteLiteral("</label>\r\n                            </td>\r\n                            <td>\r\n                                <label>");
                 EndContext();
                 BeginContext(1165, 136, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2d8b5027954c409895ee07424c81310a", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "522720dd616e4060b99101d9759ffb3f", async() => {
                     BeginContext(1285, 7, true);
                     WriteLiteral("Deletes");
                     EndContext();
