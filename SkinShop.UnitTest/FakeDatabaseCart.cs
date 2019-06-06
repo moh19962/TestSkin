@@ -48,6 +48,29 @@ namespace UnitTest
             }
         }
 
+        public Cart GetSubTotal(int productPrice, int amount)
+        {
+            Cart cart = new Cart();
+
+            cart.Products = new List<Product>();
+
+                Product product = new Product();
+                cart.User.UserID = 1;
+                product.ProductID = 1;
+                product.Productname = "Ninja";
+                product.Productprice = productPrice;
+                product.Amount = amount;
+
+                cart.Products.Add(product);
+
+                foreach (Product products in cart.Products)
+                {
+                    products.SubTotal = (int)Convert.ToDouble(products.Productprice * products.Amount);
+
+                }
+            return cart;
+        }
+
         //public Cart GetProductsFromCart(int userId)
         //{
         //    Cart cart = new Cart();

@@ -9,13 +9,13 @@ namespace Logic
 {
     public class CartLogic
     {
-        private ICartContext cartcontext = new CartContext();
+        private readonly ICartContext _cartContext = new CartContext();
 
-        public Cart GetProductsFromCart(int userID)
+        public Cart GetProductsFromCart(int userId)
         {
             Cart cart = new Cart();
 
-            cart.Products = cartcontext.GetProductsFromCart(userID);
+            cart.Products = _cartContext.GetProductsFromCart(userId);
             
             foreach (Product product in cart.Products)
             {
@@ -25,30 +25,30 @@ namespace Logic
             return cart;
         }
 
-        public void AddToCart(int ProductID, int UserID, int Amount)
+        public void AddToCart(int productId, int userId, int amount)
         {
-            int productInCartID = cartcontext.CheckProductID(ProductID, UserID);
-            if (productInCartID != 0)
+            int productInCartId = _cartContext.CheckProductID(productId, userId);
+            if (productInCartId != 0)
             {
-                cartcontext.UpdateAmount(productInCartID, Amount);
+                _cartContext.UpdateAmount(productInCartId, amount);
             }
             else
             {
-                cartcontext.AddToCart(ProductID, UserID, Amount);
+                _cartContext.AddToCart(productId, userId, amount);
             }
         }
 
-        public void DeleteProductFromCart(int UserID, int ProductID)
+        public void DeleteProductFromCart(int userId, int productId)
         {
-            cartcontext.DeleteProductFromCart(UserID, ProductID);
+            _cartContext.DeleteProductFromCart(userId, productId);
         }
-        public void UpdateCart(int UserID, int ProductID, int Amount)
+        public void UpdateCart(int userId, int productId, int amount)
         {
-            cartcontext.UpdateCart(UserID, ProductID, Amount);
+            _cartContext.UpdateCart(userId, productId, amount);
         }
-        public void DeleteCart(int userID)
+        public void DeleteCart(int userId)
         {
-            cartcontext.DeleteCart(userID);
+            _cartContext.DeleteCart(userId);
         }
     }
 }

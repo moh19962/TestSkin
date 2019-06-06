@@ -59,6 +59,34 @@ namespace Data
 
         }
 
+        public List<Product> GetWishList()
+        {
+
+            List<Product> productDetails = new List<Product>();
+
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                SqlCommand command = new SqlCommand("GetProducts", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Product product = new Product();
+                    product.ProductID = Convert.ToInt32(reader["ProductID"]);
+                    product.Productname = reader["ProductName"].ToString();
+                    product.Productprice = Convert.ToDouble(reader["ProductPrice"]);
+                    product.Images = reader["Image"].ToString();
+                    product.Type = reader["Type"].ToString();
+                    productDetails.Add(product);
+                }
+
+                return productDetails;
+            }
+
+        }
+
 
         public Product GetProductById(int productId)
         {

@@ -9,6 +9,7 @@ namespace Interfaces
     {
         void AddProduct(Product product);
         List<Product> GetProducts();
+        List<Product> GetWishList();
         Product GetProductById(int productId);
         void EditProduct(Product product);
         void DeleteProduct(int productId);

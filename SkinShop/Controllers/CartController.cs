@@ -36,10 +36,10 @@ namespace SkinShop.Controllers
         }
 
 
-        public IActionResult DeleteProductFromCart(int ProductID)
+        public IActionResult DeleteProductFromCart(int productId)
         {
             int userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-            _cartLogic.DeleteProductFromCart(userId, ProductID);
+            _cartLogic.DeleteProductFromCart(userId, productId);
             return RedirectToAction("Cart", "Cart");
         }
         public IActionResult DeleteCart()

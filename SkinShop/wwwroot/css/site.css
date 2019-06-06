@@ -109,13 +109,13 @@ sectionProduct {
     padding: 0
 }
 
-    #primary_nav_wrap ul li.current-menu-item {
-        background: #333
-    }
+#primary_nav_wrap ul li.current-menu-item {
+    background: #333
+}
 
-    #primary_nav_wrap ul li:hover {
-        background: #333
-    }
+#primary_nav_wrap ul li:hover {
+    background: #333
+}
 
 #primary_nav_wrap ul ul {
     display: none;

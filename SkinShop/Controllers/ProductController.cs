@@ -36,6 +36,12 @@ namespace SkinShop.Controllers
             return View(_productSpecificatie);
         }
 
+        public IActionResult WishList()
+        {
+            _productSpecificatie.WishListProducts = _productLogic.GetWishList();
+            return View(_productSpecificatie);
+        }
+
         public IActionResult CurrentProduct(int productId)
         {
             _productSpecificatie.Product = _productLogic.GetProductById(productId);

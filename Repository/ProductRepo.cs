@@ -26,6 +26,12 @@ namespace Repository
             return productList;
         }
 
+        public List<Product> GetWishList()
+        {
+            List<Product> wishList = _productContext.GetWishList();
+            return wishList;
+        }
+
         public Product GetProductById(int productId)
         {
             return _productContext.GetProductById(productId);

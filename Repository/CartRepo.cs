@@ -35,7 +35,6 @@ namespace Repository
         //    return cart;
         //}
 
-
         public Cart GetProductsFromCart(int userID)
         {
             Cart cart = new Cart();
@@ -44,6 +43,15 @@ namespace Repository
 
             return cart;
         }
+
+        //public Cart GetProductsFromCart(int userID)
+        //{
+        //    Cart cart = new Cart();
+
+        //    cart.Products = _cartcontext.GetProductsFromCart(userID);
+
+        //    return cart;
+        //}
 
         public void AddToCart(int ProductID, int UserID, int Amount)
         {

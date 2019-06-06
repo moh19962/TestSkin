@@ -18,6 +18,11 @@ namespace Logic
             List<Product> productList = productRepo.GetProducts();
             return productList;
         }
+        public List<Product> GetWishList()
+        {
+            List<Product> wishList = productRepo.GetWishList();
+            return wishList;
+        }
 
         public Product GetProductById(int productId)
         {

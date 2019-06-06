@@ -58,6 +58,18 @@ namespace SkinShop.UnitTest
             Assert.AreEqual(result.Lastname, "Parwani");
         }
 
+        [TestMethod]
+        public void TestMethod4()
+        {
+            //Arrange
+            var logicCart = new FakeDatabaseCart();
+            //Act;
+            var result = logicCart.GetSubTotal(15, 5);
+            //Assert
+            Assert.AreEqual(result.Products[0].SubTotal, 75);
+            
+        }
+
 
     }
 }
