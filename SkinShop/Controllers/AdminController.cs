@@ -10,8 +10,8 @@ namespace SkinShop.Controllers
 {
     public class AdminController : Controller
     {
-        private UserLogic userLogic = new UserLogic();
-        ProfileViewModel profileViewModel = new ProfileViewModel();
+        private readonly UserLogic _userLogic = new UserLogic();
+        readonly ProfileViewModel _profileViewModel = new ProfileViewModel();
 
         public IActionResult Index()
         {
@@ -20,14 +20,14 @@ namespace SkinShop.Controllers
 
         public IActionResult AdminList()
         {
-            profileViewModel.AdminList = userLogic.GetAdmins();
-            return View(profileViewModel);
+            _profileViewModel.AdminList = _userLogic.GetAdmins();
+            return View(_profileViewModel);
         }
 
         [HttpPost]
         public IActionResult DeleteAdmin(int userId)
         {
-            userLogic.DeleteAdmin(userId);
+            _userLogic.DeleteAdmin(userId);
             return RedirectToAction("AdminList");
         }
     }

@@ -14,20 +14,20 @@ namespace SkinShop.Controllers
 {
     public class OrderController : Controller
     {
-        OrderViewModel orderViewModel = new OrderViewModel();
-        OrderLogic orderLogic = new OrderLogic();
-        CartLogic cartLogic = new CartLogic();
+        readonly OrderViewModel _orderViewModel = new OrderViewModel();
+        readonly OrderLogic _orderLogic = new OrderLogic();
+        readonly CartLogic _cartLogic = new CartLogic();
+
         public IActionResult Index()
         {
             return View();
         }
 
-
         public IActionResult Order()
         {
-            int userID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-            orderViewModel.order = orderLogic.GetOrder(userID);
-            return View(orderViewModel);
+            int userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
+            _orderViewModel.order = _orderLogic.GetOrder(userId);
+            return View(_orderViewModel);
         }
 
 
@@ -38,9 +38,9 @@ namespace SkinShop.Controllers
             Order order = new Order();
             order.Cart = new Cart();
             order.User.UserID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-            order.Cart = cartLogic.GetProductsFromCart(order.User.UserID);
-            orderLogic.PlaceOrder(order);
-            orderLogic.DeletCartTable(order);
+            order.Cart = _cartLogic.GetProductsFromCart(order.User.UserID);
+            _orderLogic.PlaceOrder(order);
+            _orderLogic.DeletCartTable(order);
             return RedirectToAction("Order");
         }
 

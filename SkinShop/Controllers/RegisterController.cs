@@ -10,12 +10,7 @@ namespace SkinShop.Controllers
 {
     public class RegisterController : Controller
     {
-        private RegisterLogic registerlogic = new RegisterLogic();
-
-        public IActionResult Index()
-        {
-            return View();
-        }
+        private readonly RegisterLogic _registerLogic = new RegisterLogic();
 
         public IActionResult RegisterCustomer()
         {
@@ -31,7 +26,7 @@ namespace SkinShop.Controllers
         {
             if (viewModel.Name != null && viewModel.LastName != null && viewModel.Email != null && viewModel.Password != null)
             {
-                registerlogic.RegisterUser(viewModel.Name, viewModel.LastName, viewModel.Email, viewModel.Password, 1);
+                _registerLogic.RegisterUser(viewModel.Name, viewModel.LastName, viewModel.Email, viewModel.Password, 1);
                 return RedirectToAction("Index", "home");
             }
             return View("RegisterCustomer", viewModel);
@@ -48,7 +43,7 @@ namespace SkinShop.Controllers
         {
             if (viewModel != null && viewModel.LastName != null && viewModel.Email != null && viewModel.Password != null)
             {
-                registerlogic.RegisterUser(viewModel.Name, viewModel.LastName, viewModel.Email, viewModel.Password, 2);
+                _registerLogic.RegisterUser(viewModel.Name, viewModel.LastName, viewModel.Email, viewModel.Password, 2);
                 return RedirectToAction("Index", "home");
             }
             return View("RegisterAdmin", viewModel);

@@ -11,9 +11,9 @@ namespace SkinShop.Controllers
 {
     public class CartController : Controller
     {
-        CartLogic cartLogic = new CartLogic();
+        readonly CartLogic _cartLogic = new CartLogic();
 
-        CartViewModel cartViewModel = new CartViewModel();
+        readonly CartViewModel _cartViewModel = new CartViewModel();
         public IActionResult Index()
         {
             return View();
@@ -24,28 +24,28 @@ namespace SkinShop.Controllers
         {
             var Amount = viewModel.Product.Amount;
             int UserID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-            cartLogic.AddToCart(ProductID, UserID, Amount);
+            _cartLogic.AddToCart(ProductID, UserID, Amount);
             return RedirectToAction("Products", "Product");
         }
 
         public IActionResult Cart()
         {
             int userID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-            cartViewModel.cart = cartLogic.GetProductsFromCart(userID);
-            return View(cartViewModel);
+            _cartViewModel.cart = _cartLogic.GetProductsFromCart(userID);
+            return View(_cartViewModel);
         }
 
 
         public IActionResult DeleteProductFromCart(int ProductID)
         {
-            int UserID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-            cartLogic.DeleteProductFromCart(UserID, ProductID);
+            int userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
+            _cartLogic.DeleteProductFromCart(userId, ProductID);
             return RedirectToAction("Cart", "Cart");
         }
         public IActionResult DeleteCart()
         {
-            int UserID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-            cartLogic.DeleteCart(UserID);
+            int userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
+            _cartLogic.DeleteCart(userId);
             return RedirectToAction("Cart", "Cart");
         }
     }

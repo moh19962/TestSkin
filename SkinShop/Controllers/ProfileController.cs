@@ -12,8 +12,8 @@ namespace SkinShop.Controllers
     [Authorize]
     public class ProfileController : Controller
     {
-        private UserLogic userLogic = new UserLogic();
-        ProfileViewModel viewModel = new ProfileViewModel();
+        private readonly UserLogic _userLogic = new UserLogic();
+        readonly ProfileViewModel _viewModel = new ProfileViewModel();
 
         public IActionResult Index()
         {
@@ -23,8 +23,8 @@ namespace SkinShop.Controllers
         public IActionResult Profile()
         {
             int userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-            viewModel.User = userLogic.GetUser(userId);
-            return View(viewModel);
+            _viewModel.User = _userLogic.GetUser(userId);
+            return View(_viewModel);
         }
 
         [HttpPost]
@@ -33,7 +33,7 @@ namespace SkinShop.Controllers
             var data = viewModel.User;
 
             int userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-            userLogic.UpdateUser(data, userId);
+            _userLogic.UpdateUser(data, userId);
 
             return View(viewModel);
         }

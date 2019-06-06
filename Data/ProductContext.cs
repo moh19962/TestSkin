@@ -60,7 +60,7 @@ namespace Data
         }
 
 
-        public Product GetProductById(int ProductId)
+        public Product GetProductById(int productId)
         {
 
             Product product = new Product();
@@ -70,7 +70,7 @@ namespace Data
 
                 SqlCommand command = new SqlCommand("GetProductByID", connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add(new SqlParameter("@ProductID", ProductId));
+                command.Parameters.Add(new SqlParameter("@ProductID", productId));
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 

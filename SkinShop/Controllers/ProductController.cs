@@ -15,32 +15,31 @@ namespace SkinShop.Controllers
 {
     public class ProductController : Controller
     {
+        readonly ProductSpecificationViewModel _productSpecificatie = new ProductSpecificationViewModel();
 
-        ProductSpecificationViewModel productSpecificatie = new ProductSpecificationViewModel();
-
-        private ProductLogic productLogic = new ProductLogic();
-        private IHostingEnvironment _hostingEnvironment;
-
-        public ProductController(IHostingEnvironment environment)
-        {
-            _hostingEnvironment = environment;
-        }
+        private readonly ProductLogic _productLogic = new ProductLogic();
+        private readonly IHostingEnvironment _hostingEnvironment;
 
         public IActionResult Index()
         {
             return View();
         }
 
+        public ProductController(IHostingEnvironment environment)
+        {
+            _hostingEnvironment = environment;
+        }
+
         public IActionResult Products()
         {
-            productSpecificatie.Products = productLogic.GetProducts();
-            return View(productSpecificatie);
+            _productSpecificatie.Products = _productLogic.GetProducts();
+            return View(_productSpecificatie);
         }
 
         public IActionResult CurrentProduct(int productId)
         {
-            productSpecificatie.Product = productLogic.GetProductById(productId);
-            return View(productSpecificatie);
+            _productSpecificatie.Product = _productLogic.GetProductById(productId);
+            return View(_productSpecificatie);
         }
 
         [Authorize]
@@ -59,7 +58,7 @@ namespace SkinShop.Controllers
             products.Images = productImageFileName;
 
 
-            productLogic.AddProduct(products);
+            _productLogic.AddProduct(products);
             //Add image to root of app
             string mapRoot = "images/";
 
@@ -99,16 +98,16 @@ namespace SkinShop.Controllers
         //ProductWijzigen/Verwijderen
         public IActionResult ProductManagment()
         {
-            productSpecificatie.Products = productLogic.GetProducts();
+            _productSpecificatie.Products = _productLogic.GetProducts();
 
-            return View(productSpecificatie);
+            return View(_productSpecificatie);
         }
 
         [Authorize]
         [HttpPost]
         public IActionResult DeleteProduct(int productId)
         {
-            productLogic.DeleteProduct(productId);
+            _productLogic.DeleteProduct(productId);
 
             return RedirectToAction("ProductManagment");
         }
@@ -117,15 +116,15 @@ namespace SkinShop.Controllers
         //Update product pagina
         public IActionResult UpdateProduct(ProductSpecificationViewModel viewModel, int productId)
         {
-            productSpecificatie.Product = productLogic.GetProductById(productId);
-            return View(productSpecificatie);
+            _productSpecificatie.Product = _productLogic.GetProductById(productId);
+            return View(_productSpecificatie);
         }
 
         [HttpPost]
         public IActionResult EditProduct(ProductSpecificationViewModel viewModel, int productId)
         {
             var products = viewModel.Product;
-            productLogic.EditProduct(products);
+            _productLogic.EditProduct(products);
 
             return RedirectToAction("ProductManagment");
         }

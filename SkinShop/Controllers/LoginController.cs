@@ -14,7 +14,7 @@ namespace SkinShop.Controllers
 {
     public class LoginController : Controller
     {
-        private LoginLogic loginLogic = new LoginLogic();
+        private readonly LoginLogic _loginLogic = new LoginLogic();
 
         public IActionResult Index()
         {
@@ -26,7 +26,7 @@ namespace SkinShop.Controllers
         {
             if (viewModel.Email != null && viewModel.Password != null)
             {
-                User user = loginLogic.LoginCheck(viewModel.Email, viewModel.Password);
+                User user = _loginLogic.LoginCheck(viewModel.Email, viewModel.Password);
 
                 if (user != null)
                 {
