@@ -36,9 +36,20 @@ namespace SkinShop.Controllers
             return View(_productSpecificatie);
         }
 
+        
+        [HttpPost]
+        public IActionResult AddToWishList(ProductSpecificationViewModel viewModel, int productId)
+        {
+            var amount = viewModel.Product.Amount;
+            int userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
+            _productLogic.AddToWishList(productId, userId, amount);
+            return RedirectToAction("Products", "Product");
+        }
+
         public IActionResult WishList()
         {
-            _productSpecificatie.WishListProducts = _productLogic.GetWishList();
+            int userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
+            _productSpecificatie.WishListProducts = _productLogic.GetWishList(userId);
             return View(_productSpecificatie);
         }
 

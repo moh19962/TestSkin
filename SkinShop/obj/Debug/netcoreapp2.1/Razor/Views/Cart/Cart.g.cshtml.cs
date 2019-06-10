@@ -79,7 +79,7 @@ using SkinShop.Models;
             WriteLiteral("<div class=\"rowz\">\r\n\r\n</div>\r\n<div class=\"container\">\r\n    <div class=\"products\">\r\n        <div class=\"txt-heading\">Shopping Cart</div>\r\n\r\n\r\n        ");
             EndContext();
             BeginContext(222, 2616, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d4e273a7805f420c8cb91825764c97a1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9227c953a11240069ed6930995584589", async() => {
                 BeginContext(288, 503, true);
                 WriteLiteral(@"
 
@@ -138,7 +138,7 @@ WriteAttributeValue("", 1136, item.Productname, 1136, 17, false);
                 WriteLiteral(" />\r\n\r\n                            </td>\r\n\r\n                            <td>\r\n                                ");
                 EndContext();
                 BeginContext(1264, 106, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "86e4058b6e6f4c0b98866947bdacef4c", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2bbd653ea2f44bec9d3e98ba12236046", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -205,7 +205,7 @@ WriteAttributeValue("", 1570, item.Productprice, 1570, 18, false);
                 WriteLiteral("</label>\r\n                            </td>\r\n\r\n                            <td>\r\n                                ");
                 EndContext();
                 BeginContext(1831, 65, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "11bb224ba2f54e85acab7a5be9868e47", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "40abda21272243f49f3f1facd49bf0d0", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -232,7 +232,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\r\n                                ");
                 EndContext();
                 BeginContext(1930, 151, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bb9d5796058c415aba89f70cdeda203d", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f8a6f77073f7426eb5dbf1288b4783f8", async() => {
                     BeginContext(2065, 7, true);
                     WriteLiteral("Deletes");
                     EndContext();
@@ -337,7 +337,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
             WriteLiteral("\r\n        ");
             EndContext();
             BeginContext(2848, 138, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "125f5719c8ac41a8aeb50f9dfeb83c78", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c7194aa29c8a49c1b0a7e3d47ccd5e65", async() => {
                 BeginContext(2914, 65, true);
                 WriteLiteral("\r\n            <button type=\"submit\">Empty Cart</button>\r\n        ");
                 EndContext();

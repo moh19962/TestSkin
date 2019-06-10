@@ -22,16 +22,16 @@ namespace SkinShop.Controllers
         [HttpPost]
         public IActionResult AddToCart(ProductSpecificationViewModel viewModel, int ProductID)
         {
-            var Amount = viewModel.Product.Amount;
-            int UserID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-            _cartLogic.AddToCart(ProductID, UserID, Amount);
+            var amount = viewModel.Product.Amount;
+            int userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
+            _cartLogic.AddToCart(ProductID, userId, amount);
             return RedirectToAction("Products", "Product");
         }
 
         public IActionResult Cart()
         {
-            int userID = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-            _cartViewModel.cart = _cartLogic.GetProductsFromCart(userID);
+            int userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
+            _cartViewModel.cart = _cartLogic.GetProductsFromCart(userId);
             return View(_cartViewModel);
         }
 

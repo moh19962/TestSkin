@@ -31,6 +31,23 @@ namespace Data
                 }
             }
         }
+
+        public void AddToWishList(int productId, int userId, int amount)
+        {
+            string query = $"INSERT INTO WishList(UserID, ProductID, Amount) VALUES(@userID, @productID, @Amount)";
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.Add(new SqlParameter("@userID", userId));
+                    cmd.Parameters.Add(new SqlParameter("@productID", productId));
+                    cmd.Parameters.Add(new SqlParameter("@Amount", amount));
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
         public List<Product> GetProducts()
         {
 
@@ -59,33 +76,87 @@ namespace Data
 
         }
 
-        public List<Product> GetWishList()
+        public List<Product> GetWishList(int userId)
         {
 
-            List<Product> productDetails = new List<Product>();
-
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            try
             {
-                SqlCommand command = new SqlCommand("GetProducts", connection);
-                command.CommandType = CommandType.StoredProcedure;
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+                List<Product> productWishList = new List<Product>();
 
-                while (reader.Read())
+
+                string query = "SELECT * From WishList WHERE UserID = @UserID";
+
+
+
+                using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
-                    Product product = new Product();
-                    product.ProductID = Convert.ToInt32(reader["ProductID"]);
-                    product.Productname = reader["ProductName"].ToString();
-                    product.Productprice = Convert.ToDouble(reader["ProductPrice"]);
-                    product.Images = reader["Image"].ToString();
-                    product.Type = reader["Type"].ToString();
-                    productDetails.Add(product);
-                }
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.Add(new SqlParameter("@UserID", userId));
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
 
-                return productDetails;
+                    while (reader.Read())
+                    {
+
+                        Product Products = new Product();
+                        Products.ProductID = Convert.ToInt32(reader["ProductID"]);
+                        Products.Productname = reader["ProductName"].ToString();
+                        Products.Productprice = Convert.ToDouble(reader["ProductPrice"]);
+                        Products.Amount = Convert.ToInt32(reader["Amount"]);
+                        productWishList.Add(Products);
+                    }
+
+                    return productWishList;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
 
         }
+
+        public int CheckProductID(int productId, int userId)
+        {
+            int wishListId = 0;
+
+            string query = "SELECT WishListId FROM WishList WHERE ProductID = @ProductID AND UserID = @UserID";
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.Add(new SqlParameter("@ProductID", productId));
+                cmd.Parameters.Add(new SqlParameter("@UserId", userId));
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    wishListId = Convert.ToInt32(reader["WishListId"]);
+                }
+
+                return wishListId;
+            }
+        }
+
+        public void UpdateAmount(int wishListId, int amount)
+        {
+            string query = $"UPDATE WishList SET Amount += @Amount WHERE WishListId = @WishListId";
+
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.Add(new SqlParameter("@WishListId", wishListId));
+                    cmd.Parameters.Add(new SqlParameter("@Amount", amount));
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
 
 
         public Product GetProductById(int productId)

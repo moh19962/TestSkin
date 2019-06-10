@@ -76,12 +76,12 @@ using SkinShop.Models;
             WriteLiteral("                <div class=\"Outereachproduct\">\r\n                    <div class=\"editeachproduct\">\r\n                        <div class=\"inner_eachproduct\">\r\n                            ");
             EndContext();
             BeginContext(588, 452, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "431d2b31729642289687af19ce0ff9dd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4a9ee06b7fa34a63b66aa598d0435e89", async() => {
                 BeginContext(702, 54, true);
                 WriteLiteral("\r\n                                <div class=\"images\">");
                 EndContext();
                 BeginContext(756, 79, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "72dee0949fc149a18cf56a9a058c15eb", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "bf9b4c2865d64096b9d0ca177da94a6b", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -162,7 +162,7 @@ WriteAttributeValue("", 986, prods.ProductID, 986, 16, false);
             WriteLiteral("\r\n                        </div>\r\n                    </div>\r\n\r\n                    <div id=\"beheerbuttons\">\r\n                        <p>\r\n                            ");
             EndContext();
             BeginContext(1207, 249, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "404337e1f8564e6db9f7670dff09aee8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0236eb6f394e43b89f795d9d9d100e35", async() => {
                 BeginContext(1318, 131, true);
                 WriteLiteral("\r\n                                <button class=\"btn btn-success\" id=\"btnAdminSucces\">Wijzig</button>\r\n                            ");
                 EndContext();
@@ -203,7 +203,7 @@ WriteAttributeValue("", 986, prods.ProductID, 986, 16, false);
             WriteLiteral("\r\n                            ");
             EndContext();
             BeginContext(1486, 251, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1e7b841913f64e71b29a1b717f20de17", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e103b6b1f1ba4480b0e11392c55d23a7", async() => {
                 BeginContext(1597, 133, true);
                 WriteLiteral("\r\n                                <button class=\"btn btn-danger\" id=\"btnAdminDanger\">Verwijder</button>\r\n                            ");
                 EndContext();

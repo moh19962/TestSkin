@@ -222,6 +222,10 @@ sectionProduct {
     padding: 10px;
 }
 
+#btnHeart {
+    padding: 1px 5px;
+}
+
 /*Inputveld*/
 
 .woocommerce-ordering .orderby {

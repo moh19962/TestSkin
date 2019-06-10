@@ -26,11 +26,23 @@ namespace Repository
             return productList;
         }
 
-        public List<Product> GetWishList()
+        public List<Product> GetWishList(int userId)
         {
-            List<Product> wishList = _productContext.GetWishList();
+            List<Product> wishList = _productContext.GetWishList(userId);
             return wishList;
         }
+        //public void AddToCart(int productId, int userId, int amount)
+        //{
+        //    int productInCartId = _productContext.CheckProductID(productId, userId);
+        //    if (productInCartId != 0)
+        //    {
+        //        _productContext.UpdateAmount(productInCartId, amount);
+        //    }
+        //    else
+        //    {
+        //        _productContext.AddToWishList(ProductID, userId, amount);
+        //    }
+        //}
 
         public Product GetProductById(int productId)
         {

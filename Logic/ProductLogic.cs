@@ -10,23 +10,42 @@ namespace Logic
 {
     public class ProductLogic
     {
-        private ProductRepo productRepo = new ProductRepo();
+        private readonly ProductRepo _productRepo = new ProductRepo();
+        private readonly IProductContext _productContext = new ProductContext();
+        private readonly ICartContext _cartContext = new CartContext();
         //private IProductContext productcontext = new ProductContext();
 
         public List<Product> GetProducts()
         {
-            List<Product> productList = productRepo.GetProducts();
+            List<Product> productList = _productRepo.GetProducts();
             return productList;
         }
-        public List<Product> GetWishList()
+        public List<Product> GetWishList(int userId)
         {
-            List<Product> wishList = productRepo.GetWishList();
+            List<Product> wishList = _productRepo.GetWishList(userId);
             return wishList;
         }
+        public void AddToWishList(int productId, int userId, int amount)
+        {
+            int productInCartId = _productContext.CheckProductID(productId, userId);
+            if (productInCartId != 0)
+            {
+                _productContext.UpdateAmount(productInCartId, amount);
+            }
+            else
+            {
+                _productContext.AddToWishList(productId, userId, amount);
+            }
+        }
+
+        //public void AddProduct(Product product)
+        //{
+        //    productRepo.AddProduct(product);
+        //}
 
         public Product GetProductById(int productId)
         {
-            return productRepo.GetProductById(productId);
+            return _productRepo.GetProductById(productId);
 
         }
 
@@ -38,17 +57,17 @@ namespace Logic
 
         public void AddProduct(Product product)
         {
-            productRepo.AddProduct(product);
+            _productRepo.AddProduct(product);
         }
 
         public void EditProduct(Product product)
         {
-            productRepo.EditProduct(product);
+            _productRepo.EditProduct(product);
         }
 
         public void DeleteProduct(int productId)
         {
-            productRepo.DeleteProduct(productId);
+            _productRepo.DeleteProduct(productId);
         }
 
 
