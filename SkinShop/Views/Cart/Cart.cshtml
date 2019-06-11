@@ -16,59 +16,59 @@
 
             <table class="table table-bordered">
                 <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Total Price</th>
-                        <th scope="col">Action</th>
-                    </tr>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Total Price</th>
+                    <th scope="col">Action</th>
+                </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.cart.Products)
-                    {
-                        <tr>
-                            <th scope="row">@item.ProductID</th>
-
-                            <td>
-                                <label>@item.Productname</label>
-                                <input type="hidden" value="@item.Productname" />
-
-                            </td>
-
-                            <td>
-                                <input type="text" id="inputquantity" size="3" maxlength="2" value="@item.Amount" asp-for="cart.Amount" />
-                            </td>
-
-                            <td>
-                                <label>@item.Productprice</label>
-                                <input type="hidden" value="@item.Productprice" />
-                            </td>
-
-                            <td>
-                                <label>@item.SubTotal</label>
-                            </td>
-
-                            <td>
-                                <input type="hidden" value="item.Amount" asp-for="cart.Amount" />
-                                <button type="submit" formmethod="post" asp-controller="Cart" asp-action="DeleteProductFromCart" asp-route-productId="@item.ProductID">Deletes</button>
-                            </td>
-                        </tr>
-                    }
+                @foreach (var item in Model.cart.Products)
+                {
                     <tr>
+                        <th scope="row">@item.ProductID</th>
 
-                        @foreach (var x in Model.cart.Products)
-                        {
-                            sum = Convert.ToInt32(x.SubTotal) + sum;
-                        }
+                        <td>
+                            <label>@item.Productname</label>
+                            <input type="hidden" value="@item.Productname" />
 
-                        <td colspan="6" align=right>
-                            <strong>
-                                Totale Kosten : @sum
-                            </strong>
+                        </td>
+
+                        <td>
+                            <input type="text" id="inputquantity" size="3" maxlength="2" value="@item.Amount" asp-for="cart.Amount" />
+                        </td>
+
+                        <td>
+                            <label>@item.Productprice</label>
+                            <input type="hidden" value="@item.Productprice" />
+                        </td>
+
+                        <td>
+                            <label>@item.SubTotal</label>
+                        </td>
+
+                        <td>
+                            <input type="hidden" value="item.Amount" asp-for="cart.Amount" />
+                            <button type="submit" formmethod="post" asp-controller="Cart" asp-action="DeleteProductFromCart" asp-route-productId="@item.ProductID" class="btn btn-danger">Delete</button>
                         </td>
                     </tr>
+                }
+                <tr>
+
+                    @foreach (var x in Model.cart.Products)
+                    {
+                        sum = Convert.ToInt32(x.SubTotal) + sum;
+                    }
+
+                    <td colspan="6" align=right>
+                        <strong>
+                            Totale Kosten : @sum
+                        </strong>
+                    </td>
+                </tr>
 
                 </tbody>
 
@@ -77,11 +77,14 @@
 
 
             <div class="buttonBestel">
-                <button type="submit" name="bestellen">Order</button>
+                <button type="submit" name="order" class="btn btn-dark">Order</button>
             </div>
         </form>
+            
+        
+
         <form method="post" asp-controller="Cart" asp-action="DeleteCart">
-            <button type="submit">Empty Cart</button>
+            <button type="submit" class="btn btn-danger">Empty Cart</button>
         </form>
     </div>
 </div>

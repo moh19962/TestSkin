@@ -385,3 +385,15 @@ select {
     border-color: #4cd264;
     outline: none !important;
 }
+
+/*Cart*/
+
+.btn-dark {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #343a40;
+}
+
+.buttonBestel {
+    float: right;
+}

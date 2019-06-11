@@ -40,7 +40,7 @@ namespace Repository
         //    }
         //    else
         //    {
-        //        _productContext.AddToWishList(ProductID, userId, amount);
+        //        _productContext.AddToWishList(productId, userId, amount);
         //    }
         //}
 

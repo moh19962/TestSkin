@@ -51,7 +51,7 @@ namespace Data
             }
         }
 
-        public void AddToCart(int ProductID, int UserID, int Amount)
+        public void AddToCart(int productId, int userId, int amount)
         {
             string query = $"INSERT INTO Cart(UserID, ProductID, Amount) VALUES(@userID, @productID, @Amount)";
 
@@ -59,16 +59,16 @@ namespace Data
             {
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.Add(new SqlParameter("@userID", UserID));
-                    cmd.Parameters.Add(new SqlParameter("@productID", ProductID));
-                    cmd.Parameters.Add(new SqlParameter("@Amount", Amount));
+                    cmd.Parameters.Add(new SqlParameter("@userID", userId));
+                    cmd.Parameters.Add(new SqlParameter("@productID", productId));
+                    cmd.Parameters.Add(new SqlParameter("@Amount", amount));
                     conn.Open();
                     cmd.ExecuteNonQuery();
                 }
             }
         }
 
-        public int CheckProductID(int ProductID, int UserID)
+        public int CheckProductID(int productId, int userId)
         {
             int CartID = 0;
 
@@ -77,8 +77,8 @@ namespace Data
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.Add(new SqlParameter("@ProductID", ProductID));
-                cmd.Parameters.Add(new SqlParameter("@UserId", UserID));
+                cmd.Parameters.Add(new SqlParameter("@ProductID", productId));
+                cmd.Parameters.Add(new SqlParameter("@UserId", userId));
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
 
@@ -91,7 +91,7 @@ namespace Data
             }
         }
 
-        public void UpdateAmount(int CartID, int Amount)
+        public void UpdateAmount(int cartId, int amount)
         {
             string query = $"UPDATE Cart SET Amount += @Amount WHERE CartID = @CartID";
 
@@ -99,8 +99,8 @@ namespace Data
             {
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.Add(new SqlParameter("@CartID", CartID));
-                    cmd.Parameters.Add(new SqlParameter("@Amount", Amount));
+                    cmd.Parameters.Add(new SqlParameter("@CartID", cartId));
+                    cmd.Parameters.Add(new SqlParameter("@Amount", amount));
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -108,7 +108,7 @@ namespace Data
             }
         }
 
-        public void DeleteProductFromCart(int UserID, int ProductID)
+        public void DeleteProductFromCart(int userId, int productId)
         {
             //string query = "DELETE FROM Cart WHERE ProductID = @ProductID;";
             string query = "DELETE FROM Cart WHERE UserID = @UserID AND ProductID = @ProductID;";
@@ -117,8 +117,8 @@ namespace Data
             {
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.Add(new SqlParameter("@UserID", UserID));
-                    cmd.Parameters.Add(new SqlParameter("@ProductID", ProductID));
+                    cmd.Parameters.Add(new SqlParameter("@UserID", userId));
+                    cmd.Parameters.Add(new SqlParameter("@ProductID", productId));
                     conn.Open();
                     cmd.ExecuteNonQuery();
                 }
