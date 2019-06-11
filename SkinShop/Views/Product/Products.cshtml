@@ -56,25 +56,15 @@ $(document).ready(function(){
                                 var roleId = Convert.ToInt32(User.Claims.Where(claim => claim.Type == "Role").Select(claim => claim.Value).SingleOrDefault());
                                 if (roleId == 1)
                                 {
-                                    @*<form method="post" asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@prods.ProductID">
-                    <a href="@Url.Action("Product", "Products", new { test = prods.ProductID})" ></a>
-                    <div class="btnSubmit">
-                        <input type="text" value="1" asp-for="Product.Amount" style="width: 20px" />
-                        <button type="submit" name="update" value="update" class="navbar-btn btn btn-default" id="btnHeart"><span class="glyphicon glyphicon glyphicon-heart" aria-hidden="true"></span></button>
-                        <button type="submit" name="update" value="update" class="navbar-btn btn btn-default"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>
-                    </div>
-                </form>*@
-
-                                    @*<a href="@Url.Action("Product", "Products", new { test = prods.ProductID})" ></a>*@
                                     <div class="btnSubmit">
                                         <form method="post" asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@prods.ProductID">
                                             <input type="text" value="1" asp-for="Product.Amount" style="width: 20px" />
-                                            <button type="submit" name="update" value="update" class="navbar-btn btn btn-default" id="btnHeart"><span class="glyphicon glyphicon glyphicon-heart" aria-hidden="true"></span></button>
+                                            <button type="submit" name="update" value="add" class="navbar-btn btn btn-default"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>
                                         </form>
                                         <form method="post" asp-controller="Product" asp-action="AddToWishList" asp-route-productId="@prods.ProductID">
-                                            <button type="submit" name="update" value="update" class="navbar-btn btn btn-default"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>
+                                            <button type="submit" name="update" value="wish" class="navbar-btn btn btn-default" id="btnHeart"><span class="glyphicon glyphicon glyphicon-heart" aria-hidden="true"></span></button>
                                         </form>
-                                        </div>
+                                    </div>
                                 }
                             }
                         </div>

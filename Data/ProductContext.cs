@@ -84,7 +84,7 @@ namespace Data
                 List<Product> productWishList = new List<Product>();
 
 
-                string query = "SELECT * From WishList WHERE UserID = @UserID";
+                string query = "SELECT WishList.WishListID, WishList.UserID, Product.ProductID, Product.ProductName, WishList.Amount, Product.ProductPrice From WishList inner join Product on WishList.ProductID = Product.ProductID WHERE UserID = @UserID";
 
 
 

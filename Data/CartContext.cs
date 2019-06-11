@@ -12,7 +12,7 @@ namespace Data
         private string ConnectionString { get; set; } = "Data Source=moooserver.database.windows.net;Initial Catalog=SkinShopz;User ID=MohammadParwani;Password=Hunstongtid6;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
 
-        public List<Product> GetProductsFromCart(int UserID)
+        public List<Product> GetProductsFromCart(int userId)
         {
             try
             {
@@ -26,7 +26,7 @@ namespace Data
                 using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.Add(new SqlParameter("@UserID", UserID));
+                    command.Parameters.Add(new SqlParameter("@UserID", userId));
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
 
