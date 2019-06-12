@@ -45,7 +45,7 @@ $(document).ready(function(){
                                     <form method="post" asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@prods.ProductID">
                                         @*<a href="@Url.Action("Product", "Products", new { test = prods.ProductID})" ></a>*@
                                         <div class="btnSubmit">
-                                            <input type="text" value="1" asp-for="Product.Amount" style="width: 20px" />
+                                            <input type="text" value="@prods.Amount" asp-for="Product.Amount" style="width: 20px" />
                                             <button type="submit" name="update" value="update" class="navbar-btn btn btn-default"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>
                                         </div>
                                     </form>

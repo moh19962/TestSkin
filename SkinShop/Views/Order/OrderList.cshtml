@@ -1,11 +1,85 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿@model SkinShop.ViewModel.Order.OrderViewModel
 
-namespace SkinShop.Views.Order
-{
-    public class OrderList
-    {
-    }
+@{
+    var sum = 0;
 }
+<div class="rowz">
+
+</div>
+<div class="container">
+
+    <br />
+    <div class="products">
+        <div class="txt-heading">Order </div>
+
+        @*@foreach (var order in )
+        {
+            
+        }*@
+        <form method="post" asp-controller="Order" asp-action="PlaceOrder">
+            <table class="table table-bordered">
+                <thead>
+                <td colspan="5">
+                    <strong>Ordernummer</strong> #101
+                    <strong>Winkel: </strong>  Eindhoven
+                    <strong>Klant:</strong> @Model.order.User.Name
+                </td>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Total Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.order.Cart.Products)
+                    {
+                        <tr>
+                            <td>
+                                <label>@item.ProductID</label>
+                                <input type="hidden" value="@item.ProductID" />
+
+                            </td>
+
+                            <td>
+                                <label>@item.Productname</label>
+                                <input type="hidden" value="@item.Productname" />
+
+                            </td>
+
+                            <td>
+                                <input type="text" id="inputquantity" size="3" maxlength="2" value="@item.Amount" />
+                            </td>
+
+                            <td>
+                                <label>@item.Productprice</label>
+                                <input type="hidden" value="@item.Productprice" />
+                            </td>
+
+                            <td>
+                                <label>@item.SubTotal</label>
+                                <input type="hidden" value="@item.SubTotal" />
+                            </td>
+                        </tr>
+                    }
+                    <tr>
+
+                        @foreach (var x in Model.order.Cart.Products)
+                        {
+                            sum = Convert.ToInt32(x.SubTotal) + sum;
+                        }
+
+                        <td colspan="6" align=right>
+                            <strong>
+                                Totale Kosten : @sum
+                            </strong>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </form>
+    </div>
+</div>

@@ -30,6 +30,13 @@ namespace SkinShop.Controllers
             return View(_orderViewModel);
         }
 
+        public IActionResult OrderList()
+        {
+            int userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
+            _orderViewModel.OrderList = _orderLogic.GetOrderList(userId);
+            return View(_orderViewModel);
+        }
+
 
         [Authorize]
         [HttpPost]

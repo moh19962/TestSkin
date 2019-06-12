@@ -223,7 +223,11 @@ sectionProduct {
 }
 
 #btnHeart {
-    padding: 1px 5px;
+    padding: 6px 12px;
+}
+
+.formproduct {
+    display: inline;
 }
 
 /*Inputveld*/

@@ -147,46 +147,47 @@ namespace Data
 
         }
 
-        //public List<Order> OrderList(int UserId)
-        //{
-        //    try
-        //    {
-        //        List<Order> GetProductList = new List<Order>();
+        public List<Order> GetOrderList(int userId)
+        {
+            try
+            {
+                List<Order> getOrderList = new List<Order>();
 
-        //        string query = "SELECT Orders.OrderID, Orders.UserID, Order_Product.Amount, Orders.Total, Product.ProductID, Product.ProductName, Product.ProductPrice FROM Orders inner join Order_Product on Orders.OrderID = Order_Product.OrderID INNER JOIN Product ON Order_Product.ProductID = Product.ProductID WHERE UserID = @UserID AND Orders.OrderID = 20";
+                string query = "SELECT Orders.OrderID, Orders.UserID, Order_Product.Amount, Product.ProductID, Product.ProductName, Product.ProductPrice FROM Orders inner join Order_Product on Orders.OrderID = Order_Product.OrderID INNER JOIN Product ON Order_Product.ProductID = Product.ProductID WHERE UserID = @UserID";
 
 
-        //        //Kan nu alles voor elk user ophalen maar moet gelijk zijn aan userID en orderID.
-        //        using (SqlConnection connection = new SqlConnection(ConnectionString))
-        //        {
-        //            SqlCommand cmd = new SqlCommand(query, connection);
-        //            cmd.Parameters.Add(new SqlParameter("@UserID", UserId));
-        //            //cmd.Parameters.Add(new SqlParameter("@OrderID", OrderID));
+                using (SqlConnection connection = new SqlConnection(ConnectionString))
+                {
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.Parameters.Add(new SqlParameter("@UserID", userId));
+                    //cmd.Parameters.Add(new SqlParameter("@OrderID", OrderID));
 
-        //            connection.Open();
-        //            SqlDataReader reader = cmd.ExecuteReader();
+                    connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
 
-        //            while (reader.Read())
-        //            {
+                    while (reader.Read())
+                    {
 
-        //                Order order = new Order();
-        //                order.ProductID = Convert.ToInt32(reader["ProductID"]);
-        //                product.Productname = reader["ProductName"].ToString();
-        //                product.Productprice = Convert.ToDouble(reader["ProductPrice"]);
-        //                product.Amount = Convert.ToInt32(reader["Amount"]);
-        //                //order.Date = Convert.ToDateTime(reader["Date"]);
-        //                //order.Total = Convert.ToInt32(reader["Total"]);
-        //                GetProductList.Add(product);
-        //            }
+                        Order order = new Order();
+                        order.OrderId = Convert.ToInt32(reader["OrderID"]);
+                        order.User.UserID = Convert.ToInt32(reader["UserID"]);
+                        order.Product.ProductID = Convert.ToInt32(reader["ProductID"]);
+                        order.Product.Productname = reader["ProductName"].ToString();
+                        order.Product.Productprice = Convert.ToDouble(reader["ProductPrice"]);
+                        order.Product.Amount = Convert.ToInt32(reader["Amount"]);
+                        order.Date = Convert.ToDateTime(reader["Date"]);
+                        //order.Total = Convert.ToInt32(reader["Total"]);
+                        getOrderList.Add(order);
+                    }
 
-        //            return GetProductList;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
+                    return getOrderList;
+                }
+            }
+            catch (Exception)
+            {
 
-        //        throw;
-        //    }
-        //}
+                throw;
+            }
+        }
     }
 }

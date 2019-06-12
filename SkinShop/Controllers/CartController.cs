@@ -20,11 +20,11 @@ namespace SkinShop.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddToCart(ProductSpecificationViewModel viewModel, int ProductID)
+        public IActionResult AddToCart(ProductSpecificationViewModel viewModel, int productId)
         {
             var amount = viewModel.Product.Amount;
             int userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserID")?.Value);
-            _cartLogic.AddToCart(ProductID, userId, amount);
+            _cartLogic.AddToCart(productId, userId, amount);
             return RedirectToAction("Products", "Product");
         }
 

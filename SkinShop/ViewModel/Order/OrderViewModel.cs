@@ -7,7 +7,8 @@ namespace SkinShop.ViewModel.Order
 {
     public class OrderViewModel
     {
-        public List<Model.Product> ProductList { get; set; } = new List<Model.Product>();
+        public List<Model.Order> OrderList { get; set; } = new List<Model.Order>();
         public Model.Order order { get; set; }
+
     }
 }

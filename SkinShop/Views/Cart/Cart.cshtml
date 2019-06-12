@@ -74,7 +74,11 @@
 
 
             </table>
-
+                <script>
+                    if ($('#chk-table tr').text().trim() != "") {
+                        alert("Test");
+                    }
+                </script>
 
             <div class="buttonBestel">
                 <button type="submit" name="order" class="btn btn-dark">Order</button>
