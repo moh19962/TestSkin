@@ -192,7 +192,7 @@ namespace Data
             {
                 List<Product> productList = new List<Product>();
 
-                string query = "SELECT Orders.OrderID, Orders.UserID, Order_Product.OrderID, Order_Product.ProductID, Order_Product.Amount, Product.ProductID, Product.ProductName, Product.ProductPrice FROM Orders inner join Order_Product on Orders.OrderID = Order_Product.OrderID INNER JOIN Product ON Order_Product.ProductID = Product.ProductID WHERE UserID = @UserID";
+                string query = "SELECT Orders.OrderID, Orders.UserID, Order_Product.OrderID, Order_Product.ProductID, Order_Product.Amount, Product.ProductID, Product.ProductName, Product.ProductPrice FROM Orders inner join Order_Product on Orders.OrderID = Order_Product.OrderID INNER JOIN Product ON Order_Product.ProductID = Product.ProductID WHERE UserID = @UserID AND Orders.OrderID = @OrderID";
                 //SELECT Orders.OrderID, Orders.UserID, Order_Product.OrderID, Order_Product.ProductID, Order_Product.Amount, Product.ProductID, Product.ProductName, Product.ProductPrice FROM Orders inner join Order_Product on Orders.OrderID = Order_Product.OrderID INNER JOIN Product ON Order_Product.ProductID = Product.ProductID WHERE Orders.OrderID = 29 AND UserID = 1
 
 

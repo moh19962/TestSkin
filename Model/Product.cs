@@ -14,11 +14,5 @@ namespace Model
         public int Amount { get; set; }
         public string Type { get; set; }
         public double SubTotal { get; set; }
-
-
-        public Product()
-        {
-
-        }
     }
 }

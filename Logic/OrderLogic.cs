@@ -32,16 +32,23 @@ namespace Logic
         {
             List<Order> orderList = _orderContext.GetOrderList(userId);
 
-            foreach (Order order in orderList)
-            {
-                foreach (var product in order.Products)
-                {
-                    product.SubTotal = (int)Convert.ToDouble(product.Productprice * product.Amount);
-                }
-
-            }
             return orderList;
         }
+
+        //public List<Order> GetOrderList(int userId)
+        //{
+        //    List<Order> orderList = _orderContext.GetOrderList(userId);
+
+        //    foreach (Order order in orderList)
+        //    {
+        //        foreach (var product in order.Products)
+        //        {
+        //            product.SubTotal = (int)Convert.ToDouble(product.Productprice * product.Amount);
+        //        }
+
+        //    }
+        //    return orderList;
+        //}
 
         public void DeletCartTable(Order order)
         {

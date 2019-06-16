@@ -31,50 +31,54 @@
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in order.Products)
-                    {
-                        <tr>
-                            <td>
-                                <label>@item.ProductID</label>
-                                <input type="hidden" value="@item.ProductID" />
-
-                            </td>
-
-                            <td>
-                                <label>@item.Productname</label>
-                                <input type="hidden" value="@item.Productname" />
-
-                            </td>
-
-                            <td>
-                                <input type="text" id="inputquantity" size="3" maxlength="2" value="@item.Amount" />
-                            </td>
-
-                            <td>
-                                <label>@item.Productprice</label>
-                                <input type="hidden" value="@item.Productprice" />
-                            </td>
-
-                            <td>
-                                <label>@item.SubTotal</label>
-                                <input type="hidden" value="@item.SubTotal" />
-                            </td>
-                        </tr>
-                    }
+                @foreach (var item in order.Products)
+                {
                     <tr>
+                        <td>
+                            <label>@item.ProductID</label>
+                            <input type="hidden" value="@item.ProductID"/>
 
-                        @foreach (var x in Model.OrderList)
-                        {
+                        </td>
 
-                            sum = Convert.ToInt32(x.Products[0].SubTotal) + sum;
-                        }
+                        <td>
+                            <label>@item.Productname</label>
+                            <input type="hidden" value="@item.Productname"/>
 
-                        <td colspan="6" align=right>
-                            <strong>
-                                Totale Kosten : @sum
-                            </strong>
+                        </td>
+
+                        <td>
+                            <input type="text" id="inputquantity" size="3" maxlength="2" value="@item.Amount"/>
+                        </td>
+
+                        <td>
+                            <label>@item.Productprice</label>
+                            <input type="hidden" value="@item.Productprice"/>
+                        </td>
+
+                        <td>
+                            <label>@item.SubTotal</label>
+                            <input type="hidden" value="@item.SubTotal"/>
                         </td>
                     </tr>
+                }
+                <tr>
+                    @foreach (var x in Model.OrderList)
+                    { 
+                    sum = Convert.ToInt32(x.Products[0].SubTotal) + sum;
+                    }
+
+                    @*@foreach (var x in Model.OrderList)
+                    {
+                    
+                        sum = Convert.ToInt32(x.Products[0].SubTotal) + sum;
+                    }*@
+
+                    <td colspan="6" align=right>
+                        <strong>
+                            Totale Kosten : @sum
+                        </strong>
+                    </td>
+                </tr>
 
                 </tbody>
 
