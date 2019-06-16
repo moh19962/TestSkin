@@ -84,7 +84,7 @@ namespace Data
                 List<Product> productWishList = new List<Product>();
 
 
-                string query = "SELECT WishList.WishListID, WishList.UserID, Product.ProductID, Product.ProductName, WishList.Amount, Product.ProductPrice From WishList inner join Product on WishList.ProductID = Product.ProductID WHERE UserID = @UserID";
+                string query = "SELECT WishList.WishListID, WishList.UserID, Product.ProductID, Product.ProductName, Product.Image, WishList.Amount, Product.ProductPrice From WishList inner join Product on WishList.ProductID = Product.ProductID WHERE UserID = @UserID";
 
 
 
@@ -102,6 +102,7 @@ namespace Data
                         Products.ProductID = Convert.ToInt32(reader["ProductID"]);
                         Products.Productname = reader["ProductName"].ToString();
                         Products.Productprice = Convert.ToDouble(reader["ProductPrice"]);
+                        Products.Images = reader["Image"].ToString();
                         Products.Amount = Convert.ToInt32(reader["Amount"]);
                         productWishList.Add(Products);
                     }

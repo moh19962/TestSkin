@@ -14,10 +14,6 @@ namespace SkinShop.Controllers
         readonly CartLogic _cartLogic = new CartLogic();
 
         readonly CartViewModel _cartViewModel = new CartViewModel();
-        public IActionResult Index()
-        {
-            return View();
-        }
 
         [HttpPost]
         public IActionResult AddToCart(ProductSpecificationViewModel viewModel, int productId)

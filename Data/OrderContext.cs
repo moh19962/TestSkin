@@ -153,7 +153,7 @@ namespace Data
             {
                 List<Order> getOrderList = new List<Order>();
 
-                string query = "SELECT Orders.OrderID, Orders.UserID, Order_Product.Amount, Product.ProductID, Product.ProductName, Product.ProductPrice FROM Orders inner join Order_Product on Orders.OrderID = Order_Product.OrderID INNER JOIN Product ON Order_Product.ProductID = Product.ProductID WHERE UserID = @UserID";
+                string query = "SELECT OrderID, UserID FROM Orders WHERE UserID = @UserID";
 
 
                 using (SqlConnection connection = new SqlConnection(ConnectionString))
@@ -171,16 +171,56 @@ namespace Data
                         Order order = new Order();
                         order.OrderId = Convert.ToInt32(reader["OrderID"]);
                         order.User.UserID = Convert.ToInt32(reader["UserID"]);
-                        order.Product.ProductID = Convert.ToInt32(reader["ProductID"]);
-                        order.Product.Productname = reader["ProductName"].ToString();
-                        order.Product.Productprice = Convert.ToDouble(reader["ProductPrice"]);
-                        order.Product.Amount = Convert.ToInt32(reader["Amount"]);
-                        order.Date = Convert.ToDateTime(reader["Date"]);
-                        //order.Total = Convert.ToInt32(reader["Total"]);
                         getOrderList.Add(order);
+
+                        order.Products = GetProductListByOrderId(order.OrderId, order.User.UserID);
                     }
 
                     return getOrderList;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public List<Product> GetProductListByOrderId(int orderId, int userId)
+        {
+            try
+            {
+                List<Product> productList = new List<Product>();
+
+                string query = "SELECT Orders.OrderID, Orders.UserID, Order_Product.OrderID, Order_Product.ProductID, Order_Product.Amount, Product.ProductID, Product.ProductName, Product.ProductPrice FROM Orders inner join Order_Product on Orders.OrderID = Order_Product.OrderID INNER JOIN Product ON Order_Product.ProductID = Product.ProductID WHERE UserID = @UserID";
+                //SELECT Orders.OrderID, Orders.UserID, Order_Product.OrderID, Order_Product.ProductID, Order_Product.Amount, Product.ProductID, Product.ProductName, Product.ProductPrice FROM Orders inner join Order_Product on Orders.OrderID = Order_Product.OrderID INNER JOIN Product ON Order_Product.ProductID = Product.ProductID WHERE Orders.OrderID = 29 AND UserID = 1
+
+
+                using (SqlConnection connection = new SqlConnection(ConnectionString))
+                {
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.Parameters.Add(new SqlParameter("@OrderID", orderId));
+                    cmd.Parameters.Add(new SqlParameter("@UserID", userId));
+                    //cmd.Parameters.Add(new SqlParameter("@OrderID", OrderID));
+
+                    connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+
+                        Product product = new Product();
+                        product.ProductID = Convert.ToInt32(reader["ProductID"]);
+                        product.Productname = reader["ProductName"].ToString();
+                        product.Productprice = Convert.ToDouble(reader["ProductPrice"]);
+                        product.Amount = Convert.ToInt32(reader["Amount"]);
+
+
+                        productList.Add(product);
+
+                    }
+
+                    return productList;
                 }
             }
             catch (Exception)

@@ -49,6 +49,19 @@ namespace SkinShop.UnitTest
         public void TestMethod3()
         {
             //Arrange
+            var logicCart = new FakeDatabaseCart();
+            //Act;
+            var result = logicCart.GetProductsFromCart(2);
+
+            //Assert
+            Assert.AreEqual(result.User.UserID, 2);
+            Assert.AreEqual(result.Products[0].Productname, "Binja");
+        }
+
+        [TestMethod]
+        public void TestMethod4()
+        {
+            //Arrange
             var logicUser = new FakeDatabase();
             //Act;
             var result = logicUser.GetUser("mohammadparwani@outlook.com");
@@ -59,7 +72,7 @@ namespace SkinShop.UnitTest
         }
 
         [TestMethod]
-        public void TestMethod4()
+        public void TestMethod5()
         {
             //Arrange
             var logicCart = new FakeDatabaseCart();
@@ -67,9 +80,18 @@ namespace SkinShop.UnitTest
             var result = logicCart.GetSubTotal(15, 5);
             //Assert
             Assert.AreEqual(result.Products[0].SubTotal, 75);
-            
         }
 
+        [TestMethod]
+        public void TestMethod6()
+        {
+            //Arrange
+            var logicCart = new FakeDatabaseCart();
+            //Act;
+            var result = logicCart.GetSubTotal(15, 5);
+            //Assert
+            Assert.AreEqual(result.Products[0].SubTotal, 75);
+        }
 
     }
 }

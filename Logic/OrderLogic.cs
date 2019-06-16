@@ -32,9 +32,12 @@ namespace Logic
         {
             List<Order> orderList = _orderContext.GetOrderList(userId);
 
-            foreach (Order product in orderList)
+            foreach (Order order in orderList)
             {
-                product.Product.SubTotal = (int)Convert.ToDouble(product.Product.Productprice * product.Product.Amount);
+                foreach (var product in order.Products)
+                {
+                    product.SubTotal = (int)Convert.ToDouble(product.Productprice * product.Amount);
+                }
 
             }
             return orderList;

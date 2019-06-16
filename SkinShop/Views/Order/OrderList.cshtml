@@ -1,4 +1,5 @@
-﻿@model SkinShop.ViewModel.Order.OrderViewModel
+﻿@using Model
+@model SkinShop.ViewModel.Order.OrderViewModel
 
 @{
     var sum = 0;
@@ -12,17 +13,14 @@
     <div class="products">
         <div class="txt-heading">Order </div>
 
-        @*@foreach (var order in )
+        @foreach (var order in Model.OrderList)
         {
-            
-        }*@
-        <form method="post" asp-controller="Order" asp-action="PlaceOrder">
             <table class="table table-bordered">
                 <thead>
                 <td colspan="5">
-                    <strong>Ordernummer</strong> #101
+                    <strong>Ordernummer</strong> @order.OrderId
                     <strong>Winkel: </strong>  Eindhoven
-                    <strong>Klant:</strong> @Model.order.User.Name
+                    <strong>Klant:</strong> Pendego
                 </td>
                 <tr>
                     <th scope="col">ID</th>
@@ -33,7 +31,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.order.Cart.Products)
+                    @foreach (var item in order.Products)
                     {
                         <tr>
                             <td>
@@ -65,9 +63,10 @@
                     }
                     <tr>
 
-                        @foreach (var x in Model.order.Cart.Products)
+                        @foreach (var x in Model.OrderList)
                         {
-                            sum = Convert.ToInt32(x.SubTotal) + sum;
+
+                            sum = Convert.ToInt32(x.Products[0].SubTotal) + sum;
                         }
 
                         <td colspan="6" align=right>
@@ -80,6 +79,6 @@
                 </tbody>
 
             </table>
-        </form>
+        }
     </div>
 </div>

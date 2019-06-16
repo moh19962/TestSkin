@@ -1,0 +1,12 @@
+C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Model\bin\Release\netstandard2.0\Model.deps.json
+C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Model\bin\Release\netstandard2.0\Model.dll
+C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Model\bin\Release\netstandard2.0\Model.pdb
+C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Model\bin\Release\netstandard2.0\System.ComponentModel.Annotations.dll
+C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Model\bin\Release\netstandard2.0\System.ComponentModel.Annotations.xml
+C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Model\obj\Release\netstandard2.0\Model.csprojAssemblyReference.cache
+C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Model\obj\Release\netstandard2.0\Model.csproj.CoreCompileInputs.cache
+C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Model\obj\Release\netstandard2.0\Model.AssemblyInfoInputs.cache
+C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Model\obj\Release\netstandard2.0\Model.AssemblyInfo.cs
+C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Model\obj\Release\netstandard2.0\Model.csproj.CopyComplete
+C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Model\obj\Release\netstandard2.0\Model.dll
+C:\Users\moham\OneDrive\Documenten\SEMESTER 2.3 HER\SOFTWARE\TestSkin\Model\obj\Release\netstandard2.0\Model.pdb
